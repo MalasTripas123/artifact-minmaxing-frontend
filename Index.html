@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin min-maxing</title>
+    <link rel="icon" href="icon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <!-- <div class="bg">
+    </div> -->
+    
+    
+    <!-- SELECTOR DE TEMAS -->
+    <div class="theme-selector">
+        <button id="theme-selector-btn" class="fav-menu-btn">Tema: Oscuro ▾</button>
+        <div class="theme-drop-content" id="theme-opts">
+            <div class="theme-opt" data-theme="dark">Oscuro</div>
+            <div class="theme-opt" data-theme="light">Claro</div>
+            <div class="theme-opt" data-theme="pastel">Pastel</div>
+            <!-- <div class="theme-opt" data-theme="ocean">Océano</div>
+            <div class="theme-opt" data-theme="forest">Bosque</div> -->
+            <div class="theme-opt" data-theme="pyro">Pyro</div>
+            <div class="theme-opt" data-theme="hydro">Hydro</div>
+            <div class="theme-opt" data-theme="electro">Electro</div>
+            <div class="theme-opt" data-theme="dendro">Dendro</div>
+            <div class="theme-opt" data-theme="cryo">Cryo</div>
+            <div class="theme-opt" data-theme="anemo">Anemo</div>
+            <div class="theme-opt" data-theme="geo">Geo</div>
+        </div>
+    </div>
+
+    <main class="main-pillar">
+        <!-- HEADER -->
+        <section id="header-section">
+            <h1>Genshin artifact's stats min-maxing</h1>
+            <p>Herramienta avanzada para la optimización de artefactos</p>
+            <p>Calcula el máximo de substats posibles según los requerimientos de la build</p>
+            <p>Averigua cuánto margen de mejora tienen tus personajes</p>
+            
+            <!-- ÁREA DE BÚSQUEDA (INPUT, BOTÓN Y LISTA DE FAVORITOS) -->
+            <div class="search-area-wrapper">
+                <!-- CUADRO DE BÚSQUEDA -->
+                <div class="search-container">
+                    <input type="text" id="player-id" placeholder="Ingresa tu ID de Jugador..." autocomplete="off">
+                    <button id="btn-search">BUSCAR</button>
+                </div>
+
+                <!-- LISTA DE FAVORITOS -->
+                <div class="favorites-dropdown">
+                    <button id="fav-menu-btn" class="fav-menu-btn">★ Favoritos ▾</button>
+                    <div class="fav-content" id="favorites-list"></div>
+                </div>
+            </div>
+        </section>
+        <!-- ÁREA DE RESULTADOS -->
+        <div id="results-area" style="display: none;">
+            <div id="player-info-bar">
+                <div class="player-meta">
+                    <div class="player-pfp-box">👤</div>
+                    <div class="player-text-info">
+                        <span class="player-name" id="display-player-name">Nombre Jugador</span>
+                        <span class="player-level" id="display-player-lv">Nivel no identificado</span>
+                    </div>
+                </div>
+                <div class="action-btns">
+                    <button class="star-btn" id="fav-toggle" title="Favorito">★</button>
+                    <button class="close-btn" id="close-btn" title="Cerrar">×</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">Personajes en Cuenta</h2>
+            <div class="character-grid" id="char-grid"></div>
+            
+            <section id="character-detail"></section>
+        </div>
+    </main>
+    <script type="module" src="script/main.js"></script>
+</body>
+</html>
