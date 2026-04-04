@@ -59,7 +59,7 @@ export async function searchPlayer() {
         // retorna un cuadro de personaje por cada personaje en la lista
         return `
         <div class="char-btn" data-id="${char.avatarId}">
-            <div class="char-img" id="${char.avatarId}" style="background-image: ${`url('./assets/pfp/${char.name.toLowerCase() + '_Icon'}.webp')`};"></div>
+            <div class="char-img" id="${char.avatarId}" style="background-image: ${`url('./assets/pfp/${char.name + '_Icon'}.webp')`};"></div>
             <div class="char-name ${longStyle}">${char.name}</div>
         </div>`
     }).join('');
