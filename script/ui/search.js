@@ -16,7 +16,7 @@ export async function searchPlayer() {
     // si el contenido es falsy retorna
     if (!uid) return; //TODO agregar validaciones de UID
 
-    const response = await fetch("http://localhost:3000/user/" + uid);
+    const response = await fetch("https://artifact-minmaxing-backend.onrender.com/user/" + uid);
     const data = await response.json();
 
     if (!data.player.nickname) return;
