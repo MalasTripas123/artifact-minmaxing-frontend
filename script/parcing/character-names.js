@@ -4,9 +4,10 @@ import { builds } from './builds.js';
 // () son los parámetros que recibe
 // => indica el contenido de la función que se retorna automáticamente
 // ?? es el operador de función nula, que retorna el valor de la izquierda si no es null o undefined, y encaso contrario retorna el de la derecha
-export const getCharNameById = (id) => personajes[id].nombre ?? id;
-export const getElementById = (id) => personajes[id].elemento ?? null;
-export const getBuildById = (id) => personajes[id].builds ?? null;
+export const getCharNameById = (id) => personajes[id]?.nombre ?? String(id);
+export const getElementById = (id) => personajes[id]?.elemento ?? null;
+export const getBuildById = (id) => personajes[id]?.builds ?? [];
+export const getCharacterCatalog = () => personajes;
 
 const personajes = {
   10000002: { 
@@ -558,7 +559,7 @@ const personajes = {
      nombre: 'Kaveh',
      elemento: 'Dendro',
      builds: [
-        builds.suppEM,
+        builds.supp.EM,
         builds.monoStat.EM,
      ] 
   },

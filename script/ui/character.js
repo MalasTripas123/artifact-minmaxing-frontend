@@ -9,14 +9,17 @@ import {
     setEqViewMode,
     eqViewMode
 } from '../state.js';
-import { renderMaximizerSection, selectedBuild, countStats } from './maximizer.js';
+import { renderMaximizerSection } from './maximizer.js';
 import { 
     getArtifactTypeParced, 
     getSetName, 
     getStatNameParced,
     getUpgradesValue,
 } from '../parcing/artifact-properties.js';
-import { getCharNameById } from '../parcing/character-names.js'
+import {
+    calculateArtifactRv,
+    calculateCritValue,
+} from '../domain/maximizer-calculator.js';
 
 // inicia los eventos relevantes de character.js
 export function initCharacterEvents() {
@@ -38,6 +41,8 @@ export function initCharacterEvents() {
 // muestra a un personaje
 export function showCharacter(id, shouldScroll = true) {
     const char = characters.find(c => c.avatarId === id);
+    if (!char) return;
+
     setCurrentSelectedChar(char);
     selectedFilterStats.clear();
     setElementalCupEnabled(false);
@@ -78,7 +83,7 @@ export function showCharacter(id, shouldScroll = true) {
             <div class="detail-icon" id="element-icon"></div>
             <div>
                 <h2 style="font-size: 1.8rem; margin-bottom: 2px;">${char.name}</h2>
-                <p style="color:var(--accent-lavender); font-weight:700">Nivel ${char.propMap[4001].ival} / 90</p>
+                <p style="color:var(--accent-lavender); font-weight:700">Nivel ${char.level} / 90</p>
             </div>
         </div>
 
@@ -128,8 +133,14 @@ export function showCharacter(id, shouldScroll = true) {
 
     applyRVValues();
 
-    document.getElementById('element-icon').style.backgroundImage = `url('./assets/elements/${char.element.toLowerCase()}.webp')`;
-    document.getElementById('char-header').style.backgroundImage = `url('./assets/gacha-img/${getCharNameById(currentSelectedChar.avatarId)}.png')`;
+    const elementIcon = document.getElementById('element-icon');
+    if (char.assets.elementIcon) {
+        elementIcon.style.backgroundImage = `url('${char.assets.elementIcon}')`;
+    } else {
+        elementIcon.style.display = 'none';
+    }
+
+    document.getElementById('char-header').style.backgroundImage = `url('${char.assets.banner}')`;
     
     
     
@@ -238,7 +249,7 @@ function renderGears() {
                 ${renderSub(artifact.subStats[3].subStatName, artifact.subStats[3].upgrades, artifact.subStats[3].subStatName)}
             </div>
             <div class="eq-footer"><span id="rv-${i++}">RV: - %</span></div>
-            <div class="eq-footer"><span id="cv-${artifact.type}">CV: ${calculateCriValue(artifact)}</span></div>
+            <div class="eq-footer"><span id="cv-${artifact.type}">CV: ${calculateCritValue(artifact).toFixed(1)}</span></div>
         </div>`}).join('');
 }
 
@@ -266,41 +277,11 @@ function renderSub(name, rollsWithValue, type) {
     `;
 }
 
-function calculateCriValue(artifact){
-    let cv = 0;
-    artifact.subStats.forEach(subStat => {
-        if (subStat.subStatName == 'CD') {
-            cv += subStat.value;
-        }
-        if (subStat.subStatName == 'CR') {
-            cv += (subStat.value * 2);
-        }
-    });
-    return cv.toFixed(1);
-}
-
 export function applyRVValues(){
-    // obtiene los artefactos
     const artifacts = getArtifacts();
-    // por cada artefacto:
+
     artifacts.forEach((artifact, i) => {
-        // una variable que almacena el rol value
-        let rv = 0;
-        // una variable que representa los subs de ese artefacto
-        const subs = artifact.subStats;
-        // por cada sub:
-        subs.forEach(sub => {
-            // si el sub está en la lista de seleccionados:
-            if (selectedFilterStats.has(sub.subStatName)){
-                // una variable que almacena las mejoras
-                const ups = sub.upgrades;
-                // por cada mejora:
-                ups.forEach(up => {
-                    // suma el valor del rv a el rv total
-                    rv += up.rv;
-                });
-            }
-        });
+        const rv = calculateArtifactRv(artifact, selectedFilterStats);
         document.getElementById('rv-'+i).innerText = 'RV: ' + rv + '%';
     });
 }

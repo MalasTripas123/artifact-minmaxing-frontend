@@ -1,5 +1,5 @@
-// textMap en español
-const textMap = await fetch('./config-data/TextMapES.json').then(res => res.json());
+// Mapa liviano de localizaciones publicado por Enka para resolver hashes de nombres.
+const textMap = await fetch('./config-data/EnkaLocES.json').then(res => res.json());
 
 // tipo artefacto
 const artifactTypes = {
@@ -13,7 +13,15 @@ export const getArtifactTypeParced = (equipType) => artifactTypes[equipType] ?? 
 
 // set
 export const getSetName = (setNameTextMapHash) => {
-    return textMap[setNameTextMapHash] || 'Unknown';
+    const directName = textMap[setNameTextMapHash];
+    if (directName) return directName;
+
+    const numericHash = Number(setNameTextMapHash);
+    if (Number.isFinite(numericHash)) {
+        return textMap[String(numericHash + 512)] || 'Unknown';
+    }
+
+    return 'Unknown';
 };
 
 // nombres stats

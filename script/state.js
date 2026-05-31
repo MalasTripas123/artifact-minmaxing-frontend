@@ -22,7 +22,6 @@ export let gearInitialStats = {};
 // un arreglo de objetos que representan a un jugador en la lista de favoritos
 export let favorites = [];
 export function setFavorites(val) { favorites = val; }
-favorites = [{ id: "613448890", name: "Gaspu", level: 60 }]; //favorito de prueba
 // un arreglo de objetos que representan los personajes que tiene un jugador
 export let characters = [];
 export function setCharacters(val) { characters = val; }

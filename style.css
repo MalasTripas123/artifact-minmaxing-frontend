@@ -199,6 +199,13 @@
         }
         #header-section.minimized .search-container { max-width: 400px; }
 
+        .search-error {
+            min-height: 1em;
+            color: var(--danger-red);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
         .search-container input {
             flex: 1;
             padding: 8px 12px; /* Reducido */
@@ -387,10 +394,10 @@
         }
 
         .detail-header {
+            background-color: var(--card-bg);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background: linear-gradient(135deg, var(--dot-color) 0%, var(--card-bg) 100%);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -429,7 +436,7 @@
         .stats-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; /* Reducido grid responsivo */ }
         .stat-item { display: flex; align-items: center; gap: 8px; padding: 8px; /* Reducido */ background: rgba(0,0,0,0.15); border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); }
         .stat-icon { font-size: 0.9rem; width: 28px; height: 28px; /* Reducido */ 
-            background: var(--border-color);
+            background-color: var(--border-color);
             background-size: cover;
             border-radius: 4px;
         }
