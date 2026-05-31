@@ -56,6 +56,33 @@
             </div>
         </section>
         <!-- ÁREA DE RESULTADOS -->
+        <nav id="section-nav" class="section-nav" aria-label="Navegacion de resultados" hidden>
+            <button type="button" class="section-nav-btn" data-nav-target="home">
+                <span class="section-nav-prefix">|</span>
+                <span class="section-nav-mark">✦</span>
+                <span class="section-nav-label">Inicio</span>
+            </button>
+            <button type="button" class="section-nav-btn" data-nav-target="characters">
+                <span class="section-nav-prefix">|</span>
+                <span class="section-nav-mark">✦</span>
+                <span class="section-nav-label">Personajes</span>
+            </button>
+            <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="character">
+                <span class="section-nav-prefix">|</span>
+                <span class="section-nav-mark">✦</span>
+                <span class="section-nav-label" id="section-nav-character-label">Personaje</span>
+            </button>
+            <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="artifacts">
+                <span class="section-nav-prefix">|</span>
+                <span class="section-nav-mark">✦</span>
+                <span class="section-nav-label">Artefactos</span>
+            </button>
+            <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="maximizer">
+                <span class="section-nav-prefix">|</span>
+                <span class="section-nav-mark">✦</span>
+                <span class="section-nav-label">Maximizador de atributos</span>
+            </button>
+        </nav>
         <div id="results-area" style="display: none;">
             <div id="player-info-bar">
                 <div class="player-meta">
@@ -71,7 +98,7 @@
                 </div>
             </div>
 
-            <h2 class="section-title">Personajes en Cuenta</h2>
+            <h2 class="section-title" id="characters-section-title">Personajes en Cuenta</h2>
             <div class="character-grid" id="char-grid"></div>
             
             <section id="character-detail"></section>

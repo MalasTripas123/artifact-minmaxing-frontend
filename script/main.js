@@ -4,10 +4,12 @@ import { initSearchEvents } from './ui/search.js';
 import { initPlayerEvents } from './ui/player.js';
 import { initCharacterEvents } from './ui/character.js';
 import { initMaximizerEvents } from './ui/maximizer.js';
+import { initSectionNavigation } from './ui/navigation.js';
 
 //console.log('CONECTADO AL MAIN');
 
 initThemeEvents();
+initSectionNavigation();
 initFavoritesEvents();
 initSearchEvents();
 initPlayerEvents();

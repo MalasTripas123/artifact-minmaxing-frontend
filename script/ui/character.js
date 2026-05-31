@@ -20,6 +20,7 @@ import {
     calculateArtifactRv,
     calculateCritValue,
 } from '../domain/maximizer-calculator.js';
+import { requestSectionNavigationSync } from './navigation.js';
 
 // inicia los eventos relevantes de character.js
 export function initCharacterEvents() {
@@ -118,7 +119,7 @@ export function showCharacter(id, shouldScroll = true) {
             <div class="eq-controls">
                 <div style="display: flex; flex-direction: row;">
                     <div class="artif-header-icon" style="background-image: ${`url('./assets/artifacts/artifacts.webp')`}"></div>
-                    <h3 class="section-title" style="margin-bottom:0">Piezas de Equipo</h3>
+                    <h3 class="section-title" id="artifacts-section-title" style="margin-bottom:0">ARTEFACTOS</h3>
                 </div>
                 <button class="view-toggle-btn">Alternar Vista</button>
             </div>
@@ -141,7 +142,7 @@ export function showCharacter(id, shouldScroll = true) {
     }
 
     document.getElementById('char-header').style.backgroundImage = `url('${char.assets.banner}')`;
-    
+    requestSectionNavigationSync();
     
     
     if (shouldScroll) {

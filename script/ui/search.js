@@ -2,14 +2,20 @@ import {
     setCurrentPlayer,
     setCurrentPlayerId,
     favorites,
-    setCharacters
+    setCharacters,
+    setCurrentSelectedChar
 } from '../state.js';
 import { fetchPlayerProfile, normalizeUid, validateUid } from '../api/enka-client.js';
 import { hideLoading, showLoading } from './loading.js';
+import { requestSectionNavigationSync } from './navigation.js';
+
+const PROFILE_UID_PARAM = 'uid';
 
 // inicia los eventos relevantes de search
 export function initSearchEvents() {
-    document.getElementById('btn-search').addEventListener('click', searchPlayer);
+    document.getElementById('btn-search').addEventListener('click', () => searchPlayer());
+    window.addEventListener('popstate', handleProfileUrlChange);
+    loadProfileFromUrl();
 }
 
 function setSearchError(message = '') {
@@ -42,8 +48,19 @@ function getNameLengthClass(name) {
 }
 
 // busca a un jugador y crea en el HTML los elementos necesarios
-export async function searchPlayer() {
-    const uid = normalizeUid(document.getElementById('player-id').value);
+export async function searchPlayer(options = {}) {
+    if (typeof Event !== 'undefined' && options instanceof Event) options = {};
+
+    const {
+        uid: requestedUid = null,
+        updateUrl = true,
+        replaceUrl = false,
+        loadingTitle = 'Buscando jugador',
+    } = options;
+
+    const input = document.getElementById('player-id');
+    const uid = normalizeUid(requestedUid ?? input.value);
+    input.value = uid;
     setSearchError('');
 
     const validationError = validateUid(uid);
@@ -53,10 +70,10 @@ export async function searchPlayer() {
     }
 
     let profile;
-    showLoading();
     setSearchBusy(true);
 
     try {
+        showLoading({ title: loadingTitle });
         profile = await fetchPlayerProfile(uid);
     } catch (error) {
         setSearchError(error.message || 'No se pudo buscar el jugador.');
@@ -69,6 +86,7 @@ export async function searchPlayer() {
     setCurrentPlayerId(profile.uid);
     setCurrentPlayer(profile.player);
     setCharacters(profile.characters);
+    if (updateUrl) setProfileUrl(profile.uid, { replace: replaceUrl });
 
     document.getElementById('header-section').classList.add('minimized');
     document.getElementById('player-info-bar').style.display = 'flex';
@@ -80,6 +98,7 @@ export async function searchPlayer() {
 
     document.getElementById('results-area').style.display = 'block';
     document.getElementById('character-detail').style.display = 'none';
+    setCurrentSelectedChar(null);
 
     const grid = document.getElementById('char-grid');
     grid.innerHTML = profile.characters.map(char => {
@@ -91,10 +110,12 @@ export async function searchPlayer() {
             <div class="char-name ${longStyle}">${escapeHtml(char.name)}</div>
         </div>`;
     }).join('');
+
+    requestSectionNavigationSync();
 }
 
 // reinicia la busqueda dejando los elementos relevantes en sus respectivos valores iniciales
-export function resetSearch() {
+export function resetSearch({ updateUrl = true } = {}) {
     document.getElementById('header-section').classList.remove('minimized');
     document.getElementById('results-area').style.display = 'none';
     document.getElementById('character-detail').style.display = 'none';
@@ -102,5 +123,62 @@ export function resetSearch() {
     setSearchError('');
     setCurrentPlayerId(null);
     setCurrentPlayer({});
+    setCurrentSelectedChar(null);
     setCharacters([]);
+    if (updateUrl) clearProfileUrl();
+    requestSectionNavigationSync();
+}
+
+function loadProfileFromUrl() {
+    const uid = getProfileUidFromUrl();
+    if (!uid) return;
+
+    searchPlayer({
+        uid,
+        updateUrl: false,
+        loadingTitle: 'Cargando perfil',
+    });
+}
+
+function handleProfileUrlChange() {
+    const uid = getProfileUidFromUrl();
+
+    if (!uid) {
+        resetSearch({ updateUrl: false });
+        return;
+    }
+
+    searchPlayer({
+        uid,
+        updateUrl: false,
+        loadingTitle: 'Cargando perfil',
+    });
+}
+
+function getProfileUidFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return normalizeUid(params.get(PROFILE_UID_PARAM));
+}
+
+function setProfileUrl(uid, { replace = false } = {}) {
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.searchParams.set(PROFILE_UID_PARAM, uid);
+    url.hash = '';
+    updateHistoryUrl(url, { replace });
+}
+
+function clearProfileUrl({ replace = false } = {}) {
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.hash = '';
+    updateHistoryUrl(url, { replace });
+}
+
+function updateHistoryUrl(url, { replace = false } = {}) {
+    if (url.href === window.location.href) return;
+
+    const state = { ...(history.state ?? {}) };
+    const method = replace ? 'replaceState' : 'pushState';
+    history[method](state, '', url);
 }

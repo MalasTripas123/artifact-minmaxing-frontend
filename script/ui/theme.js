@@ -12,21 +12,41 @@ function getThemeOption(theme) {
 }
 
 function getStoredTheme() {
-    const storedTheme = getSessionStorageTheme();
+    const storedTheme = getPersistentStorageTheme() || getSessionStorageTheme();
     if (storedTheme) return storedTheme;
 
     return getThemeCookie() || getWindowNameTheme() || getHistoryTheme();
 }
 
 function saveTheme(theme) {
-    const savedInSessionStorage = saveSessionStorageTheme(theme);
+    const savedInPersistentStorage = savePersistentStorageTheme(theme);
 
     saveHistoryTheme(theme);
 
-    if (savedInSessionStorage) return;
+    if (savedInPersistentStorage) return;
 
+    saveSessionStorageTheme(theme);
     saveThemeCookie(theme);
     saveWindowNameTheme(theme);
+}
+
+function getPersistentStorageTheme() {
+    try {
+        return window.localStorage?.getItem(THEME_STORAGE_KEY) ?? null;
+    } catch (error) {
+        return null;
+    }
+}
+
+function savePersistentStorageTheme(theme) {
+    try {
+        if (!window.localStorage) return false;
+
+        window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+        return true;
+    } catch (error) {
+        return false;
+    }
 }
 
 function getSessionStorageTheme() {
@@ -131,6 +151,7 @@ function loadStoredTheme() {
     if (!option) return;
 
     applyTheme(storedTheme, option.innerText);
+    saveTheme(storedTheme);
 }
 
 // inicia los elementos relacionados a los temas
@@ -155,7 +176,7 @@ export function initThemeEvents() {
     });
 }
 
-// recibe un string con la indicacion del tema, modifica el data-theme del body y persiste la eleccion durante la sesion
+// recibe un string con la indicacion del tema, modifica el data-theme del body y persiste la eleccion
 export function setTheme(theme, txt) {
     const option = getThemeOption(theme);
     if (!option) return;

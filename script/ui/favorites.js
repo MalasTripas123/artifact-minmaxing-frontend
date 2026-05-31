@@ -9,7 +9,7 @@ function isValidFavorite(favorite) {
 
 function loadFavorites() {
   try {
-    const storedFavorites = sessionStorage.getItem(FAVORITES_STORAGE_KEY);
+    const storedFavorites = getStoredFavorites();
     if (!storedFavorites) {
       setFavorites([]);
       return;
@@ -17,16 +17,40 @@ function loadFavorites() {
 
     const parsedFavorites = JSON.parse(storedFavorites);
     setFavorites(Array.isArray(parsedFavorites) ? parsedFavorites.filter(isValidFavorite) : []);
+    saveFavorites();
   } catch (error) {
     setFavorites([]);
   }
 }
 
 function saveFavorites() {
+  const serializedFavorites = JSON.stringify(favorites);
+
+  if (setStorageItem('localStorage', serializedFavorites)) return;
+
+  setStorageItem('sessionStorage', serializedFavorites);
+}
+
+function getStoredFavorites() {
+  return getStorageItem('localStorage') ?? getStorageItem('sessionStorage');
+}
+
+function getStorageItem(storageName) {
   try {
-    sessionStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+    return window[storageName]?.getItem(FAVORITES_STORAGE_KEY) ?? null;
   } catch (error) {
-    // If sessionStorage is unavailable, favorites still work in memory.
+    return null;
+  }
+}
+
+function setStorageItem(storageName, value) {
+  try {
+    if (!window[storageName]) return false;
+
+    window[storageName].setItem(FAVORITES_STORAGE_KEY, value);
+    return true;
+  } catch (error) {
+    return false;
   }
 }
 
@@ -79,7 +103,7 @@ export function updateFavorites() {
   const list = document.getElementById('favorites-list');
 
   if (favorites.length === 0) {
-    list.innerHTML = '<div class="fav-item empty">Sin favoritos en esta sesion</div>';
+    list.innerHTML = '<div class="fav-item empty">Sin favoritos guardados</div>';
     return;
   }
 

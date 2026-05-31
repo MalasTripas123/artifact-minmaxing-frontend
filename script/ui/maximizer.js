@@ -57,7 +57,7 @@ export function renderMaximizerSection() {
         <div class="maximizer-section">
             <div style="display: flex; flex-direction: row;">
                 <div class="artif-header-icon" style="background-image: url('./assets/artifacts/artifacts.webp')"></div>
-                <h3 class="section-title">Maximizador de atributos</h3>
+                <h3 class="section-title" id="maximizer-section-title">Maximizador de atributos</h3>
             </div>
             
             <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:15px">Optimización teórica de tu build.</p>
