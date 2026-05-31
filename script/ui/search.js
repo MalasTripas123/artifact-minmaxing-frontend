@@ -4,7 +4,8 @@ import {
     favorites,
     setCharacters
 } from '../state.js';
-import { fetchPlayerProfile } from '../api/enka-client.js';
+import { fetchPlayerProfile, normalizeUid, validateUid } from '../api/enka-client.js';
+import { hideLoading, showLoading } from './loading.js';
 
 // inicia los eventos relevantes de search
 export function initSearchEvents() {
@@ -13,6 +14,15 @@ export function initSearchEvents() {
 
 function setSearchError(message = '') {
     document.getElementById('search-error').innerText = message;
+}
+
+function setSearchBusy(isBusy) {
+    const input = document.getElementById('player-id');
+    const button = document.getElementById('btn-search');
+
+    input.disabled = isBusy;
+    button.disabled = isBusy;
+    button.innerText = isBusy ? 'BUSCANDO' : 'BUSCAR';
 }
 
 function escapeHtml(value) {
@@ -33,15 +43,27 @@ function getNameLengthClass(name) {
 
 // busca a un jugador y crea en el HTML los elementos necesarios
 export async function searchPlayer() {
-    const uid = document.getElementById('player-id').value;
+    const uid = normalizeUid(document.getElementById('player-id').value);
     setSearchError('');
 
+    const validationError = validateUid(uid);
+    if (validationError) {
+        setSearchError(validationError);
+        return;
+    }
+
     let profile;
+    showLoading();
+    setSearchBusy(true);
+
     try {
         profile = await fetchPlayerProfile(uid);
     } catch (error) {
         setSearchError(error.message || 'No se pudo buscar el jugador.');
         return;
+    } finally {
+        hideLoading();
+        setSearchBusy(false);
     }
 
     setCurrentPlayerId(profile.uid);

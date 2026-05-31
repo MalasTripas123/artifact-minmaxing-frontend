@@ -77,6 +77,16 @@
             <section id="character-detail"></section>
         </div>
     </main>
+    <div id="loading-overlay" class="loading-overlay" aria-hidden="true">
+        <div class="loading-modal" role="status" aria-live="polite">
+            <div class="loading-spinner" aria-hidden="true"></div>
+            <div class="loading-copy">
+                <h2 id="loading-title">Buscando jugador</h2>
+                <p id="loading-message">Conectando con el servidor...</p>
+            </div>
+            <div class="loading-progress" aria-hidden="true"><span></span></div>
+        </div>
+    </div>
     <script type="module" src="script/main.js"></script>
 </body>
 </html>
