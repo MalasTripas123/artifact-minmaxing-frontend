@@ -17,6 +17,9 @@ const translations = {
             searching: 'BUSCANDO',
             favorites: '★ Favoritos ▾',
             noFavorites: 'Sin favoritos guardados',
+            refreshProfile: 'Actualizar datos',
+            refreshIn: 'Actualizar ({seconds}s)',
+            updating: 'ACTUALIZANDO',
         },
         themes: {
             dark: 'Oscuro',
@@ -42,6 +45,8 @@ const translations = {
             genericError: 'No se pudo buscar el jugador.',
             loadingSearch: 'Buscando jugador',
             loadingProfile: 'Cargando perfil',
+            loadingRefresh: 'Actualizando datos',
+            cooldownError: 'Espera {seconds}s antes de actualizar nuevamente.',
         },
         loading: {
             connecting: 'Conectando con el servidor...',
@@ -154,6 +159,9 @@ const translations = {
             searching: 'SEARCHING',
             favorites: '★ Favorites ▾',
             noFavorites: 'No saved favorites',
+            refreshProfile: 'Refresh data',
+            refreshIn: 'Refresh ({seconds}s)',
+            updating: 'UPDATING',
         },
         themes: {
             dark: 'Dark',
@@ -179,6 +187,8 @@ const translations = {
             genericError: 'Could not search for the player.',
             loadingSearch: 'Searching player',
             loadingProfile: 'Loading profile',
+            loadingRefresh: 'Refreshing data',
+            cooldownError: 'Wait {seconds}s before refreshing again.',
         },
         loading: {
             connecting: 'Connecting to the server...',

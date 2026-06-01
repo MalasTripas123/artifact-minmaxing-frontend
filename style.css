@@ -478,6 +478,32 @@
 
         .action-btns { display: flex; align-items: center; gap: 6px; }
 
+        .refresh-profile-btn {
+            min-height: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--accent-lavender);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.68rem;
+            font-weight: 800;
+            line-height: 1;
+            padding: 6px 9px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .refresh-profile-btn:hover:not(:disabled) {
+            border-color: var(--accent-lavender);
+            box-shadow: 0 0 8px rgba(200, 182, 255, 0.2);
+        }
+
+        .refresh-profile-btn:disabled {
+            cursor: wait;
+            opacity: 0.62;
+        }
+
         .star-btn { 
             background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-muted); 
             width: 28px; height: 28px; /* Reducido */

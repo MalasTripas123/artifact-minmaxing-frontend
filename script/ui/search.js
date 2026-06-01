@@ -4,10 +4,11 @@ import {
     favorites,
     characters,
     currentSelectedChar,
+    currentPlayerId,
     setCharacters,
     setCurrentSelectedChar
 } from '../state.js';
-import { fetchPlayerProfile, localizeCharacterProfile, normalizeUid, validateUid } from '../api/enka-client.js';
+import { fetchPlayerProfile, localizeCharacterProfile, normalizeUid, refreshPlayerProfile, validateUid } from '../api/enka-client.js';
 import { hideLoading, showLoading } from './loading.js';
 import { requestSectionNavigationSync } from './navigation.js';
 import { showCharacter } from './character.js';
@@ -15,12 +16,17 @@ import { onLanguageChange, t } from './language.js';
 
 const PROFILE_UID_PARAM = 'uid';
 let isSearchBusy = false;
+let refreshCooldownTimer = null;
+let refreshCooldownSeconds = 0;
+let isRefreshBusy = false;
 
 // inicia los eventos relevantes de search
 export function initSearchEvents() {
     document.getElementById('btn-search').addEventListener('click', () => searchPlayer());
+    document.getElementById('refresh-profile-btn').addEventListener('click', refreshCurrentProfile);
     window.addEventListener('popstate', handleProfileUrlChange);
     onLanguageChange(refreshVisibleProfileLanguage);
+    renderRefreshButton();
     loadProfileFromUrl();
 }
 
@@ -90,9 +96,52 @@ export async function searchPlayer(options = {}) {
         setSearchBusy(false);
     }
 
+    applyProfile(profile, { updateUrl, replaceUrl });
+}
+
+async function refreshCurrentProfile() {
+    const uid = normalizeUid(currentPlayerId || document.getElementById('player-id').value);
+    if (!uid || isRefreshBusy || refreshCooldownSeconds > 0) return;
+
+    isRefreshBusy = true;
+    setSearchError('');
+    renderRefreshButton();
+
+    try {
+        showLoading({ title: t('search.loadingRefresh') });
+        const profile = await refreshPlayerProfile(uid);
+        applyProfile(profile, { updateUrl: false, keepSelectedCharacter: true });
+    } catch (error) {
+        if (error.profile) {
+            applyProfile(error.profile, { updateUrl: false, keepSelectedCharacter: true });
+        }
+
+        if (error.status === 429) {
+            const seconds = error.retryAfterSeconds || error.profile?.cache?.cooldownSecondsRemaining || 60;
+            setRefreshCooldown(seconds);
+            setSearchError(t('search.cooldownError', { seconds }));
+            return;
+        }
+
+        setSearchError(error.message || t('search.genericError'));
+    } finally {
+        hideLoading();
+        isRefreshBusy = false;
+        renderRefreshButton();
+    }
+}
+
+function applyProfile(profile, {
+    updateUrl = true,
+    replaceUrl = false,
+    keepSelectedCharacter = false,
+} = {}) {
+    const selectedCharacterId = keepSelectedCharacter ? currentSelectedChar?.avatarId ?? null : null;
+
     setCurrentPlayerId(profile.uid);
     setCurrentPlayer(profile.player);
     setCharacters(profile.characters);
+    setRefreshCooldown(profile.cache?.cooldownSecondsRemaining ?? 0);
     if (updateUrl) setProfileUrl(profile.uid, { replace: replaceUrl });
 
     document.getElementById('header-section').classList.add('minimized');
@@ -104,10 +153,14 @@ export async function searchPlayer(options = {}) {
     document.getElementById('fav-toggle').classList.toggle('active', !!isFav);
 
     document.getElementById('results-area').style.display = 'block';
-    document.getElementById('character-detail').style.display = 'none';
-    setCurrentSelectedChar(null);
+    document.getElementById('character-detail').style.display = selectedCharacterId ? 'block' : 'none';
+    if (!selectedCharacterId) setCurrentSelectedChar(null);
 
     renderCharacterGrid(profile.characters);
+
+    if (selectedCharacterId) {
+        showCharacter(selectedCharacterId, false);
+    }
 
     requestSectionNavigationSync();
 }
@@ -127,6 +180,7 @@ function renderCharacterGrid(profileCharacters = characters) {
 
 function refreshVisibleProfileLanguage() {
     setSearchBusy(isSearchBusy);
+    renderRefreshButton();
 
     const resultsArea = document.getElementById('results-area');
     if (!resultsArea || getComputedStyle(resultsArea).display === 'none') return;
@@ -144,6 +198,44 @@ function refreshVisibleProfileLanguage() {
     requestSectionNavigationSync();
 }
 
+function setRefreshCooldown(seconds) {
+    refreshCooldownSeconds = Math.max(0, Math.ceil(Number(seconds) || 0));
+    renderRefreshButton();
+    startRefreshCooldownTimer();
+}
+
+function startRefreshCooldownTimer() {
+    if (refreshCooldownTimer) {
+        clearInterval(refreshCooldownTimer);
+        refreshCooldownTimer = null;
+    }
+
+    if (refreshCooldownSeconds <= 0) return;
+
+    refreshCooldownTimer = setInterval(() => {
+        refreshCooldownSeconds = Math.max(0, refreshCooldownSeconds - 1);
+        renderRefreshButton();
+
+        if (refreshCooldownSeconds <= 0) {
+            clearInterval(refreshCooldownTimer);
+            refreshCooldownTimer = null;
+        }
+    }, 1000);
+}
+
+function renderRefreshButton() {
+    const button = document.getElementById('refresh-profile-btn');
+    if (!button) return;
+
+    const hasCooldown = refreshCooldownSeconds > 0;
+    button.disabled = isRefreshBusy || hasCooldown || !currentPlayerId;
+    button.innerText = isRefreshBusy
+        ? t('controls.updating')
+        : hasCooldown
+            ? t('controls.refreshIn', { seconds: refreshCooldownSeconds })
+            : t('controls.refreshProfile');
+}
+
 // reinicia la busqueda dejando los elementos relevantes en sus respectivos valores iniciales
 export function resetSearch({ updateUrl = true } = {}) {
     document.getElementById('header-section').classList.remove('minimized');
@@ -155,6 +247,7 @@ export function resetSearch({ updateUrl = true } = {}) {
     setCurrentPlayer({});
     setCurrentSelectedChar(null);
     setCharacters([]);
+    setRefreshCooldown(0);
     if (updateUrl) clearProfileUrl();
     requestSectionNavigationSync();
 }
