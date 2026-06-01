@@ -2,19 +2,25 @@ import {
     setCurrentPlayer,
     setCurrentPlayerId,
     favorites,
+    characters,
+    currentSelectedChar,
     setCharacters,
     setCurrentSelectedChar
 } from '../state.js';
-import { fetchPlayerProfile, normalizeUid, validateUid } from '../api/enka-client.js';
+import { fetchPlayerProfile, localizeCharacterProfile, normalizeUid, validateUid } from '../api/enka-client.js';
 import { hideLoading, showLoading } from './loading.js';
 import { requestSectionNavigationSync } from './navigation.js';
+import { showCharacter } from './character.js';
+import { onLanguageChange, t } from './language.js';
 
 const PROFILE_UID_PARAM = 'uid';
+let isSearchBusy = false;
 
 // inicia los eventos relevantes de search
 export function initSearchEvents() {
     document.getElementById('btn-search').addEventListener('click', () => searchPlayer());
     window.addEventListener('popstate', handleProfileUrlChange);
+    onLanguageChange(refreshVisibleProfileLanguage);
     loadProfileFromUrl();
 }
 
@@ -23,12 +29,13 @@ function setSearchError(message = '') {
 }
 
 function setSearchBusy(isBusy) {
+    isSearchBusy = isBusy;
     const input = document.getElementById('player-id');
     const button = document.getElementById('btn-search');
 
     input.disabled = isBusy;
     button.disabled = isBusy;
-    button.innerText = isBusy ? 'BUSCANDO' : 'BUSCAR';
+    button.innerText = isBusy ? t('controls.searching') : t('controls.search');
 }
 
 function escapeHtml(value) {
@@ -55,7 +62,7 @@ export async function searchPlayer(options = {}) {
         uid: requestedUid = null,
         updateUrl = true,
         replaceUrl = false,
-        loadingTitle = 'Buscando jugador',
+        loadingTitle = t('search.loadingSearch'),
     } = options;
 
     const input = document.getElementById('player-id');
@@ -76,7 +83,7 @@ export async function searchPlayer(options = {}) {
         showLoading({ title: loadingTitle });
         profile = await fetchPlayerProfile(uid);
     } catch (error) {
-        setSearchError(error.message || 'No se pudo buscar el jugador.');
+        setSearchError(error.message || t('search.genericError'));
         return;
     } finally {
         hideLoading();
@@ -100,8 +107,14 @@ export async function searchPlayer(options = {}) {
     document.getElementById('character-detail').style.display = 'none';
     setCurrentSelectedChar(null);
 
+    renderCharacterGrid(profile.characters);
+
+    requestSectionNavigationSync();
+}
+
+function renderCharacterGrid(profileCharacters = characters) {
     const grid = document.getElementById('char-grid');
-    grid.innerHTML = profile.characters.map(char => {
+    grid.innerHTML = profileCharacters.map(char => {
         const longStyle = getNameLengthClass(char.name);
 
         return `
@@ -110,6 +123,23 @@ export async function searchPlayer(options = {}) {
             <div class="char-name ${longStyle}">${escapeHtml(char.name)}</div>
         </div>`;
     }).join('');
+}
+
+function refreshVisibleProfileLanguage() {
+    setSearchBusy(isSearchBusy);
+
+    const resultsArea = document.getElementById('results-area');
+    if (!resultsArea || getComputedStyle(resultsArea).display === 'none') return;
+
+    const localizedCharacters = characters.map(localizeCharacterProfile);
+    const selectedCharacterId = currentSelectedChar?.avatarId ?? null;
+
+    setCharacters(localizedCharacters);
+    renderCharacterGrid(localizedCharacters);
+
+    if (selectedCharacterId) {
+        showCharacter(selectedCharacterId, false);
+    }
 
     requestSectionNavigationSync();
 }
@@ -136,7 +166,7 @@ function loadProfileFromUrl() {
     searchPlayer({
         uid,
         updateUrl: false,
-        loadingTitle: 'Cargando perfil',
+        loadingTitle: t('search.loadingProfile'),
     });
 }
 
@@ -151,7 +181,7 @@ function handleProfileUrlChange() {
     searchPlayer({
         uid,
         updateUrl: false,
-        loadingTitle: 'Cargando perfil',
+        loadingTitle: t('search.loadingProfile'),
     });
 }
 

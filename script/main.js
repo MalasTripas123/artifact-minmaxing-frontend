@@ -1,4 +1,5 @@
 import { initThemeEvents } from './ui/theme.js';
+import { initLanguageEvents } from './ui/language.js';
 import { initFavoritesEvents, updateFavorites } from './ui/favorites.js';
 import { initSearchEvents } from './ui/search.js';
 import { initPlayerEvents } from './ui/player.js';
@@ -8,6 +9,7 @@ import { initSectionNavigation } from './ui/navigation.js';
 
 //console.log('CONECTADO AL MAIN');
 
+initLanguageEvents();
 initThemeEvents();
 initSectionNavigation();
 initFavoritesEvents();

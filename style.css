@@ -813,7 +813,8 @@
         .upgrade-tooltip { visibility: hidden; position: absolute; bottom: 100%; left: 0; background: var(--tooltip-bg); color: white; padding: 4px 6px; border-radius: 4px; font-size: 0.6rem; border: 1px solid var(--primary-purple); z-index: 100; white-space: nowrap; opacity: 0; transition: 0.2s; }
         .substat-upgrades:hover .upgrade-tooltip { visibility: visible; opacity: 1; transform: translateY(-4px); }
 
-        .theme-selector { position: fixed; top: 10px; right: 10px; z-index: 1200; }
+        .theme-selector { position: fixed; top: 10px; right: 10px; z-index: 1200; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+        .language-toggle-btn { min-width: 100%; }
         .theme-drop-content { display: none; position: absolute; top: 100%; right: 0; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; margin-top: 6px; overflow: hidden; }
         .theme-drop-content.show { display: block; }
         .theme-opt { padding: 6px 12px; cursor: pointer; font-size: 0.75rem; color: var(--text-main); }
@@ -955,7 +956,7 @@
             }
 
             body.has-results-nav #theme-selector-btn::before {
-                content: "Tema";
+                content: attr(data-short-label);
                 font-size: 0.7rem;
             }
 

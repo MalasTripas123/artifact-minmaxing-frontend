@@ -1,3 +1,5 @@
+import { onLanguageChange, t } from './language.js';
+
 const NAV_BREAKPOINT_QUERY = '(min-width: 1320px)';
 const SECTION_NAV_HEIGHT_VAR = '--section-nav-height';
 const SECTION_NAV_TOP_VAR = '--section-nav-top';
@@ -18,6 +20,7 @@ export function initSectionNavigation() {
 
     window.addEventListener('scroll', updateActiveNavItem, { passive: true });
     window.addEventListener('resize', requestSectionNavigationSync);
+    onLanguageChange(requestSectionNavigationSync);
 
     requestSectionNavigationSync();
 }
@@ -58,7 +61,7 @@ function updateCharacterNavLabel() {
     const label = document.getElementById('section-nav-character-label');
     const characterName = document.querySelector('#char-header h2')?.innerText.trim();
 
-    if (label) label.innerText = characterName || 'Personaje';
+    if (label) label.innerText = characterName || t('nav.character');
 }
 
 function updateNavLayout() {

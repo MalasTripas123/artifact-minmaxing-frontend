@@ -13,6 +13,7 @@ import { renderMaximizerSection } from './maximizer.js';
 import { 
     getArtifactPieceImage,
     getArtifactTypeParced, 
+    getArtifactTypeLabel,
     getSetName, 
     getStatNameParced,
     getUpgradesValue,
@@ -22,6 +23,7 @@ import {
     calculateCritValue,
 } from '../domain/maximizer-calculator.js';
 import { requestSectionNavigationSync } from './navigation.js';
+import { t } from './language.js';
 
 function escapeHtml(value) {
     return String(value)
@@ -76,21 +78,21 @@ export function showCharacter(id, shouldScroll = true) {
     });
     
     const stats = [
-        { label: "Vida", val: Math.round(char.fightPropMap['2000']), base: Math.round(char.fightPropMap['1']), bonus: Math.round(char.fightPropMap['2']), icon: `url('./assets/attributes/HP.webp')`, special: true },
-        { label: "Ataque", val: Math.round(char.fightPropMap['2001']), base: Math.round(char.fightPropMap['4']), bonus: Math.round((char.fightPropMap['2001']) - Math.round(char.fightPropMap['4'])), icon: `url('./assets/attributes/ATK.webp')`, special: true },
-        { label: "Defensa", val: Math.round(char.fightPropMap['2002']), base: Math.round(char.fightPropMap['7']), bonus: Math.round((char.fightPropMap['2002']) - Math.round(char.fightPropMap['7'])), icon: `url('./assets/attributes/DEF.webp')`, special: true },
-        { label: "Recarga Energía", val: Math.round((Math.round(char.fightPropMap['23']*10000)/100)*10)/10, icon: `url('./assets/attributes/ER.webp')`, special: false },
-        { label: "Maestría Elemental", val: Math.round(char.fightPropMap['28']), icon: `url('./assets/attributes/EM.webp')`, special: false },
-        { label: "Prob. Crítico", val: Math.round((Math.round(char.fightPropMap['20']*10000)/100)*10)/10, icon: `url('./assets/attributes/CR.webp')`, special: false },
-        { label: "Daño Crítico", val: Math.round((Math.round(char.fightPropMap['22']*10000)/100)*10)/10, icon: `url('./assets/attributes/CD.webp')`, special: false },
-        { label: "Bono de daño Pyro", val: Math.round((Math.round(char.fightPropMap['40']*10000)/100)*10)/10, icon: `url('./assets/attributes/pyro.png')`, special: false },
-        { label: "Bono de daño Electro", val: Math.round((Math.round(char.fightPropMap['41']*10000)/100)*10)/10, icon: `url('./assets/attributes/electro.png')`, special: false },
-        { label: "Bono de daño Hydro", val: Math.round((Math.round(char.fightPropMap['42']*10000)/100)*10)/10, icon: `url('./assets/attributes/hydro.png')`, special: false },
-        { label: "Bono de daño Dendro", val: Math.round((Math.round(char.fightPropMap['43']*10000)/100)*10)/10, icon: `url('./assets/attributes/dendro.png')`, special: false },
-        { label: "Bono de daño Anemo", val: Math.round((Math.round(char.fightPropMap['44']*10000)/100)*10)/10, icon: `url('./assets/attributes/anemo.png')`, special: false },
-        { label: "Bono de daño Geo", val: Math.round((Math.round(char.fightPropMap['45']*10000)/100)*10)/10, icon: `url('./assets/attributes/geo.png')`, special: false },
-        { label: "Bono de daño Cryo", val: Math.round((Math.round(char.fightPropMap['46']*10000)/100)*10)/10, icon: `url('./assets/attributes/cryo.png')`, special: false },
-        { label: "Bono de daño Físico", val: Math.round((Math.round(char.fightPropMap['30']*10000)/100)*10)/10, icon: `url('./assets/attributes/phys.png')`, special: false },
+        { label: t('character.stats.hp'), val: Math.round(char.fightPropMap['2000']), base: Math.round(char.fightPropMap['1']), bonus: Math.round(char.fightPropMap['2']), icon: `url('./assets/attributes/HP.webp')`, special: true, isPercent: false },
+        { label: t('character.stats.attack'), val: Math.round(char.fightPropMap['2001']), base: Math.round(char.fightPropMap['4']), bonus: Math.round((char.fightPropMap['2001']) - Math.round(char.fightPropMap['4'])), icon: `url('./assets/attributes/ATK.webp')`, special: true, isPercent: false },
+        { label: t('character.stats.defense'), val: Math.round(char.fightPropMap['2002']), base: Math.round(char.fightPropMap['7']), bonus: Math.round((char.fightPropMap['2002']) - Math.round(char.fightPropMap['7'])), icon: `url('./assets/attributes/DEF.webp')`, special: true, isPercent: false },
+        { label: t('character.stats.energyRecharge'), val: Math.round((Math.round(char.fightPropMap['23']*10000)/100)*10)/10, icon: `url('./assets/attributes/ER.webp')`, special: false, isPercent: true },
+        { label: t('character.stats.elementalMastery'), val: Math.round(char.fightPropMap['28']), icon: `url('./assets/attributes/EM.webp')`, special: false, isPercent: false },
+        { label: t('character.stats.critRate'), val: Math.round((Math.round(char.fightPropMap['20']*10000)/100)*10)/10, icon: `url('./assets/attributes/CR.webp')`, special: false, isPercent: true },
+        { label: t('character.stats.critDamage'), val: Math.round((Math.round(char.fightPropMap['22']*10000)/100)*10)/10, icon: `url('./assets/attributes/CD.webp')`, special: false, isPercent: true },
+        { label: t('character.stats.pyroDamage'), val: Math.round((Math.round(char.fightPropMap['40']*10000)/100)*10)/10, icon: `url('./assets/attributes/pyro.png')`, special: false, isPercent: true },
+        { label: t('character.stats.electroDamage'), val: Math.round((Math.round(char.fightPropMap['41']*10000)/100)*10)/10, icon: `url('./assets/attributes/electro.png')`, special: false, isPercent: true },
+        { label: t('character.stats.hydroDamage'), val: Math.round((Math.round(char.fightPropMap['42']*10000)/100)*10)/10, icon: `url('./assets/attributes/hydro.png')`, special: false, isPercent: true },
+        { label: t('character.stats.dendroDamage'), val: Math.round((Math.round(char.fightPropMap['43']*10000)/100)*10)/10, icon: `url('./assets/attributes/dendro.png')`, special: false, isPercent: true },
+        { label: t('character.stats.anemoDamage'), val: Math.round((Math.round(char.fightPropMap['44']*10000)/100)*10)/10, icon: `url('./assets/attributes/anemo.png')`, special: false, isPercent: true },
+        { label: t('character.stats.geoDamage'), val: Math.round((Math.round(char.fightPropMap['45']*10000)/100)*10)/10, icon: `url('./assets/attributes/geo.png')`, special: false, isPercent: true },
+        { label: t('character.stats.cryoDamage'), val: Math.round((Math.round(char.fightPropMap['46']*10000)/100)*10)/10, icon: `url('./assets/attributes/cryo.png')`, special: false, isPercent: true },
+        { label: t('character.stats.physicalDamage'), val: Math.round((Math.round(char.fightPropMap['30']*10000)/100)*10)/10, icon: `url('./assets/attributes/phys.png')`, special: false, isPercent: true },
     ];
 
     detail.innerHTML = `
@@ -98,12 +100,12 @@ export function showCharacter(id, shouldScroll = true) {
             <div class="detail-icon" id="element-icon"></div>
             <div>
                 <h2 style="font-size: 1.8rem; margin-bottom: 2px;">${char.name}</h2>
-                <p style="color:var(--accent-lavender); font-weight:700">Nivel ${char.level} / 90</p>
+                <p style="color:var(--accent-lavender); font-weight:700">${t('character.level')} ${char.level} / 90</p>
             </div>
         </div>
 
         <div class="detail-stats">
-            <h3 class="section-title">Atributos del Personaje</h3>
+            <h3 class="section-title">${t('sections.attributes')}</h3>
             <div class="stats-list">
                 ${stats.map(s => {
                     if (s.val != 0) {
@@ -113,12 +115,7 @@ export function showCharacter(id, shouldScroll = true) {
                                 <div class="stat-top-row">
                                     <span class="stat-label"><b>${s.label}</b></span>
                                     <div class="stat-value-group">
-                                        <span class="stat-value">${s.val}${
-                                            s.label === 'Vida'||
-                                            s.label === 'Ataque'||
-                                            s.label === 'Defensa' ||
-                                            s.label === 'Maestría Elemental'
-                                            ? '' : '%'}</span>
+                                        <span class="stat-value">${s.val}${s.isPercent ? '%' : ''}</span>
                                         ${s.special ? `<div class="stat-breakdown">${s.base} <span style="opacity:0.6">+${s.bonus}</span></div>` : ''}
                                     </div>
                                 </div>
@@ -133,9 +130,9 @@ export function showCharacter(id, shouldScroll = true) {
             <div class="eq-controls">
                 <div style="display: flex; flex-direction: row;">
                     <div class="artif-header-icon" style="background-image: ${`url('./assets/artifacts/artifacts.webp')`}"></div>
-                    <h3 class="section-title" id="artifacts-section-title" style="margin-bottom:0">ARTEFACTOS</h3>
+                    <h3 class="section-title" id="artifacts-section-title" style="margin-bottom:0">${t('sections.artifacts')}</h3>
                 </div>
-                <button class="view-toggle-btn">Alternar Vista</button>
+                <button class="view-toggle-btn">${t('character.toggleView')}</button>
             </div>
             <div class="equipment-row ${eqViewMode}" id="equipment-row-container">
                 ${renderGears()}
@@ -178,10 +175,12 @@ export function getArtifacts(){
                 subStats: [],
                 isElemental: false,
                 totalRolls: 0,
-                image: ''
+                image: '',
+                typeLabel: ''
             };
             // tipo
             artifact.type = getArtifactTypeParced(item.flat.equipType);
+            artifact.typeLabel = getArtifactTypeLabel(item.flat.equipType);
             // set
             artifact.set = getSetName(item.flat.setNameTextMapHash, item.flat);
             // imagen
@@ -250,7 +249,7 @@ function renderGears() {
         return `
         <div class="equipment-card">
             <div class="eq-artifact-visual"${getArtifactImageStyle(artifact.image)}>
-                <div class="eq-header" style="font-size:0.80rem;"><span>${artifact.type}</span><span>+${artifact.level}</span></div>
+                <div class="eq-header" style="font-size:0.80rem;"><span>${artifact.typeLabel}</span><span>+${artifact.level}</span></div>
                 <div class="eq-header"><span>${artifact.set}</span></div>
                 <div class="eq-main-box">
                     <b style="font-size:1.1rem">${artifact.mainStatValue}${

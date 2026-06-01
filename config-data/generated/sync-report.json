@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T00:04:17.237Z",
+  "generatedAt": "2026-06-01T14:25:07.372Z",
   "checkOnly": false,
   "sources": {
     "loc": {
@@ -20,15 +20,29 @@
     }
   },
   "localization": {
-    "output": "config-data/EnkaLocES.json",
-    "generatedDataOutput": "script/parcing/generated-game-data.js",
-    "beforeEntries": 936,
-    "afterEntries": 936,
-    "addedEntries": 0
+    "es": {
+      "output": "config-data/EnkaLocES.json",
+      "beforeEntries": 936,
+      "afterEntries": 936,
+      "addedEntries": 0
+    },
+    "en": {
+      "output": "config-data/EnkaLocEN.json",
+      "beforeEntries": 0,
+      "afterEntries": 936,
+      "addedEntries": 936
+    }
+  },
+  "generatedData": {
+    "generatedDataOutput": "script/parcing/generated-game-data.js"
   },
   "characters": {
     "localCount": 115,
     "remoteCount": 119,
+    "remoteCountByLanguage": {
+      "es": 119,
+      "en": 119
+    },
     "remoteMissingLocally": [
       {
         "id": "10000129",
@@ -136,40 +150,18 @@
     "localMissingRemotely": [
       "15000"
     ],
-    "missingTranslations": []
+    "missingTranslationsByLanguage": {
+      "es": [],
+      "en": []
+    }
   },
   "artifactImages": {
     "outputDir": "assets/artifacts/sets",
     "total": 295,
-    "existing": 289,
-    "downloaded": 6,
+    "existing": 295,
+    "downloaded": 0,
     "missing": 0,
-    "fallbackDownloads": [
-      {
-        "iconName": "UI_RelicIcon_15004_2",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_2.png"
-      },
-      {
-        "iconName": "UI_RelicIcon_15004_3",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_3.png"
-      },
-      {
-        "iconName": "UI_RelicIcon_15012_3",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10012_1.png"
-      },
-      {
-        "iconName": "UI_RelicIcon_15004_1",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_1.png"
-      },
-      {
-        "iconName": "UI_RelicIcon_15004_4",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_4.png"
-      },
-      {
-        "iconName": "UI_RelicIcon_15004_5",
-        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_5.png"
-      }
-    ],
+    "fallbackDownloads": [],
     "failed": []
   }
 }

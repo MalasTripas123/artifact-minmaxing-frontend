@@ -1,7 +1,9 @@
+import { t } from './language.js';
+
 const loadingSteps = [
-    { delay: 2500, message: 'Render puede tardar unos segundos si el servidor estaba en reposo.' },
-    { delay: 8000, message: 'Seguimos esperando la respuesta del backend.' },
-    { delay: 16000, message: 'El servidor sigue despertando. La busqueda continuara automaticamente.' },
+    { delay: 2500, messageKey: 'loading.renderDelay' },
+    { delay: 8000, messageKey: 'loading.stillWaiting' },
+    { delay: 16000, messageKey: 'loading.waking' },
 ];
 
 let activeTimers = [];
@@ -20,8 +22,8 @@ function clearLoadingTimers() {
 }
 
 export function showLoading({
-    title = 'Buscando jugador',
-    message = 'Conectando con el servidor...',
+    title = t('search.loadingSearch'),
+    message = t('loading.connecting'),
 } = {}) {
     const { overlay, title: titleElement, message: messageElement } = getLoadingElements();
     if (!overlay || !titleElement || !messageElement) return;
@@ -34,7 +36,7 @@ export function showLoading({
     document.body.classList.add('is-loading');
 
     activeTimers = loadingSteps.map(step => setTimeout(() => {
-        messageElement.innerText = step.message;
+        messageElement.innerText = t(step.messageKey);
     }, step.delay));
 }
 

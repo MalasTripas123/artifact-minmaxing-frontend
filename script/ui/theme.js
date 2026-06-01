@@ -1,3 +1,5 @@
+import { onLanguageChange, t } from './language.js';
+
 const THEME_STORAGE_KEY = 'artifactMinmaxingTheme';
 const THEME_COOKIE_NAME = 'artifactMinmaxingTheme';
 const WINDOW_NAME_KEY = 'artifactMinmaxing';
@@ -9,6 +11,14 @@ function getThemeOptions() {
 
 function getThemeOption(theme) {
     return getThemeOptions().find(option => option.dataset.theme === theme);
+}
+
+function getAppliedTheme() {
+    return document.body.getAttribute('data-theme') || 'dark';
+}
+
+function getThemeText(theme) {
+    return t(`themes.${theme}`);
 }
 
 function getStoredTheme() {
@@ -138,29 +148,32 @@ function saveHistoryTheme(theme) {
     }
 }
 
-function applyTheme(theme, text) {
+function applyTheme(theme) {
     document.body.setAttribute('data-theme', theme);
-    document.getElementById('theme-selector-btn').innerText = `Tema: ${text} ${THEME_DROPDOWN_MARK}`;
+    const button = document.getElementById('theme-selector-btn');
+    button.innerText = `${t('controls.theme')}: ${getThemeText(theme)} ${THEME_DROPDOWN_MARK}`;
+    button.dataset.shortLabel = t('controls.theme');
 }
 
 function loadStoredTheme() {
     const storedTheme = getStoredTheme();
-    if (!storedTheme) return;
+    const theme = getThemeOption(storedTheme) ? storedTheme : getAppliedTheme();
 
-    const option = getThemeOption(storedTheme);
-    if (!option) return;
-
-    applyTheme(storedTheme, option.innerText);
-    saveTheme(storedTheme);
+    applyTheme(theme);
+    if (storedTheme) saveTheme(theme);
 }
 
 // inicia los elementos relacionados a los temas
 export function initThemeEvents() {
     loadStoredTheme();
 
+    onLanguageChange(() => {
+        applyTheme(getAppliedTheme());
+    });
+
     getThemeOptions().forEach(el => {
         el.addEventListener('click', () => {
-            setTheme(el.dataset.theme, el.innerText);
+            setTheme(el.dataset.theme);
         });
     });
 
@@ -177,11 +190,11 @@ export function initThemeEvents() {
 }
 
 // recibe un string con la indicacion del tema, modifica el data-theme del body y persiste la eleccion
-export function setTheme(theme, txt) {
+export function setTheme(theme) {
     const option = getThemeOption(theme);
     if (!option) return;
 
-    applyTheme(theme, txt || option.innerText);
+    applyTheme(theme);
     saveTheme(theme);
     document.getElementById('theme-opts').classList.remove('show');
 }

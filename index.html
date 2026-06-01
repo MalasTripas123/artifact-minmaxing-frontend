@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genshin min-maxing</title>
     <link rel="icon" href="icon.ico">
-    <link rel="stylesheet" href="style.css?v=artifact-piece-images">
+    <link rel="stylesheet" href="style.css?v=language-toggle">
 </head>
 <body data-theme="dark">
     <!-- <div class="bg">
@@ -14,20 +14,21 @@
     
     <!-- SELECTOR DE TEMAS -->
     <div class="theme-selector">
+        <button id="language-toggle-btn" class="fav-menu-btn language-toggle-btn">Idioma: ES</button>
         <button id="theme-selector-btn" class="fav-menu-btn">Tema: Oscuro ▾</button>
         <div class="theme-drop-content" id="theme-opts">
-            <div class="theme-opt" data-theme="dark">Oscuro</div>
-            <div class="theme-opt" data-theme="light">Claro</div>
-            <div class="theme-opt" data-theme="pastel">Pastel</div>
-            <!-- <div class="theme-opt" data-theme="ocean">Océano</div>
-            <div class="theme-opt" data-theme="forest">Bosque</div> -->
-            <div class="theme-opt" data-theme="pyro">Pyro</div>
-            <div class="theme-opt" data-theme="hydro">Hydro</div>
-            <div class="theme-opt" data-theme="electro">Electro</div>
-            <div class="theme-opt" data-theme="dendro">Dendro</div>
-            <div class="theme-opt" data-theme="cryo">Cryo</div>
-            <div class="theme-opt" data-theme="anemo">Anemo</div>
-            <div class="theme-opt" data-theme="geo">Geo</div>
+            <div class="theme-opt" data-theme="dark" data-i18n="themes.dark">Oscuro</div>
+            <div class="theme-opt" data-theme="light" data-i18n="themes.light">Claro</div>
+            <div class="theme-opt" data-theme="pastel" data-i18n="themes.pastel">Pastel</div>
+            <!-- <div class="theme-opt" data-theme="ocean" data-i18n="themes.ocean">Oceano</div>
+            <div class="theme-opt" data-theme="forest" data-i18n="themes.forest">Bosque</div> -->
+            <div class="theme-opt" data-theme="pyro" data-i18n="themes.pyro">Pyro</div>
+            <div class="theme-opt" data-theme="hydro" data-i18n="themes.hydro">Hydro</div>
+            <div class="theme-opt" data-theme="electro" data-i18n="themes.electro">Electro</div>
+            <div class="theme-opt" data-theme="dendro" data-i18n="themes.dendro">Dendro</div>
+            <div class="theme-opt" data-theme="cryo" data-i18n="themes.cryo">Cryo</div>
+            <div class="theme-opt" data-theme="anemo" data-i18n="themes.anemo">Anemo</div>
+            <div class="theme-opt" data-theme="geo" data-i18n="themes.geo">Geo</div>
         </div>
     </div>
 
@@ -35,52 +36,52 @@
         <!-- HEADER -->
         <section id="header-section">
             <h1>Genshin artifact's stats min-maxing</h1>
-            <p>Herramienta avanzada para la optimización de artefactos</p>
-            <p>Calcula el máximo de substats posibles según los requerimientos de la build</p>
-            <p>Averigua cuánto margen de mejora tienen tus personajes</p>
+            <p data-i18n="app.tagline">Herramienta avanzada para la optimización de artefactos</p>
+            <p data-i18n="app.description">Calcula el máximo de substats posibles según los requerimientos de la build</p>
+            <p data-i18n="app.promise">Averigua cuánto margen de mejora tienen tus personajes</p>
             
             <!-- ÁREA DE BÚSQUEDA (INPUT, BOTÓN Y LISTA DE FAVORITOS) -->
             <div class="search-area-wrapper">
                 <!-- CUADRO DE BÚSQUEDA -->
                 <div class="search-container">
-                    <input type="text" id="player-id" placeholder="Ingresa tu ID de Jugador..." autocomplete="off">
-                    <button id="btn-search">BUSCAR</button>
+                    <input type="text" id="player-id" placeholder="Ingresa tu ID de Jugador..." autocomplete="off" data-i18n-placeholder="search.placeholder">
+                    <button id="btn-search" data-i18n="controls.search">BUSCAR</button>
                 </div>
                 <div id="search-error" class="search-error" role="alert"></div>
 
                 <!-- LISTA DE FAVORITOS -->
                 <div class="favorites-dropdown">
-                    <button id="fav-menu-btn" class="fav-menu-btn">★ Favoritos ▾</button>
+                    <button id="fav-menu-btn" class="fav-menu-btn" data-i18n="controls.favorites">★ Favoritos ▾</button>
                     <div class="fav-content" id="favorites-list"></div>
                 </div>
             </div>
         </section>
         <!-- ÁREA DE RESULTADOS -->
-        <nav id="section-nav" class="section-nav" aria-label="Navegacion de resultados" hidden>
+        <nav id="section-nav" class="section-nav" aria-label="Navegacion de resultados" data-i18n-aria-label="nav.aria" hidden>
             <button type="button" class="section-nav-btn" data-nav-target="home">
                 <span class="section-nav-prefix">|</span>
                 <span class="section-nav-mark">✦</span>
-                <span class="section-nav-label">Inicio</span>
+                <span class="section-nav-label" data-i18n="nav.home">Inicio</span>
             </button>
             <button type="button" class="section-nav-btn" data-nav-target="characters">
                 <span class="section-nav-prefix">|</span>
                 <span class="section-nav-mark">✦</span>
-                <span class="section-nav-label">Personajes</span>
+                <span class="section-nav-label" data-i18n="nav.characters">Personajes</span>
             </button>
             <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="character">
                 <span class="section-nav-prefix">|</span>
                 <span class="section-nav-mark">✦</span>
-                <span class="section-nav-label" id="section-nav-character-label">Personaje</span>
+                <span class="section-nav-label" id="section-nav-character-label" data-i18n="nav.character">Personaje</span>
             </button>
             <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="artifacts">
                 <span class="section-nav-prefix">|</span>
                 <span class="section-nav-mark">✦</span>
-                <span class="section-nav-label">Artefactos</span>
+                <span class="section-nav-label" data-i18n="nav.artifacts">Artefactos</span>
             </button>
             <button type="button" class="section-nav-btn section-nav-character-item" data-nav-target="maximizer">
                 <span class="section-nav-prefix">|</span>
                 <span class="section-nav-mark">✦</span>
-                <span class="section-nav-label">Maximizador de atributos</span>
+                <span class="section-nav-label" data-i18n="nav.maximizer">Maximizador de atributos</span>
             </button>
         </nav>
         <div id="results-area" style="display: none;">
@@ -88,8 +89,8 @@
                 <div class="player-meta">
                     <div class="player-pfp-box">👤</div>
                     <div class="player-text-info">
-                        <span class="player-name" id="display-player-name">Nombre Jugador</span>
-                        <span class="player-level" id="display-player-lv">Nivel no identificado</span>
+                        <span class="player-name" id="display-player-name" data-i18n="player.namePlaceholder">Nombre Jugador</span>
+                        <span class="player-level" id="display-player-lv" data-i18n="player.levelUnknown">Nivel no identificado</span>
                     </div>
                 </div>
                 <div class="action-btns">
@@ -98,7 +99,7 @@
                 </div>
             </div>
 
-            <h2 class="section-title" id="characters-section-title">Personajes en Cuenta</h2>
+            <h2 class="section-title" id="characters-section-title" data-i18n="sections.characters">Personajes en Cuenta</h2>
             <div class="character-grid" id="char-grid"></div>
             
             <section id="character-detail"></section>
@@ -108,8 +109,8 @@
         <div class="loading-modal" role="status" aria-live="polite">
             <div class="loading-spinner" aria-hidden="true"></div>
             <div class="loading-copy">
-                <h2 id="loading-title">Buscando jugador</h2>
-                <p id="loading-message">Conectando con el servidor...</p>
+                <h2 id="loading-title" data-i18n="search.loadingSearch">Buscando jugador</h2>
+                <p id="loading-message" data-i18n="loading.connecting">Conectando con el servidor...</p>
             </div>
             <div class="loading-progress" aria-hidden="true"><span></span></div>
         </div>

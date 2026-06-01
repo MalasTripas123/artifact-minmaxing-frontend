@@ -1,18 +1,27 @@
 # Sync game data report
 
-Generated: 2026-06-01T00:04:17.237Z
+Generated: 2026-06-01T14:25:07.372Z
 
 ## Localization
 
+### es
 - config-data/EnkaLocES.json
-- script/parcing/generated-game-data.js
 - Entries: 936 -> 936
 - Added entries: 0
+
+### en
+- config-data/EnkaLocEN.json
+- Entries: 0 -> 936
+- Added entries: 936
+
+- Generated data: script/parcing/generated-game-data.js
 
 ## Characters
 
 - Local catalog: 115
 - Remote Enka avatars: 119
+- Remote Enka avatars (es): 119
+- Remote Enka avatars (en): 119
 - Remote characters missing locally: 4
 - 10000129: Lohen (Cryo)
 - 10000130: Linnéa (Geo)
@@ -47,21 +56,19 @@ Generated: 2026-06-01T00:04:17.237Z
 - Local sets not present remotely: 1
 - 15000
 
-- Artifact set translations missing: 0
+- Artifact set translations missing:
+  - es: 0
+- None
+  - en: 0
 - None
 
 ## Artifact Images
 
 - Output dir: assets/artifacts/sets
 - Images tracked: 295
-- Already present: 289
-- Downloaded: 6
-- Downloaded from fallback URLs: 6
-- UI_RelicIcon_15004_2: https://enka.network/ui/UI_RelicIcon_10004_2.png
-- UI_RelicIcon_15004_3: https://enka.network/ui/UI_RelicIcon_10004_3.png
-- UI_RelicIcon_15012_3: https://enka.network/ui/UI_RelicIcon_10012_1.png
-- UI_RelicIcon_15004_1: https://enka.network/ui/UI_RelicIcon_10004_1.png
-- UI_RelicIcon_15004_4: https://enka.network/ui/UI_RelicIcon_10004_4.png
-- UI_RelicIcon_15004_5: https://enka.network/ui/UI_RelicIcon_10004_5.png
+- Already present: 295
+- Downloaded: 0
+- Downloaded from fallback URLs: 0
+- None
 - Missing or failed: 0
 - None

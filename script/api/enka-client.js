@@ -3,8 +3,10 @@ import {
     getCharNameById,
     getElementById,
     getGeneratedCharacterAssetsById,
+    getManualCharacterAssetNameById,
     hasManualCharacter,
 } from '../parcing/character-names.js';
+import { t } from '../ui/language.js';
 
 const API_BASE_URL = 'https://artifact-minmaxing-backend.onrender.com';
 
@@ -21,8 +23,8 @@ export function normalizeUid(uid) {
 }
 
 export function validateUid(uid) {
-    if (!uid) return 'Ingresa un UID.';
-    if (!/^\d+$/.test(uid)) return 'Ingresa un UID numerico.';
+    if (!uid) return t('search.uidRequired');
+    if (!/^\d+$/.test(uid)) return t('search.uidNumeric');
     return '';
 }
 
@@ -41,17 +43,17 @@ export async function fetchPlayerProfile(uid) {
         response = await fetch(`${API_BASE_URL}/user/${encodeURIComponent(cleanUid)}`);
         data = await response.json().catch(() => ({}));
     } catch (error) {
-        throw new EnkaApiError('No se pudo conectar con el servidor.', 0);
+        throw new EnkaApiError(t('search.connectionError'), 0);
     }
 
     if (!response.ok || data.error) {
-        throw new EnkaApiError(data.error || 'Jugador no encontrado.', response.status);
+        throw new EnkaApiError(data.error || t('search.notFound'), response.status);
     }
 
     const profile = normalizeEnkaProfile(cleanUid, data);
 
     if (!profile.player.nickname) {
-        throw new EnkaApiError('Jugador no encontrado o perfil no disponible.', 404);
+        throw new EnkaApiError(t('search.unavailable'), 404);
     }
 
     return profile;
@@ -82,6 +84,18 @@ function normalizeCharacter(character) {
     const avatarId = Number(character.avatarId);
     if (!Number.isFinite(avatarId)) return null;
 
+    return localizeCharacterProfile({
+        ...character,
+        avatarId,
+        level: Number(character.propMap?.[4001]?.ival) || 0,
+        propMap: character.propMap || {},
+        fightPropMap: character.fightPropMap || {},
+        equipList: Array.isArray(character.equipList) ? character.equipList : [],
+    });
+}
+
+export function localizeCharacterProfile(character) {
+    const avatarId = Number(character?.avatarId);
     const name = getCharNameById(avatarId);
     const element = getElementById(avatarId);
 
@@ -90,22 +104,19 @@ function normalizeCharacter(character) {
         avatarId,
         name,
         element,
-        level: Number(character.propMap?.[4001]?.ival) || 0,
         builds: getBuildById(avatarId),
-        assets: getCharacterAssets(avatarId, name, element),
-        propMap: character.propMap || {},
-        fightPropMap: character.fightPropMap || {},
-        equipList: Array.isArray(character.equipList) ? character.equipList : [],
+        assets: getCharacterAssets(avatarId, element),
     };
 }
 
-function getCharacterAssets(avatarId, name, element) {
+function getCharacterAssets(avatarId, element) {
     const generatedAssets = getGeneratedCharacterAssetsById(avatarId);
     const useGeneratedAssets = generatedAssets && !hasManualCharacter(avatarId);
+    const assetName = getManualCharacterAssetNameById(avatarId);
 
     return {
-        profileIcon: useGeneratedAssets ? generatedAssets.profileIcon : `./assets/pfp/${name}_Icon.webp`,
-        banner: useGeneratedAssets ? generatedAssets.banner : `./assets/gacha-img/${name}.png`,
+        profileIcon: useGeneratedAssets ? generatedAssets.profileIcon : `./assets/pfp/${assetName}_Icon.webp`,
+        banner: useGeneratedAssets ? generatedAssets.banner : `./assets/gacha-img/${assetName}.png`,
         elementIcon: element ? `./assets/elements/${element.toLowerCase()}.webp` : '',
     };
 }

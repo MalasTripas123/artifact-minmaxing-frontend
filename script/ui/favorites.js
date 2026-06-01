@@ -1,5 +1,6 @@
 import { setFavorites, favorites, currentPlayerId } from '../state.js';
 import { searchPlayer } from './search.js';
+import { onLanguageChange, t } from './language.js';
 
 const FAVORITES_STORAGE_KEY = 'artifactMinmaxingFavorites';
 
@@ -65,6 +66,7 @@ function escapeHtml(value) {
 
 export function initFavoritesEvents() {
   loadFavorites();
+  onLanguageChange(updateFavorites);
 
   document.getElementById('fav-toggle').addEventListener('click', toggleFavorite);
   document.getElementById('fav-menu-btn').addEventListener('click', toggleFavMenu);
@@ -103,7 +105,7 @@ export function updateFavorites() {
   const list = document.getElementById('favorites-list');
 
   if (favorites.length === 0) {
-    list.innerHTML = '<div class="fav-item empty">Sin favoritos guardados</div>';
+    list.innerHTML = `<div class="fav-item empty">${t('controls.noFavorites')}</div>`;
     return;
   }
 

@@ -1,7 +1,11 @@
 // Mapa liviano de localizaciones publicado por Enka para resolver hashes de nombres.
-import { generatedArtifactSetsById } from './generated-game-data.js';
+import { generatedArtifactSetsById, generatedArtifactSetsByLocale } from './generated-game-data.js';
+import { getCurrentLanguage, t } from '../ui/language.js';
 
-const textMap = await fetch('./config-data/EnkaLocES.json').then(res => res.json());
+const textMaps = await Promise.all([
+    fetch('./config-data/EnkaLocES.json').then(res => res.json()),
+    fetch('./config-data/EnkaLocEN.json').then(res => res.json()).catch(() => ({})),
+]).then(([es, en]) => ({ es, en }));
 
 // tipo artefacto
 const artifactTypes = {
@@ -12,9 +16,11 @@ const artifactTypes = {
     EQUIP_DRESS: 'Corona',
 }
 export const getArtifactTypeParced = (equipType) => artifactTypes[equipType] ?? '';
+export const getArtifactTypeLabel = (equipType) => t(`artifacts.types.${equipType}`) || getArtifactTypeParced(equipType);
 
 // set
 export const getSetName = (setNameTextMapHash, artifactFlat = {}) => {
+    const textMap = getCurrentTextMap();
     const directName = textMap[setNameTextMapHash];
     if (directName) return directName;
 
@@ -25,9 +31,11 @@ export const getSetName = (setNameTextMapHash, artifactFlat = {}) => {
     }
 
     const setId = getSetIdFromArtifactIcon(artifactFlat.icon);
+    const localizedGeneratedName = generatedArtifactSetsByLocale[getCurrentLanguage()]?.[setId];
+    if (setId && localizedGeneratedName) return localizedGeneratedName;
     if (setId && generatedArtifactSetsById[setId]) return generatedArtifactSetsById[setId];
 
-    return 'Unknown';
+    return t('artifacts.unknown');
 };
 
 export const getArtifactPieceImage = (icon = '') => {
@@ -41,6 +49,10 @@ function getSetIdFromArtifactIcon(icon = '') {
 
 function getArtifactIconName(icon = '') {
     return String(icon).split('/').pop()?.replace(/\.png$/i, '') ?? '';
+}
+
+function getCurrentTextMap() {
+    return textMaps[getCurrentLanguage()] ?? textMaps.es;
 }
 
 // nombres stats
@@ -63,7 +75,7 @@ const statNames = {
     FIGHT_PROP_GRASS_ADD_HURT: 'Dendro%',
     FIGHT_PROP_WIND_ADD_HURT: 'Anemo%',
     FIGHT_PROP_ROCK_ADD_HURT: 'Geo%',
-    FIGHT_PROP_PHYSICAL_ADD_HURT: 'Fisico%',
+    FIGHT_PROP_PHYSICAL_ADD_HURT: () => t('artifacts.stats.physicalDamage'),
 
     FIGHT_PROP_ELEC_SUB_HURT: 'ElectroRes',
     FIGHT_PROP_FIRE_SUB_HURT: 'PyroRes',
@@ -72,13 +84,16 @@ const statNames = {
     FIGHT_PROP_GRASS_SUB_HURT: 'DendroRes',
     FIGHT_PROP_WIND_SUB_HURT: 'AnemoRes',
     FIGHT_PROP_ROCK_SUB_HURT: 'GeoRes',
-    FIGHT_PROP_PHYSICAL_SUB_HURT: 'FisicoRes',
+    FIGHT_PROP_PHYSICAL_SUB_HURT: () => t('artifacts.stats.physicalResistance'),
 
-    FIGHT_PROP_HEAL_ADD: 'HEAL BONUS',
-    FIGHT_PROP_HEALED_ADD: 'HEALED BONUS',
+    FIGHT_PROP_HEAL_ADD: () => t('artifacts.stats.healBonus'),
+    FIGHT_PROP_HEALED_ADD: () => t('artifacts.stats.healedBonus'),
 
 }
-export const getStatNameParced = (statName) => statNames[statName] ?? '';
+export const getStatNameParced = (statName) => {
+    const parsedName = statNames[statName];
+    return typeof parsedName === 'function' ? parsedName() : parsedName ?? '';
+};
 
 // subidas
 const upgradeValue = {

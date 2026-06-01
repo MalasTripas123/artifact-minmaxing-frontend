@@ -26,7 +26,10 @@ const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const frontendRoot = path.resolve(currentDir, '..', '..');
 const configDir = path.join(frontendRoot, 'config-data');
 const generatedDir = path.join(configDir, 'generated');
-const locPath = path.join(configDir, 'EnkaLocES.json');
+const localizationOutputs = {
+    es: path.join(configDir, 'EnkaLocES.json'),
+    en: path.join(configDir, 'EnkaLocEN.json'),
+};
 const reliquarySetsPath = path.join(configDir, 'ReliquarySetExcelConfigData.json');
 const reportJsonPath = path.join(generatedDir, 'sync-report.json');
 const reportMarkdownPath = path.join(generatedDir, 'sync-report.md');
@@ -37,7 +40,7 @@ const args = new Set(process.argv.slice(2));
 const checkOnly = args.has('--check') || args.has('--dry-run');
 
 async function main() {
-    const currentLoc = await readJsonIfExists(locPath, {});
+    const currentLocByLanguage = await readCurrentLocalizations();
     const localReliquarySets = await readJsonIfExists(reliquarySetsPath, []);
 
     console.log('Descargando datos de Enka...');
@@ -48,38 +51,46 @@ async function main() {
     const giRelics = parseJson(downloads.giRelics.text, SOURCES.giRelics);
     const giAvatars = parseJson(downloads.giAvatars.text, SOURCES.giAvatars);
 
-    const mergedSpanishLoc = sortRecord({
-        ...currentLoc,
-        ...(giLocs.es ?? {}),
-        ...(loc.es ?? {}),
-    });
+    const mergedLocByLanguage = buildMergedLocalizations(currentLocByLanguage, giLocs, loc);
+    const defaultLoc = mergedLocByLanguage.es;
 
     const catalog = getManualCharacterCatalog();
-    const artifactSets = collectArtifactSets(giRelics, mergedSpanishLoc);
+    const artifactSetsByLanguage = Object.fromEntries(Object.entries(mergedLocByLanguage).map(([language, localeLoc]) => [
+        language,
+        collectArtifactSets(giRelics, localeLoc),
+    ]));
+    const artifactSets = artifactSetsByLanguage.es;
     const artifactPieceAssets = collectArtifactPieceAssets(giRelics);
-    const remoteCharacters = collectRemoteCharacters(giAvatars, mergedSpanishLoc);
+    const remoteCharactersByLanguage = Object.fromEntries(Object.entries(mergedLocByLanguage).map(([language, localeLoc]) => [
+        language,
+        collectRemoteCharacters(giAvatars, localeLoc),
+    ]));
+    const remoteCharacters = remoteCharactersByLanguage.es;
     const artifactImages = await syncArtifactPieceImages(artifactPieceAssets);
     const report = await buildReport({
         artifactImages,
         artifactSets,
+        artifactSetsByLanguage,
         catalog,
-        currentLoc,
+        currentLocByLanguage,
         downloads,
         localReliquarySets,
-        mergedSpanishLoc,
+        mergedLocByLanguage,
         remoteCharacters,
+        remoteCharactersByLanguage,
     });
 
     if (checkOnly) {
         console.log('Modo check: no se escribieron archivos.');
     } else {
         await mkdir(generatedDir, { recursive: true });
-        await writeJson(locPath, mergedSpanishLoc);
+        await writeLocalizations(mergedLocByLanguage);
         await writeJson(reportJsonPath, report);
         await writeFile(reportMarkdownPath, formatMarkdownReport(report), 'utf8');
         await writeGeneratedGameData(generatedGameDataPath, {
-            artifactSets,
+            artifactSetsByLanguage,
             remoteCharacters,
+            remoteCharactersByLanguage,
         });
     }
 
@@ -93,6 +104,32 @@ async function downloadSources(sources) {
     }));
 
     return Object.fromEntries(entries);
+}
+
+async function readCurrentLocalizations() {
+    const entries = await Promise.all(Object.entries(localizationOutputs).map(async ([language, outputPath]) => [
+        language,
+        await readJsonIfExists(outputPath, {}),
+    ]));
+
+    return Object.fromEntries(entries);
+}
+
+function buildMergedLocalizations(currentLocByLanguage, giLocs, loc) {
+    return Object.fromEntries(Object.keys(localizationOutputs).map(language => [
+        language,
+        sortRecord({
+            ...(currentLocByLanguage[language] ?? {}),
+            ...(giLocs[language] ?? {}),
+            ...(loc[language] ?? {}),
+        }),
+    ]));
+}
+
+async function writeLocalizations(mergedLocByLanguage) {
+    await Promise.all(Object.entries(mergedLocByLanguage).map(([language, localeLoc]) => (
+        writeJson(localizationOutputs[language], localeLoc)
+    )));
 }
 
 async function downloadText(url) {
@@ -197,12 +234,14 @@ function downloadWithCurlBuffer(url, extraArgs) {
 async function buildReport({
     artifactImages,
     artifactSets,
+    artifactSetsByLanguage,
     catalog,
-    currentLoc,
+    currentLocByLanguage,
     downloads,
     localReliquarySets,
-    mergedSpanishLoc,
+    mergedLocByLanguage,
     remoteCharacters,
+    remoteCharactersByLanguage,
 }) {
     const localSetIds = new Set(localReliquarySets.map(set => String(set.setId)));
     const remoteSetIds = new Set(artifactSets.map(set => String(set.setId)));
@@ -218,16 +257,26 @@ async function buildReport({
                 method: download.method,
             },
         ])),
-        localization: {
-            output: relativeToRoot(locPath),
+        localization: Object.fromEntries(Object.keys(localizationOutputs).map(language => [
+            language,
+            {
+                output: relativeToRoot(localizationOutputs[language]),
+                beforeEntries: Object.keys(currentLocByLanguage[language] ?? {}).length,
+                afterEntries: Object.keys(mergedLocByLanguage[language] ?? {}).length,
+                addedEntries: Object.keys(mergedLocByLanguage[language] ?? {})
+                    .filter(key => !(key in (currentLocByLanguage[language] ?? {}))).length,
+            },
+        ])),
+        generatedData: {
             generatedDataOutput: relativeToRoot(generatedGameDataPath),
-            beforeEntries: Object.keys(currentLoc).length,
-            afterEntries: Object.keys(mergedSpanishLoc).length,
-            addedEntries: Object.keys(mergedSpanishLoc).filter(key => !(key in currentLoc)).length,
         },
         characters: {
             localCount: localCatalogIds.size,
             remoteCount: remoteCharacters.length,
+            remoteCountByLanguage: Object.fromEntries(Object.entries(remoteCharactersByLanguage).map(([language, characters]) => [
+                language,
+                characters.length,
+            ])),
             remoteMissingLocally: remoteCharacters.filter(character => !localCatalogIds.has(character.id)),
             missingBuilds: collectMissingBuilds(catalog),
             missingAssets: await collectMissingCharacterAssets(catalog),
@@ -237,7 +286,10 @@ async function buildReport({
             localConfigCount: localSetIds.size,
             remoteMissingLocally: artifactSets.filter(set => !localSetIds.has(String(set.setId))),
             localMissingRemotely: [...localSetIds].filter(setId => !remoteSetIds.has(setId)).sort(sortNumericStrings),
-            missingTranslations: artifactSets.filter(set => !set.name),
+            missingTranslationsByLanguage: Object.fromEntries(Object.entries(artifactSetsByLanguage).map(([language, sets]) => [
+                language,
+                sets.filter(set => !set.name),
+            ])),
         },
         artifactImages,
     };
@@ -473,15 +525,20 @@ function formatMarkdownReport(report) {
         '',
         '## Localization',
         '',
-        `- ${report.localization.output}`,
-        `- ${report.localization.generatedDataOutput}`,
-        `- Entries: ${report.localization.beforeEntries} -> ${report.localization.afterEntries}`,
-        `- Added entries: ${report.localization.addedEntries}`,
+        ...Object.entries(report.localization).flatMap(([language, localization]) => [
+            `### ${language}`,
+            `- ${localization.output}`,
+            `- Entries: ${localization.beforeEntries} -> ${localization.afterEntries}`,
+            `- Added entries: ${localization.addedEntries}`,
+            '',
+        ]),
+        `- Generated data: ${report.generatedData.generatedDataOutput}`,
         '',
         '## Characters',
         '',
         `- Local catalog: ${report.characters.localCount}`,
         `- Remote Enka avatars: ${report.characters.remoteCount}`,
+        ...Object.entries(report.characters.remoteCountByLanguage).map(([language, count]) => `- Remote Enka avatars (${language}): ${count}`),
         `- Remote characters missing locally: ${report.characters.remoteMissingLocally.length}`,
         formatRows(report.characters.remoteMissingLocally, character => `- ${character.id}: ${character.name} (${character.element ?? 'no element'})`),
         '',
@@ -507,8 +564,11 @@ function formatMarkdownReport(report) {
         `- Local sets not present remotely: ${report.artifactSets.localMissingRemotely.length}`,
         formatRows(report.artifactSets.localMissingRemotely, setId => `- ${setId}`),
         '',
-        `- Artifact set translations missing: ${report.artifactSets.missingTranslations.length}`,
-        formatRows(report.artifactSets.missingTranslations, set => `- ${set.setId}: hash ${set.nameHash}`),
+        '- Artifact set translations missing:',
+        ...Object.entries(report.artifactSets.missingTranslationsByLanguage).flatMap(([language, sets]) => [
+            `  - ${language}: ${sets.length}`,
+            formatRows(sets, set => `    - ${set.setId}: hash ${set.nameHash}`),
+        ]),
         '',
         '## Artifact Images',
         '',
@@ -524,11 +584,16 @@ function formatMarkdownReport(report) {
     ].join('\n');
 }
 
-async function writeGeneratedGameData(filePath, { artifactSets, remoteCharacters }) {
+async function writeGeneratedGameData(filePath, {
+    artifactSetsByLanguage,
+    remoteCharacters,
+    remoteCharactersByLanguage,
+}) {
     const characters = Object.fromEntries(remoteCharacters.map(character => [
         character.id,
         {
             nombre: character.name,
+            names: getNamesByLanguage(character.id, remoteCharactersByLanguage),
             elemento: character.element,
             sourceId: character.sourceId,
             nameHash: character.nameHash,
@@ -536,9 +601,13 @@ async function writeGeneratedGameData(filePath, { artifactSets, remoteCharacters
         },
     ]));
 
-    const artifactSetsById = Object.fromEntries(artifactSets
-        .filter(set => set.name)
-        .map(set => [set.setId, set.name]));
+    const artifactSetsByLocale = Object.fromEntries(Object.entries(artifactSetsByLanguage).map(([language, sets]) => [
+        language,
+        Object.fromEntries(sets
+            .filter(set => set.name)
+            .map(set => [set.setId, set.name])),
+    ]));
+    const artifactSetsById = artifactSetsByLocale.es ?? {};
 
     const content = [
         '// Archivo generado por script/tools/sync-game-data.mjs.',
@@ -547,9 +616,22 @@ async function writeGeneratedGameData(filePath, { artifactSets, remoteCharacters
         '',
         `export const generatedArtifactSetsById = ${JSON.stringify(artifactSetsById, null, 2)};`,
         '',
+        `export const generatedArtifactSetsByLocale = ${JSON.stringify(artifactSetsByLocale, null, 2)};`,
+        '',
     ].join('\n');
 
     await writeFile(filePath, content, 'utf8');
+}
+
+function getNamesByLanguage(characterId, remoteCharactersByLanguage) {
+    const names = {};
+
+    for (const [language, characters] of Object.entries(remoteCharactersByLanguage)) {
+        const character = characters.find(item => item.id === characterId);
+        if (character?.name) names[language] = character.name;
+    }
+
+    return names;
 }
 
 function buildGeneratedCharacterAssets(sideIconName) {
@@ -583,12 +665,14 @@ function formatRows(rows, formatter) {
 function printSummary(report) {
     console.log('');
     console.log('Sincronizacion completada.');
-    console.log(`Localizacion: ${report.localization.beforeEntries} -> ${report.localization.afterEntries} entradas (${report.localization.addedEntries} nuevas).`);
+    for (const [language, localization] of Object.entries(report.localization)) {
+        console.log(`Localizacion ${language}: ${localization.beforeEntries} -> ${localization.afterEntries} entradas (${localization.addedEntries} nuevas).`);
+    }
     console.log(`Personajes remotos no catalogados: ${report.characters.remoteMissingLocally.length}.`);
     console.log(`Personajes sin builds: ${report.characters.missingBuilds.length}.`);
     console.log(`Assets faltantes: ${report.characters.missingAssets.missingProfileIcons.length} iconos, ${report.characters.missingAssets.missingBanners.length} banners, ${report.characters.missingAssets.missingElementIcons.length} elementos.`);
     console.log(`Sets remotos no presentes en ReliquarySetExcelConfigData: ${report.artifactSets.remoteMissingLocally.length}.`);
-    console.log(`Traducciones de sets faltantes: ${report.artifactSets.missingTranslations.length}.`);
+    console.log(`Traducciones de sets faltantes: ${Object.entries(report.artifactSets.missingTranslationsByLanguage).map(([language, sets]) => `${language} ${sets.length}`).join(', ')}.`);
     console.log(`Imagenes de artefactos: ${report.artifactImages.total} rastreadas, ${report.artifactImages.downloaded} descargadas, ${report.artifactImages.fallbackDownloads.length} con URL alternativa, ${report.artifactImages.missing} pendientes/error.`);
 
     if (!checkOnly) {
