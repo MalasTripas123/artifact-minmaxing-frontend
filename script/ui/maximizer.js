@@ -76,17 +76,7 @@ export function renderMaximizerSection() {
             
             <div style="margin-top:10px; margin-bottom:25px">
                 <button class="toggle-stat-btn ${elementalCupEnabled ? 'active' : ''}" data-id="goblet">Copa con daño elemental</button>
-                <select id="goblet-element" class="goblet-element-select" style="margin-left: 5px">
-                    <option class="build-presets-opt" value="custom" selected>Cualquiera</option>
-                    <option class="build-presets-opt" value="pyro">Pyro</option>
-                    <option class="build-presets-opt" value="hydro">Hydro</option>
-                    <option class="build-presets-opt" value="electro">Electro</option>
-                    <option class="build-presets-opt" value="cryo">Cryo</option>
-                    <option class="build-presets-opt" value="anemo">Anemo</option>
-                    <option class="build-presets-opt" value="geo">Geo</option>
-                    <option class="build-presets-opt" value="dendro">Dendro</option>
-                    <option class="build-presets-opt" value="physical">Físico</option>
-                </select>
+
             </div>
 
             <div class="summary-panel" id="maximizer-output">

@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-06-01T00:04:17.237Z",
+  "checkOnly": false,
+  "sources": {
+    "loc": {
+      "url": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/loc.json",
+      "method": "curl --ssl-no-revoke"
+    },
+    "giLocs": {
+      "url": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/gi/locs.json",
+      "method": "curl --ssl-no-revoke"
+    },
+    "giRelics": {
+      "url": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/gi/relics.json",
+      "method": "curl --ssl-no-revoke"
+    },
+    "giAvatars": {
+      "url": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/gi/avatars.json",
+      "method": "curl --ssl-no-revoke"
+    }
+  },
+  "localization": {
+    "output": "config-data/EnkaLocES.json",
+    "generatedDataOutput": "script/parcing/generated-game-data.js",
+    "beforeEntries": 936,
+    "afterEntries": 936,
+    "addedEntries": 0
+  },
+  "characters": {
+    "localCount": 115,
+    "remoteCount": 119,
+    "remoteMissingLocally": [
+      {
+        "id": "10000129",
+        "name": "Lohen",
+        "nameHash": "2872823194",
+        "element": "Cryo",
+        "sourceId": "10000129",
+        "sideIconName": "/ui/UI_AvatarIcon_Side_Lohen.png"
+      },
+      {
+        "id": "10000130",
+        "name": "Linnéa",
+        "nameHash": "1961019898",
+        "element": "Geo",
+        "sourceId": "10000130",
+        "sideIconName": "/ui/UI_AvatarIcon_Side_Linnea.png"
+      },
+      {
+        "id": "10000131",
+        "name": "Nicole",
+        "nameHash": "1711582634",
+        "element": "Pyro",
+        "sourceId": "10000131",
+        "sideIconName": "/ui/UI_AvatarIcon_Side_Nicole.png"
+      },
+      {
+        "id": "10000132",
+        "name": "Prune",
+        "nameHash": "2787504450",
+        "element": "Anemo",
+        "sourceId": "10000132",
+        "sideIconName": "/ui/UI_AvatarIcon_Side_Prune.png"
+      }
+    ],
+    "missingBuilds": [
+      {
+        "id": "10000117",
+        "name": "Manekin",
+        "element": null
+      },
+      {
+        "id": "10000118",
+        "name": "Manekina",
+        "element": null
+      }
+    ],
+    "missingAssets": {
+      "missingProfileIcons": [
+        {
+          "id": "10000005",
+          "name": "Traveler Aether",
+          "expectedPath": "assets/pfp/Traveler Aether_Icon.webp"
+        },
+        {
+          "id": "10000007",
+          "name": "Traveler Lumine",
+          "expectedPath": "assets/pfp/Traveler Lumine_Icon.webp"
+        }
+      ],
+      "missingBanners": [
+        {
+          "id": "10000005",
+          "name": "Traveler Aether",
+          "expectedPath": "assets/gacha-img/Traveler Aether.png"
+        },
+        {
+          "id": "10000007",
+          "name": "Traveler Lumine",
+          "expectedPath": "assets/gacha-img/Traveler Lumine.png"
+        },
+        {
+          "id": "10000117",
+          "name": "Manekin",
+          "expectedPath": "assets/gacha-img/Manekin.png"
+        },
+        {
+          "id": "10000118",
+          "name": "Manekina",
+          "expectedPath": "assets/gacha-img/Manekina.png"
+        }
+      ],
+      "missingElementIcons": [
+        {
+          "element": "Light",
+          "expectedPath": "assets/elements/light.webp"
+        }
+      ]
+    }
+  },
+  "artifactSets": {
+    "remoteCount": 63,
+    "localConfigCount": 62,
+    "remoteMissingLocally": [
+      {
+        "setId": "15045",
+        "nameHash": "287571027",
+        "name": "Dádiva Celestial"
+      },
+      {
+        "setId": "15046",
+        "nameHash": "2639070347",
+        "name": "Desilusión Congelada en las Sombras"
+      }
+    ],
+    "localMissingRemotely": [
+      "15000"
+    ],
+    "missingTranslations": []
+  },
+  "artifactImages": {
+    "outputDir": "assets/artifacts/sets",
+    "total": 295,
+    "existing": 289,
+    "downloaded": 6,
+    "missing": 0,
+    "fallbackDownloads": [
+      {
+        "iconName": "UI_RelicIcon_15004_2",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_2.png"
+      },
+      {
+        "iconName": "UI_RelicIcon_15004_3",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_3.png"
+      },
+      {
+        "iconName": "UI_RelicIcon_15012_3",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10012_1.png"
+      },
+      {
+        "iconName": "UI_RelicIcon_15004_1",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_1.png"
+      },
+      {
+        "iconName": "UI_RelicIcon_15004_4",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_4.png"
+      },
+      {
+        "iconName": "UI_RelicIcon_15004_5",
+        "sourceUrl": "https://enka.network/ui/UI_RelicIcon_10004_5.png"
+      }
+    ],
+    "failed": []
+  }
+}

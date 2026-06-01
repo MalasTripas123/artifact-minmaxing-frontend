@@ -11,6 +11,7 @@ import {
 } from '../state.js';
 import { renderMaximizerSection } from './maximizer.js';
 import { 
+    getArtifactPieceImage,
     getArtifactTypeParced, 
     getSetName, 
     getStatNameParced,
@@ -21,6 +22,19 @@ import {
     calculateCritValue,
 } from '../domain/maximizer-calculator.js';
 import { requestSectionNavigationSync } from './navigation.js';
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+function getArtifactImageStyle(image) {
+    return image ? ` style="--artifact-image: url('${escapeHtml(image)}')"` : '';
+}
 
 // inicia los eventos relevantes de character.js
 export function initCharacterEvents() {
@@ -163,12 +177,15 @@ export function getArtifacts(){
                 mainStatValue: 0,
                 subStats: [],
                 isElemental: false,
-                totalRolls: 0
+                totalRolls: 0,
+                image: ''
             };
             // tipo
             artifact.type = getArtifactTypeParced(item.flat.equipType);
             // set
-            artifact.set = getSetName(item.flat.setNameTextMapHash);
+            artifact.set = getSetName(item.flat.setNameTextMapHash, item.flat);
+            // imagen
+            artifact.image = getArtifactPieceImage(item.flat.icon);
             // nivel
             artifact.level = item.reliquary.level - 1;
             // stat principal
@@ -232,16 +249,18 @@ function renderGears() {
     return artifacts.map(artifact => {
         return `
         <div class="equipment-card">
-            <div class="eq-header" style="font-size:0.80rem;"><span>${artifact.type}</span><span>+${artifact.level}</span></div>
-            <div class="eq-header"><span>${artifact.set}</span></div>
-            <div class="eq-main-box">
-                <b style="font-size:1.1rem">${artifact.mainStatValue}${
-                    artifact.mainStat === 'HP'||
-                    artifact.mainStat === 'ATK'||
-                    artifact.mainStat === 'DEF' ||
-                    artifact.mainStat === 'EM'
-                     ? '' : '%'}</b>
-                <div style="font-size:0.65rem; color:var(--text-muted)">${artifact.mainStat}</div>
+            <div class="eq-artifact-visual"${getArtifactImageStyle(artifact.image)}>
+                <div class="eq-header" style="font-size:0.80rem;"><span>${artifact.type}</span><span>+${artifact.level}</span></div>
+                <div class="eq-header"><span>${artifact.set}</span></div>
+                <div class="eq-main-box">
+                    <b style="font-size:1.1rem">${artifact.mainStatValue}${
+                        artifact.mainStat === 'HP'||
+                        artifact.mainStat === 'ATK'||
+                        artifact.mainStat === 'DEF' ||
+                        artifact.mainStat === 'EM'
+                         ? '' : '%'}</b>
+                    <div style="font-size:0.65rem; color:var(--text-muted)">${artifact.mainStat}</div>
+                </div>
             </div>
             <div class="substats-list">
                 ${renderSub(artifact.subStats[0].subStatName, artifact.subStats[0].upgrades, artifact.subStats[0].subStatName)}

@@ -1,4 +1,6 @@
 // Mapa liviano de localizaciones publicado por Enka para resolver hashes de nombres.
+import { generatedArtifactSetsById } from './generated-game-data.js';
+
 const textMap = await fetch('./config-data/EnkaLocES.json').then(res => res.json());
 
 // tipo artefacto
@@ -12,17 +14,34 @@ const artifactTypes = {
 export const getArtifactTypeParced = (equipType) => artifactTypes[equipType] ?? '';
 
 // set
-export const getSetName = (setNameTextMapHash) => {
+export const getSetName = (setNameTextMapHash, artifactFlat = {}) => {
     const directName = textMap[setNameTextMapHash];
     if (directName) return directName;
 
     const numericHash = Number(setNameTextMapHash);
     if (Number.isFinite(numericHash)) {
-        return textMap[String(numericHash + 512)] || 'Unknown';
+        const shiftedName = textMap[String(numericHash + 512)];
+        if (shiftedName) return shiftedName;
     }
+
+    const setId = getSetIdFromArtifactIcon(artifactFlat.icon);
+    if (setId && generatedArtifactSetsById[setId]) return generatedArtifactSetsById[setId];
 
     return 'Unknown';
 };
+
+export const getArtifactPieceImage = (icon = '') => {
+    const iconName = getArtifactIconName(icon);
+    return iconName ? `./assets/artifacts/sets/${iconName}.png` : '';
+};
+
+function getSetIdFromArtifactIcon(icon = '') {
+    return String(icon).match(/UI_RelicIcon_(\d+)_/)?.[1] ?? '';
+}
+
+function getArtifactIconName(icon = '') {
+    return String(icon).split('/').pop()?.replace(/\.png$/i, '') ?? '';
+}
 
 // nombres stats
 const statNames = {

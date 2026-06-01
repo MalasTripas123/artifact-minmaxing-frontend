@@ -1,4 +1,10 @@
-import { getBuildById, getCharNameById, getElementById } from '../parcing/character-names.js';
+import {
+    getBuildById,
+    getCharNameById,
+    getElementById,
+    getGeneratedCharacterAssetsById,
+    hasManualCharacter,
+} from '../parcing/character-names.js';
 
 const API_BASE_URL = 'https://artifact-minmaxing-backend.onrender.com';
 
@@ -86,17 +92,20 @@ function normalizeCharacter(character) {
         element,
         level: Number(character.propMap?.[4001]?.ival) || 0,
         builds: getBuildById(avatarId),
-        assets: getCharacterAssets(name, element),
+        assets: getCharacterAssets(avatarId, name, element),
         propMap: character.propMap || {},
         fightPropMap: character.fightPropMap || {},
         equipList: Array.isArray(character.equipList) ? character.equipList : [],
     };
 }
 
-function getCharacterAssets(name, element) {
+function getCharacterAssets(avatarId, name, element) {
+    const generatedAssets = getGeneratedCharacterAssetsById(avatarId);
+    const useGeneratedAssets = generatedAssets && !hasManualCharacter(avatarId);
+
     return {
-        profileIcon: `./assets/pfp/${name}_Icon.webp`,
-        banner: `./assets/gacha-img/${name}.png`,
+        profileIcon: useGeneratedAssets ? generatedAssets.profileIcon : `./assets/pfp/${name}_Icon.webp`,
+        banner: useGeneratedAssets ? generatedAssets.banner : `./assets/gacha-img/${name}.png`,
         elementIcon: element ? `./assets/elements/${element.toLowerCase()}.webp` : '',
     };
 }

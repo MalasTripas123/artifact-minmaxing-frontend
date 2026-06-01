@@ -1,14 +1,14 @@
 import { access } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getCharacterCatalog } from '../parcing/character-names.js';
+import { getManualCharacterCatalog } from '../parcing/character-names.js';
 
 const VALID_STATS = new Set(['HP%', 'ATK%', 'DEF%', 'CR', 'CD', 'EM', 'ER']);
 const VALID_ELEMENTS = new Set(['Anemo', 'Cryo', 'Cryo-abyss', 'Dendro', 'Electro', 'Geo', 'Hydro', 'Pyro', 'Light']);
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const frontendRoot = path.resolve(currentDir, '..', '..');
-const catalog = getCharacterCatalog();
+const catalog = getManualCharacterCatalog();
 const errors = [];
 const warnings = [];
 

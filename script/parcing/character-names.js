@@ -1,13 +1,27 @@
 import { builds } from './builds.js';
+import { generatedCharacters } from './generated-game-data.js';
 
 // convertirIdANombre es el nombre de la función
 // () son los parámetros que recibe
 // => indica el contenido de la función que se retorna automáticamente
 // ?? es el operador de función nula, que retorna el valor de la izquierda si no es null o undefined, y encaso contrario retorna el de la derecha
-export const getCharNameById = (id) => personajes[id]?.nombre ?? String(id);
-export const getElementById = (id) => personajes[id]?.elemento ?? null;
+export const getCharNameById = (id) => personajes[id]?.nombre ?? generatedCharacters[id]?.nombre ?? String(id);
+export const getElementById = (id) => personajes[id]?.elemento ?? generatedCharacters[id]?.elemento ?? null;
 export const getBuildById = (id) => personajes[id]?.builds ?? [];
-export const getCharacterCatalog = () => personajes;
+export const hasManualCharacter = (id) => Boolean(personajes[id]);
+export const getGeneratedCharacterAssetsById = (id) => generatedCharacters[id]?.assets ?? null;
+export const getManualCharacterCatalog = () => personajes;
+export const getCharacterCatalog = () => ({
+  ...Object.fromEntries(Object.entries(generatedCharacters).map(([id, character]) => [
+    id,
+    {
+      nombre: character.nombre,
+      elemento: character.elemento,
+      builds: [],
+    },
+  ])),
+  ...personajes,
+});
 
 const personajes = {
   10000002: { 

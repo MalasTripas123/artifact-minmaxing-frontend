@@ -622,13 +622,52 @@
         .equipment-card { 
             min-width: 0; /* Removido 165px para permitir compresión grid */
             background: var(--pillar-bg); border: 1px solid var(--border-color); 
-            border-radius: 8px; padding: 10px; display: flex; flex-direction: column; 
+            border-radius: 8px; padding: 10px; display: flex; flex-direction: column; overflow: hidden;
+        }
+        .eq-artifact-visual {
+            position: relative;
+            isolation: isolate;
+            min-height: 116px;
+            margin: -10px -10px 8px;
+            padding: 10px 10px 8px;
+            overflow: hidden;
+            border-radius: 7px 7px 4px 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(0,0,0,0.12));
+        }
+        .eq-artifact-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image: var(--artifact-image);
+            background-repeat: no-repeat;
+            background-position: center 55%;
+            background-size: 100px 100px;
+            opacity: 0.68;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.45));
+        }
+        .eq-artifact-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.58)),
+                radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 62%);
+        }
+        .eq-artifact-visual > * {
+            position: relative;
+            z-index: 2;
         }
         .eq-header { 
             line-height: 1.1em;
             min-height: 2.2em;
             font-size: 0.6rem; color: var(--accent-lavender); text-transform: uppercase; margin-bottom: -3px; display: flex; justify-content: space-between; }
         .eq-main-box { text-align: center; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 6px; }
+        .eq-artifact-visual .eq-header { text-shadow: 0 2px 6px rgba(0,0,0,0.85); }
+        .eq-artifact-visual .eq-main-box { border-bottom: 0; margin-bottom: 0; padding: 10px 0 0; text-shadow: 0 2px 8px rgba(0,0,0,0.85); }
         .eq-main-box b { font-size: 0.9rem; }
         .eq-main-box div { font-size: 0.55rem; color: var(--text-muted); }
 
