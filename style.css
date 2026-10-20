@@ -446,16 +446,57 @@
 
         /* Barra de Información del Jugador */
         #player-info-bar {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 200px;
+            gap: 22px 16px;
             display: flex; 
-            background: linear-gradient(90deg, var(--dot-color), transparent);
+            background: #1b293c;
             border: 1px solid var(--primary-purple);
             border-radius: 10px; /* Reducido */
-            padding: 8px 12px; /* Reducido */
+            padding: 24px;
             margin-bottom: 15px; /* Reducido */
             justify-content: space-between;
             align-items: center;
             animation: slideDownBar 0.4s ease-out;
             flex-wrap: wrap; /* Permitir que colapse en pantallas muy pequeñas */
+        }
+
+        .player-namecard {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center; z-index: -2;
+        }
+        #player-info-bar::before {
+            content: ''; position: absolute; inset: 0; z-index: -1;
+            background: linear-gradient(90deg, rgba(10,18,32,.84), rgba(10,18,32,.22)),
+                linear-gradient(0deg, rgba(10,18,32,.85), transparent 85%);
+        }
+        #player-info-bar .player-meta { min-width: 0; gap: 14px; }
+        #player-info-bar .player-pfp-box {
+            width: 64px; height: 64px; flex-shrink: 0; border-radius: 50%;
+            background: rgba(20,30,48,.65); border-color: rgba(255,255,255,.65);
+            overflow: hidden;
+        }
+        .player-pfp-box img { width: 100%; height: 100%; object-fit: cover; }
+        #player-info-bar .player-name { color: #fff; font-size: 1.25rem; overflow-wrap: anywhere; }
+        #player-info-bar .player-level { color: #e0e7f1; margin-top: 6px; }
+        .player-stats {
+            flex: 1 0 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px; margin: 0; color: #fff;
+        }
+        .player-stat { padding: 12px 14px; background: rgba(10,18,32,.60); border: 1px solid rgba(255,255,255,.16); border-radius: 8px; }
+        .player-stat dt { color: #e0e7f1; font-size: .72rem; }
+        .player-stat dd { margin: 6px 0 3px; font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .player-stat span { color: #c5d1df; font-size: .65rem; }
+        .player-stats-note { flex-basis: 100%; margin: -10px 0 0; color: #e0e7f1; font-size: .7rem; }
+        .player-signature { flex: 1 0 100%; margin: -6px 0 0; color: #edf1f7; font-size: .85rem; line-height: 1.5; overflow-wrap: anywhere; white-space: pre-wrap; }
+        .player-stat dd { font-size: clamp(.95rem, 2vw, 1.3rem); }
+        @media (max-width: 600px) {
+            #player-info-bar { padding: 18px; gap: 18px; }
+            .player-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+            #player-info-bar .player-meta { flex-direction: row; text-align: left; }
+            #player-info-bar .action-btns { margin-left: auto; }
         }
 
         @keyframes slideDownBar {

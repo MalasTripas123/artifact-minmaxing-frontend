@@ -86,8 +86,9 @@
         </nav>
         <div id="results-area" style="display: none;">
             <div id="player-info-bar">
+                <img id="player-namecard" class="player-namecard" alt="" hidden>
                 <div class="player-meta">
-                    <div class="player-pfp-box">👤</div>
+                    <div class="player-pfp-box"><img id="player-portrait" src="./assets/character-placeholder.svg" alt=""></div>
                     <div class="player-text-info">
                         <span class="player-name" id="display-player-name" data-i18n="player.namePlaceholder">Nombre Jugador</span>
                         <span class="player-level" id="display-player-lv" data-i18n="player.levelUnknown">Nivel no identificado</span>
@@ -98,6 +99,9 @@
                     <button class="star-btn" id="fav-toggle" title="Favorito">★</button>
                     <button class="close-btn" id="close-btn" title="Cerrar">×</button>
                 </div>
+                <p id="player-signature" class="player-signature" hidden></p>
+                <dl id="player-stats" class="player-stats"></dl>
+                <p id="player-stats-note" class="player-stats-note" hidden></p>
             </div>
 
             <h2 class="section-title" id="characters-section-title" data-i18n="sections.characters">Personajes en Cuenta</h2>

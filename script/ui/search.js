@@ -13,6 +13,7 @@ import { hideLoading, showLoading } from './loading.js';
 import { requestSectionNavigationSync } from './navigation.js';
 import { showCharacter } from './character.js';
 import { onLanguageChange, t } from './language.js';
+import { renderPlayerCard, renderPlayerStats } from './player-card.js';
 
 const PROFILE_UID_PARAM = 'uid';
 let isSearchBusy = false;
@@ -146,8 +147,7 @@ function applyProfile(profile, {
 
     document.getElementById('header-section').classList.add('minimized');
     document.getElementById('player-info-bar').style.display = 'flex';
-    document.getElementById('display-player-name').innerText = profile.player.nickname;
-    document.getElementById('display-player-lv').innerText = 'AR' + profile.player.level;
+    renderPlayerCard(profile.player);
 
     const isFav = favorites.find(f => f.id === profile.uid);
     document.getElementById('fav-toggle').classList.toggle('active', !!isFav);
@@ -186,6 +186,7 @@ function renderCharacterGrid(profileCharacters = characters) {
 }
 
 function refreshVisibleProfileLanguage() {
+    renderPlayerStats();
     setSearchBusy(isSearchBusy);
     renderRefreshButton();
 
