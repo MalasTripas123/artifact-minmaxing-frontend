@@ -172,7 +172,10 @@ function renderCharacterGrid(profileCharacters = characters) {
 
         return `
         <div class="char-btn" data-id="${char.avatarId}">
-            <img class="char-img" id="${char.avatarId}" data-src="${escapeHtml(char.assets.profileIcon)}" alt="">
+            <div class="char-portrait">
+                <img class="char-img" id="${char.avatarId}" data-src="${escapeHtml(char.assets.profileIcon)}" alt="">
+                ${char.constellation > 0 ? `<span class="constellation-badge" aria-label="${t('character.constellation')} ${char.constellation}">${char.constellation}</span>` : ''}
+            </div>
             <div class="char-name ${longStyle}">${escapeHtml(char.name)}</div>
         </div>`;
     }).join('');

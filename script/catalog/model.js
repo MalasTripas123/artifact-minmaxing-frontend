@@ -66,6 +66,7 @@ export function resolveCharacter(catalog, id, language = 'es', skillDepotId) {
         nombre: override.names?.[language] ?? override.nombre ?? data?.names?.[language] ?? data?.nombre ?? `${language === 'en' ? 'Unknown character' : 'Personaje sin catalogar'} (${baseId})`,
         elemento: Object.hasOwn(override, 'elemento') ? override.elemento : data?.elemento ?? null,
         assets: data?.assets ?? {},
+        talents: data?.talents ?? [],
         builds,
         metadataAvailable: Boolean(data),
         buildStatus: builds.length ? 'configured' : 'pending',

@@ -1,6 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { playerStats, playerImages, playerServer, formatDuration } from './player-profile.js';
+import { playerStats, playerImages, playerServer, formatDuration, stygianIcon } from './player-profile.js';
+
+test('Stygian VI special badge includes the 180-second boundary', () => {
+    assert.equal(stygianIcon(6, 179), './assets/stygian/6b.webp');
+    assert.equal(stygianIcon(6, 180), './assets/stygian/6b.webp');
+    assert.equal(stygianIcon(6, 181), './assets/stygian/6.webp');
+    assert.equal(stygianIcon(6, null), './assets/stygian/6.webp');
+    assert.equal(stygianIcon(6, undefined), './assets/stygian/6.webp');
+    assert.equal(stygianIcon(5, 150), './assets/stygian/5.webp');
+    assert.equal(stygianIcon(0, 100), '');
+});
 
 test('abyss preserves highest chamber and total stars independently', () => {
     const stats = playerStats({ towerFloorIndex: 12, towerLevelIndex: 3, towerStarIndex: 36 });

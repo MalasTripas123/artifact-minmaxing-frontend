@@ -1,5 +1,7 @@
-import { getCharacter } from '../catalog/store.js';
+import { catalog, getCharacter } from '../catalog/store.js';
+import { characterWeapon } from '../domain/character-weapon.js';
 import { getCurrentLanguage, t } from '../ui/language.js';
+import { characterConstellation, characterTalents } from '../domain/character-talents.js';
 
 const REMOTE_API_BASE_URL = 'https://artifact-minmaxing-backend.onrender.com';
 const LOCAL_API_BASE_URL = 'http://127.0.0.1:3000';
@@ -154,6 +156,9 @@ export function localizeCharacterProfile(character) {
         ...character,
         avatarId,
         name: metadata.nombre,
+        constellation: characterConstellation(character),
+        talents: characterTalents(character, metadata.talents),
+        equippedWeapon: characterWeapon(character, catalog.generated.weapons, catalog.generated.localizations, getCurrentLanguage()),
         element,
         builds: metadata.builds,
         metadataAvailable: metadata.metadataAvailable,

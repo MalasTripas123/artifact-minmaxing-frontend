@@ -1,6 +1,6 @@
 import { currentPlayer } from '../state.js';
 import { t } from './language.js';
-import { playerStats, playerImages, playerServer, formatDuration } from '../domain/player-profile.js';
+import { playerStats, playerImages, playerServer, formatDuration, stygianIcon } from '../domain/player-profile.js';
 
 let assetsPromise;
 let renderId = 0;
@@ -23,7 +23,11 @@ export async function renderPlayerCard(player = currentPlayer) {
     background.hidden = true;
     background.removeAttribute('src');
     portrait.onerror = () => { portrait.onerror = null; portrait.src = placeholder; };
-    background.onerror = () => { background.hidden = true; };
+    background.onerror = () => {
+        if (background.src.endsWith('.png')) {
+            background.src = background.src.replace(/\.png$/, '.jpg');
+        } else background.hidden = true;
+    };
     assetsPromise ??= fetch(new URL('../../data/profile-assets.json', import.meta.url))
         .then(response => {
             if (!response.ok) throw new Error('Profile assets unavailable');
@@ -34,22 +38,21 @@ export async function renderPlayerCard(player = currentPlayer) {
     const images = playerImages(player, assets);
     portrait.src = images.portrait || placeholder;
     if (images.namecard) {
-        background.src = images.namecard;
+        background.src = images.namecard.replace(/\.jpg$/, '.png');
         background.hidden = false;
     }
 }
 
 export function renderPlayerStats(player = currentPlayer) {
     const stats = playerStats(player);
-    const missing = t('player.noData');
     const rows = [
-        ['achievements', stats.achievements ?? '—', t('player.achievementsDetail')],
-        ['abyss', `${stats.floor ?? '—'}-${stats.chamber ?? '—'} · ${stats.abyss ?? '—'} ★`,
-            t('player.abyssDetail')],
-        ['theater', `${t('player.act', { act: stats.theaterAct ?? '—' })} · ${stats.theater ?? '—'} ★`,
-            t('player.arcana', { count: stats.theaterArcana ?? '—' })],
-        ['stygian', stats.stygianSeconds !== null && stats.stygianLevel > 0 ? formatDuration(stats.stygianSeconds) : '—',
-            stats.stygianLevel > 0 ? t('player.difficulty', { level: stats.stygianLevel }) : missing],
+        ['achievements', stats.achievements ?? '—'],
+        ['abyss', `${stats.floor ?? '—'}-${stats.chamber ?? '—'} · ${stats.abyss ?? '—'}`,
+            ''],
+        ['theater', `${t('player.act', { act: stats.theaterAct ?? '—' })} · ${stats.theater ?? '—'}`,
+            ''],
+        ['stygian', stats.stygianSeconds !== null && stats.stygianLevel > 0
+            ? formatDuration(stats.stygianSeconds) : '—'],
     ];
     const container = document.getElementById('player-stats');
     container.replaceChildren(...rows.map(([key, value, detail]) => {
@@ -57,15 +60,37 @@ export function renderPlayerStats(player = currentPlayer) {
         item.className = 'player-stat';
         const label = document.createElement('dt');
         label.textContent = t(`player.${key}`);
+        const titleIcon = { achievements: 'achievement', abyss: 'abyss', theater: 'theater' }[key];
+        if (titleIcon) {
+            const icon = document.createElement('img');
+            icon.className = 'player-stat-title-icon';
+            icon.src = `./assets/profile/${titleIcon}.webp`;
+            icon.alt = '';
+            label.prepend(icon);
+        }
         const result = document.createElement('dd');
         result.textContent = value;
-        const context = document.createElement('span');
-        context.textContent = value === '—' ? missing : detail;
-        if (key === 'theater' && stats.theaterArcana === null) context.title = t('player.arcanaUnavailable');
-        item.append(label, result, context);
+        if (key === 'abyss' || key === 'theater') {
+            const stars = document.createElement('img');
+            stars.className = 'player-stat-stars-icon';
+            stars.src = `./assets/profile/${key}_stars.png`;
+            stars.alt = t('player.stars');
+            result.classList.add('player-stat-star-result');
+            result.append(stars);
+        }
+        if (key === 'stygian' && stats.stygianLevel >= 1 && stats.stygianLevel <= 6) {
+            const icon = document.createElement('img');
+            icon.className = 'stygian-difficulty-icon';
+            icon.src = stygianIcon(stats.stygianLevel, stats.stygianSeconds);
+            icon.alt = t('player.difficulty', { level: stats.stygianLevel });
+            icon.title = icon.alt;
+            result.classList.add('stygian-result');
+            result.prepend(icon);
+        }
+        item.append(label, result);
         return item;
     }));
     const note = document.getElementById('player-stats-note');
-    note.hidden = stats.theaterArcana !== null;
-    note.textContent = t('player.arcanaUnavailable');
+    note.hidden = true;
+    note.textContent = '';
 }

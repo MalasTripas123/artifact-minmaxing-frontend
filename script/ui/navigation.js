@@ -59,7 +59,7 @@ function syncSectionNavigation() {
 
 function updateCharacterNavLabel() {
     const label = document.getElementById('section-nav-character-label');
-    const characterName = document.querySelector('#char-header h2')?.innerText.trim();
+    const characterName = document.querySelector('#char-header h2')?.textContent.trim().replace(/\s+/g, ' ');
 
     if (label) label.innerText = characterName || t('nav.character');
 }

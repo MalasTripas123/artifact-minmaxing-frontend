@@ -24,6 +24,7 @@ import {
 } from '../domain/maximizer-calculator.js';
 import { requestSectionNavigationSync } from './navigation.js';
 import { t } from './language.js';
+import { equippedSets } from '../domain/artifact-summary.js';
 
 function escapeHtml(value) {
     return String(value)
@@ -98,11 +99,30 @@ export function showCharacter(id, shouldScroll = true) {
     detail.innerHTML = `
         <div class="detail-header" id="char-header">
             <div class="detail-icon" id="element-icon"></div>
-            <div>
-                <h2 style="font-size: 1.8rem; margin-bottom: 2px;">${escapeHtml(char.name)}</h2>
+            <div class="character-heading">
                 <p style="color:var(--accent-lavender); font-weight:700">${t('character.level')} ${char.level} / 90</p>
+                <p class="character-constellation">${t('character.constellation')} ${char.constellation}</p>
+                <h2 class="character-name-stacked" aria-label="${escapeHtml(char.name)}">${char.name.split(/\s+/).map(word => `<span>${escapeHtml(word)}</span>`).join(' ')}</h2>
                 ${!char.metadataAvailable ? `<p>${t('character.metadataPending')}</p>` : ''}
                 ${char.buildStatus === 'pending' ? `<p>${t('maximizer.noPresets')}</p>` : ''}
+            </div>
+            ${char.equippedWeapon ? `
+                <div class="character-weapon" aria-label="${t('character.weapon')}" title="${escapeHtml(char.equippedWeapon.name)}">
+                    <div class="weapon-icon">${char.equippedWeapon.icon ? `<img src="${escapeHtml(char.equippedWeapon.icon)}" alt="">` : '<span aria-hidden="true">—</span>'}</div>
+                    <div class="weapon-copy">
+                        <strong>${escapeHtml(char.equippedWeapon.name)}</strong>
+                        <span class="weapon-level">${t('character.level')} ${char.equippedWeapon.level ?? '—'} · <span class="weapon-refinement" aria-label="${t('character.refinement')} ${char.equippedWeapon.refinement ?? '—'}">${char.equippedWeapon.refinement ? '★'.repeat(char.equippedWeapon.refinement) : '—'}</span></span>
+                    </div>
+                </div>
+            ` : ''}
+            <div class="character-talents" aria-label="${t('character.talents')}">
+                ${(char.talents ?? []).map(talent => `
+                    <div class="character-talent${talent.extra > 0 ? ' boosted' : ''}" title="${escapeHtml(t(`character.${talent.kind}`))}${talent.level !== null && talent.extra > 0 ? ` · ${talent.base} + ${talent.extra}` : ''}">
+                        <span class="talent-label">${t(`character.${talent.kind}Short`)}</span>
+                        <div class="talent-icon">${talent.icon ? `<img src="${escapeHtml(talent.icon)}" alt="${escapeHtml(t(`character.${talent.kind}`))}">` : '<span aria-hidden="true">—</span>'}</div>
+                        <span class="talent-level">${t('character.level')} ${talent.level ?? '—'}</span>
+                    </div>
+                `).join('')}
             </div>
         </div>
 
@@ -132,7 +152,8 @@ export function showCharacter(id, shouldScroll = true) {
             <div class="eq-controls">
                 <div style="display: flex; flex-direction: row;">
                     <div class="artif-header-icon" style="background-image: ${`url('./assets/artifacts/artifacts.webp')`}"></div>
-                    <h3 class="section-title" id="artifacts-section-title" style="margin-bottom:0">${t('sections.artifacts')}</h3>
+                    <div><h3 class="section-title" id="artifacts-section-title" style="margin-bottom:0">${t('sections.artifacts')}</h3>
+                    <p class="equipped-sets">${equippedSets(getArtifacts()).map(set => `×${set.pieces} ${escapeHtml(set.name)}`).join(' · ') || t('character.noSetBonus')}</p></div>
                 </div>
                 <button class="view-toggle-btn">${t('character.toggleView')}</button>
             </div>
@@ -144,6 +165,11 @@ export function showCharacter(id, shouldScroll = true) {
         ${''}
     `;
     detail.innerHTML += renderMaximizerSection();
+    detail.querySelectorAll('.talent-icon img, .weapon-icon img').forEach(image => {
+        image.addEventListener('error', () => {
+            image.replaceWith(document.createTextNode('—'));
+        }, { once: true });
+    });
 
     applyRVValues();
 
@@ -203,6 +229,7 @@ export function getArtifacts(){
                 // crea un objeto que representa a un substat y le asigna un nombre que es el nombre del substat conseguido del artefacto del json
                 let subStat = {
                     subStatName: getStatNameParced(item.flat.reliquarySubstats[i].appendPropId),
+                    totalValue: Number(item.flat.reliquarySubstats[i].statValue),
                     value: item.flat.reliquarySubstats[i].statValue,
                     upgrades: []
                 };
@@ -288,7 +315,7 @@ function renderSub(name, rollsWithValue, type) {
             <div style="display:flex; justify-content:space-between"><span>${name}</span><b>${total}${
                     type === 'HP'||
                     type === 'ATK'||
-                    type === 'DEF'
+                    type === 'DEF'|| type === 'EM'
                      ? '' : '%'}</b></div>
             <div class="substat-upgrades">
                 ${[1, 2, 3, 4, 5].map(j => `<div class="upgrade-dot ${j <= rolls.length ? '' : 'empty'}"></div>`).join('')}

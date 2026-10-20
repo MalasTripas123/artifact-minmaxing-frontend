@@ -21,6 +21,14 @@ export function formatDuration(seconds) {
     return `${seconds} s`;
 }
 
+export function stygianIcon(level, seconds) {
+    const difficulty = count(level);
+    const time = count(seconds);
+    if (difficulty === null || difficulty < 1 || difficulty > 6) return '';
+    const variant = difficulty === 6 && time !== null && time <= 180 ? '6b' : difficulty;
+    return `./assets/stygian/${variant}.webp`;
+}
+
 export function playerServer(uid) {
     const value = String(uid ?? '');
     if (!/^\d{9,10}$/.test(value)) return '';

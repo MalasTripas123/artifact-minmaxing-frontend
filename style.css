@@ -488,6 +488,12 @@
         .player-stat { padding: 12px 14px; background: rgba(10,18,32,.60); border: 1px solid rgba(255,255,255,.16); border-radius: 8px; }
         .player-stat dt { color: #e0e7f1; font-size: .72rem; }
         .player-stat dd { margin: 6px 0 3px; font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .player-stat .stygian-result { display: flex; align-items: center; gap: 7px; }
+        .stygian-difficulty-icon { width: 32px; height: 32px; object-fit: contain; flex-shrink: 0; }
+        .player-stat dt { display: flex; align-items: center; gap: 6px; min-height: 22px; }
+        .player-stat-title-icon { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
+        .player-stat-star-result { display: flex; align-items: center; gap: 5px; }
+        .player-stat-stars-icon { width: 24px; height: 24px; object-fit: contain; flex-shrink: 0; }
         .player-stat span { color: #c5d1df; font-size: .65rem; }
         .player-stats-note { flex-basis: 100%; margin: -10px 0 0; color: #e0e7f1; font-size: .7rem; }
         .player-signature { flex: 1 0 100%; margin: -6px 0 0; color: #edf1f7; font-size: .85rem; line-height: 1.5; overflow-wrap: anywhere; white-space: pre-wrap; }
@@ -601,6 +607,45 @@
         .char-name.long { font-size: 0.6rem; }
         .char-name.verylong { font-size: 0.55rem; }
         .char-name.ultralong { font-size: 0.5rem; }
+        .char-portrait { position: relative; width: 100%; max-width: 55px; }
+        .constellation-badge {
+            position: absolute; bottom: 5px; left: -3px; min-width: 17px;
+            padding: 1px 3px; border: 1px solid #e9ddbc; border-radius: 3px;
+            background: #8b7756; color: #fff; font-size: .72rem; font-weight: 800;
+            line-height: 1.1; text-align: center; box-shadow: 0 1px 3px #0008;
+        }
+        .character-heading { min-width: 0; }
+        .character-heading h2 { overflow-wrap: anywhere; }
+        .character-constellation { margin-top: 2px; }
+        .detail-header .character-name-stacked { font-size: 1.45rem; line-height: 1.08; margin: 5px 0 0; }
+        .character-name-stacked span { display: block; }
+        .character-talents { margin-left: auto; display: flex; gap: 8px; flex-shrink: 0; }
+        .character-talent {
+            width: 68px; padding: 7px 4px; display: flex; flex-direction: column;
+            align-items: center; gap: 4px; border-radius: 8px;
+            background: rgba(12,18,30,.78); border: 1px solid rgba(255,255,255,.22); color: #f1f5ff;
+        }
+        .talent-label { font-size: .65rem; font-weight: 700; }
+        .talent-icon { height: 36px; width: 36px; display: grid; place-items: center; }
+        .talent-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .talent-level { font-size: .72rem; font-weight: 800; }
+        .boosted .talent-level { color: #8dd9ff; }
+        .character-weapon { width: 82px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 5px 3px; border-radius: 8px; background: rgba(12,18,30,.78); border: 1px solid rgba(255,255,255,.22); color: #f1f5ff; text-align: center; }
+        .weapon-icon { width: 36px; height: 36px; flex-shrink: 0; display: grid; place-items: center; }
+        .weapon-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .weapon-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; width: 100%; }
+        .weapon-copy strong { font-size: .6rem; line-height: 1.15; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .weapon-copy .weapon-level { font-size: .55rem; white-space: nowrap; }
+        .weapon-refinement { color: #f5d58c; font-size: .48rem; letter-spacing: -.5px; }
+        @media (max-width: 600px) {
+            .detail-header { flex-wrap: wrap; }
+            .detail-icon { flex-shrink: 0; }
+            .character-heading { flex: 0 1 auto; }
+            .character-talents { width: 100%; justify-content: flex-end; }
+            .character-weapon { width: 76px; }
+            .character-talent { width: 60px; padding: 4px; }
+            .talent-icon { width: 30px; height: 30px; }
+        }
 
         /* Detalle Personaje */
         #character-detail { 
@@ -618,7 +663,7 @@
         .detail-header {
             background-color: var(--card-bg);
             background-size: cover;
-            background-position: top center;
+            background-position: center 25%;
             background-repeat: no-repeat;
             position: sticky;
             top: var(--section-nav-height, 0px);
@@ -765,7 +810,13 @@
 
         /* Maximizador */
         .maximizer-section { padding: 15px 15px calc(110px + var(--section-nav-height, 0px)); border-top: 2px solid var(--border-color); background: rgba(123, 44, 191, 0.03); }
-        .maximizer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 6px; margin: 12px 0; }
+        .maximizer-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+        .maximizer-grid .toggle-stat-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; padding: 10px 4px; min-width: 0; }
+        .stat-filter-heading { white-space: nowrap; }
+        .stat-filter-total { font-size: .85rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        @media (min-width: 601px) and (max-width: 800px) {
+            .maximizer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
 
         .toggle-stat-btn {
             background: var(--pillar-bg); border: 1px solid var(--border-color); color: var(--text-muted);
@@ -778,6 +829,13 @@
         }
 
         .summary-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+        .equipped-sets { margin: 6px 0 0; font-size: .75rem; color: var(--accent-lavender); line-height: 1.4; }
+        .stat-roll-count { color: var(--accent-lavender); font-weight: 900; margin-left: 5px; padding: 1px 4px; border-radius: 4px; background: var(--card-bg); }
+        .summary-toggle { display: block; margin: 0 0 0 auto; width: 25px; height: 25px; border-radius: 5px; border: 1px solid var(--border-color); color: var(--accent-lavender); background: var(--card-bg); cursor: pointer; font-size: 1rem; }
+        .summary-panel:not(.expanded) .summary-extra { display: none; }
+        .summary-current-row { display: flex; flex-wrap: wrap; gap: 3px 10px; }
+        .summary-panel.expanded .summary-current-row { flex-direction: column; }
+        .summary-help { display: flex; flex-direction: column; gap: 3px; }
         .info-tile { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; display: flex; flex-direction: column; gap: 3px; }
         .info-tile .label { font-size: 0.7rem; color: var(--text-muted); }
         .info-tile .value { font-size: 1.1rem; font-weight: 800; color: var(--accent-lavender); }
@@ -1043,7 +1101,7 @@
         /* AJUSTES EXTRA MÓVIL (Responsividad principal) */
         @media (max-width: 600px) {
             .main-pillar { padding: 10px; }
-            .maximizer-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); }
+            .maximizer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .character-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 6px; }
             .char-btn { aspect-ratio: auto; height: auto; } /* Más flexible en móvil */
             .equipment-row.fixed { grid-template-columns: repeat(2, 1fr); } /* Fuerza 2 columnas equilibradas */

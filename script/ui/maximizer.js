@@ -12,6 +12,7 @@ import {
 } from '../domain/maximizer-calculator.js';
 import { t } from './language.js';
 import { escapeHtml } from './html.js';
+import { statRollCounts, statValueTotals } from '../domain/artifact-summary.js';
 
 function getStatFilters() {
     return [
@@ -37,6 +38,14 @@ export let selectedBuild;
 
 export function initMaximizerEvents() {
     document.addEventListener('click', (e) => {
+        const summaryToggle = e.target.closest('.summary-toggle');
+        if (summaryToggle) {
+            const expanded = document.getElementById('maximizer-output').classList.toggle('expanded');
+            summaryToggle.textContent = expanded ? '−' : '+';
+            summaryToggle.setAttribute('aria-expanded', String(expanded));
+            summaryToggle.setAttribute('aria-label', t(expanded ? 'maximizer.collapseSummary' : 'maximizer.expandSummary'));
+            return;
+        }
         const statButton = e.target.closest('.toggle-stat-btn');
         if (!statButton) return;
 
@@ -57,6 +66,9 @@ export function initMaximizerEvents() {
 }
 
 export function renderMaximizerSection() {
+    const artifacts = getArtifacts();
+    const rollCounts = statRollCounts(artifacts);
+    const totals = statValueTotals(artifacts);
     return `
         <div class="maximizer-section">
             <div style="display: flex; flex-direction: row;">
@@ -74,7 +86,10 @@ export function renderMaximizerSection() {
             
             <div class="maximizer-grid">
                 ${getStatFilters().map(s => `
-                    <button class="toggle-stat-btn ${selectedFilterStats.has(s.id) ? 'active' : ''}" data-id="${s.id}">${s.name}</button>
+                    <button class="toggle-stat-btn ${selectedFilterStats.has(s.id) ? 'active' : ''}" data-id="${s.id}">
+                        <span class="stat-filter-heading">${s.name}<span class="stat-roll-count">×${rollCounts[s.id] ?? 0}</span></span>
+                        <span class="stat-filter-total">${totals[s.id] ?? 0}${s.id === 'EM' ? '' : '%'}</span>
+                    </button>
                 `).join('')}
             </div>
             
@@ -83,6 +98,7 @@ export function renderMaximizerSection() {
 
             </div>
 
+            <button class="summary-toggle" type="button" aria-controls="maximizer-output" aria-expanded="false" aria-label="${t('maximizer.expandSummary')}">+</button>
             <div class="summary-panel" id="maximizer-output">
                 ${renderMaximizerData()}
             </div>
@@ -112,21 +128,21 @@ function renderMaximizerData() {
                 <span class="label">${t('maximizer.maxEfficiency')} </span>
                 <span class="value">${theoreticalMax * 100}%</span>
             </div>
-            <span class="label">${t('maximizer.rollEfficiencyHelp')}</span>
+            <div class="summary-extra summary-help"><span class="label">${t('maximizer.rollEfficiencyHelp')}</span>
             <span class="label">${t('maximizer.fourStatsHelp')}</span>
-            <span class="label">${t('maximizer.balanceHelp')}</span>
+            <span class="label">${t('maximizer.balanceHelp')}</span></div>
         </div>
         <div class="info-tile">
             <span class="label" style="font-size: 16px"><b>${t('maximizer.currentTitle')}</b></span>
-            <div>
+            <div class="summary-current-row"><div>
                 <span class="label">${t('maximizer.currentSubstats')}</span>
                 <span class="value">${foundSubs.count}</span>
             </div>
             <div>
                 <span class="label">${t('maximizer.currentEfficiency')}</span>
                 <span class="value">${foundSubs.rollQuality}%</span>
-            </div>
-            <div>
+            </div></div>
+            <div class="summary-extra">
                 <span class="label">${t('maximizer.perfectionNoQuality')} </span>
                 <span class="value">${theoreticalMax === 0 ? '0%' : Number(((foundSubs.count * 100) / theoreticalMax).toFixed(1)) + '%'}</span>
             </div>
@@ -135,7 +151,7 @@ function renderMaximizerData() {
                 <span class="value">${theoreticalMax === 0 ? '0%' : Number(((foundSubs.rollQuality * 100) / (theoreticalMax * 100)).toFixed(1)) + '%'}</span>
             </div>
 
-            <div>
+            <div class="summary-extra">
                 <span class="label">${t('maximizer.mainStats')}</span>
                 <span class="value">${foundSubs.principalStatsCount}/3</span>
             </div>

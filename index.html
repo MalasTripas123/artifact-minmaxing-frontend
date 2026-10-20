@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="style.css?v=language-toggle">
 </head>
 <body data-theme="dark">
+    <script>
+        // Apply the saved palette before any visible content is parsed.
+        (() => {
+            const read = fn => { try { return fn(); } catch { return null; } };
+            const key = 'artifactMinmaxingTheme';
+            const theme = read(() => localStorage.getItem(key))
+                || read(() => sessionStorage.getItem(key))
+                || read(() => decodeURIComponent(document.cookie.split('; ').find(c => c.startsWith(key + '='))?.slice(key.length + 1) || ''))
+                || read(() => JSON.parse(window.name || '{}').artifactMinmaxing?.theme)
+                || read(() => history.state?.artifactMinmaxing?.theme);
+            if (['dark', 'light', 'pastel', 'pyro', 'hydro', 'electro', 'dendro', 'cryo', 'anemo', 'geo'].includes(theme)) {
+                document.body.dataset.theme = theme;
+            }
+        })();
+    </script>
     <!-- <div class="bg">
     </div> -->
     
