@@ -549,6 +549,7 @@
         }
         .char-btn:hover { border-color: var(--accent-lavender); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
         .char-img { 
+            object-fit: cover;
             width: 100%; max-width: 55px; height: auto; aspect-ratio: 1/1; /* Reducido fluido */
             background: var(--pillar-bg); border-radius: 6px; margin-bottom: 4px; 
             font-size: 1.4rem; display: flex; align-items: center; justify-content: center;

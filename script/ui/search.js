@@ -172,10 +172,17 @@ function renderCharacterGrid(profileCharacters = characters) {
 
         return `
         <div class="char-btn" data-id="${char.avatarId}">
-            <div class="char-img" id="${char.avatarId}" style="background-image: url(&quot;${escapeHtml(char.assets.profileIcon)}&quot;), url('./assets/character-placeholder.svg');"></div>
+            <img class="char-img" id="${char.avatarId}" data-src="${escapeHtml(char.assets.profileIcon)}" alt="">
             <div class="char-name ${longStyle}">${escapeHtml(char.name)}</div>
         </div>`;
     }).join('');
+    for (const image of grid.querySelectorAll('img.char-img')) {
+        image.addEventListener('error', () => {
+            image.src = './assets/character-placeholder.svg';
+        }, { once: true });
+        image.src = image.dataset.src || './assets/character-placeholder.svg';
+        delete image.dataset.src;
+    }
 }
 
 function refreshVisibleProfileLanguage() {
