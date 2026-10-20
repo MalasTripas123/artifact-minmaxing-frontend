@@ -99,8 +99,10 @@ export function showCharacter(id, shouldScroll = true) {
         <div class="detail-header" id="char-header">
             <div class="detail-icon" id="element-icon"></div>
             <div>
-                <h2 style="font-size: 1.8rem; margin-bottom: 2px;">${char.name}</h2>
+                <h2 style="font-size: 1.8rem; margin-bottom: 2px;">${escapeHtml(char.name)}</h2>
                 <p style="color:var(--accent-lavender); font-weight:700">${t('character.level')} ${char.level} / 90</p>
+                ${!char.metadataAvailable ? `<p>${t('character.metadataPending')}</p>` : ''}
+                ${char.buildStatus === 'pending' ? `<p>${t('maximizer.noPresets')}</p>` : ''}
             </div>
         </div>
 

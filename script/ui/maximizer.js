@@ -11,6 +11,7 @@ import {
     countArtifactStats,
 } from '../domain/maximizer-calculator.js';
 import { t } from './language.js';
+import { escapeHtml } from './html.js';
 
 function getStatFilters() {
     return [
@@ -238,12 +239,12 @@ function fillBuilds() {
 
     const options = builds
         .slice(1)
-        .map(b => `<option class="build-presets-opt" value="${b.nombre}">${b.nombre}</option>`)
+        .map(b => `<option class="build-presets-opt" value="${escapeHtml(b.id)}">${escapeHtml(b.nombre)}</option>`)
         .join('');
 
     return `
         <option class="build-presets-opt" value="custom">${t('maximizer.custom')}</option>
-        <option class="build-presets-opt" value="${selectedBuild.nombre}" selected>${selectedBuild.nombre}</option>
+        <option class="build-presets-opt" value="${escapeHtml(selectedBuild.id)}" selected>${escapeHtml(selectedBuild.nombre)}</option>
         ${options}
     `;
 }
@@ -256,7 +257,7 @@ function selectBuild() {
     setElementalCupEnabled(false);
 
     const builds = currentSelectedChar.builds ?? [];
-    const build = builds.find(b => b.nombre === buildSelect.value);
+    const build = builds.find(b => b.id === buildSelect.value);
     if (build) {
         build.stats.forEach(s => selectedFilterStats.add(s));
         if (build.goblet === '') setElementalCupEnabled(true);

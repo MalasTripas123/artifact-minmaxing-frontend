@@ -1,0 +1,1004 @@
+{
+  "templates": {
+    "carry.ATK": {
+      "nombre": "DPS [ATK + Crit + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%"
+      ],
+      "elementalGoblet": true
+    },
+    "carry.DEF": {
+      "nombre": "DPS [DEF + Crit + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%"
+      ],
+      "elementalGoblet": true
+    },
+    "carry.HP": {
+      "nombre": "DPS [HP + Crit + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%"
+      ],
+      "elementalGoblet": true
+    },
+    "carry.EM": {
+      "nombre": "DPS [EM + Crit + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "EM"
+      ],
+      "elementalGoblet": true
+    },
+    "carry.ER": {
+      "nombre": "DPS [ER + Crit + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryNoEle.ATK": {
+      "nombre": "DPS [ATK + Crit] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%"
+      ],
+      "elementalGoblet": false
+    },
+    "carryNoEle.DEF": {
+      "nombre": "DPS [DEF + Crit] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%"
+      ],
+      "elementalGoblet": false
+    },
+    "carryNoEle.HP": {
+      "nombre": "DPS [HP + Crit] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%"
+      ],
+      "elementalGoblet": false
+    },
+    "carryNoEle.EM": {
+      "nombre": "DPS [EM + Crit] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "carryNoEle.ER": {
+      "nombre": "DPS [ER + Crit] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryER.ATK": {
+      "nombre": "DPS [ATK + Crit + ER + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryER.DEF": {
+      "nombre": "DPS [DEF + Crit + ER + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryER.HP": {
+      "nombre": "DPS [HP + Crit + ER + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryER.EM": {
+      "nombre": "DPS [EM + Crit + ER + Elemental DMG]",
+      "stats": [
+        "CR",
+        "CD",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryERNoEle.ATK": {
+      "nombre": "DPS [ATK + Crit + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryERNoEle.DEF": {
+      "nombre": "DPS [DEF + Crit + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryERNoEle.HP": {
+      "nombre": "DPS [HP + Crit + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryERNoEle.EM": {
+      "nombre": "DPS [EM + Crit + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEM.ATK": {
+      "nombre": "DPS [ATK + Crit + EM + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "EM"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEM.DEF": {
+      "nombre": "DPS [DEF + Crit + EM + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "EM"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEM.HP": {
+      "nombre": "DPS [HP + Crit + EM + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "EM"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEM.ER": {
+      "nombre": "DPS [ER + Crit + EM + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "ER",
+        "EM"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEMNoEle.ATK": {
+      "nombre": "DPS [ATK + Crit + EM] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMNoEle.DEF": {
+      "nombre": "DPS [DEF + Crit + EM] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMNoEle.HP": {
+      "nombre": "DPS [HP + Crit + EM] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMNoEle.ER": {
+      "nombre": "DPS [ER + Crit + EM] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ER",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMER.ATK": {
+      "nombre": "DPS [ATK + Crit + EM + ER + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEMER.DEF": {
+      "nombre": "DPS [DEF + Crit + EM + ER + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEMER.HP": {
+      "nombre": "DPS [HP + Crit + EM + ER + Elemental DMG]]",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": true
+    },
+    "carryEMERNoEle.ATK": {
+      "nombre": "DPS [ATK + Crit + EM + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "ATK%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMERNoEle.DEF": {
+      "nombre": "DPS [DEF + Crit + EM + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "DEF%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "carryEMERNoEle.HP": {
+      "nombre": "DPS [HP + Crit + EM + ER] --sin Elemental DMG",
+      "stats": [
+        "CR",
+        "CD",
+        "HP%",
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "supp.ATK": {
+      "nombre": "Support [ATK + ER]",
+      "stats": [
+        "ATK%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "supp.DEF": {
+      "nombre": "Support [DEF + ER]",
+      "stats": [
+        "DEF%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "supp.HP": {
+      "nombre": "Support [HP + ER]",
+      "stats": [
+        "HP%",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "supp.EM": {
+      "nombre": "Support [EM + ER]",
+      "stats": [
+        "EM",
+        "ER"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEM.ATK": {
+      "nombre": "Support [ATK + ER + EM]",
+      "stats": [
+        "ATK%",
+        "ER",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEM.DEF": {
+      "nombre": "Support [DEF + ER + EM]",
+      "stats": [
+        "DEF%",
+        "ER",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEM.HP": {
+      "nombre": "Support [HP + ER + EM]",
+      "stats": [
+        "HP%",
+        "ER",
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "suppFav.ATK": {
+      "nombre": "Support con Favonius [ATK + ER + Crit rate]",
+      "stats": [
+        "ATK%",
+        "ER",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppFav.DEF": {
+      "nombre": "Support con Favonius [DEF + ER + Crit rate]",
+      "stats": [
+        "DEF%",
+        "ER",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppFav.HP": {
+      "nombre": "Support con Favonius [HP + ER + Crit rate]",
+      "stats": [
+        "HP%",
+        "ER",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppFav.EM": {
+      "nombre": "Support con Favonius [EM + ER + Crit rate]",
+      "stats": [
+        "EM",
+        "ER",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEMFav.ATK": {
+      "nombre": "Support [ATK + ER + EM + CR]",
+      "stats": [
+        "ATK%",
+        "ER",
+        "EM",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEMFav.DEF": {
+      "nombre": "Support [DEF + ER + EM + CR]",
+      "stats": [
+        "DEF%",
+        "ER",
+        "EM",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "suppEMFav.HP": {
+      "nombre": "Support [HP + ER + EM + CR]",
+      "stats": [
+        "HP%",
+        "ER",
+        "EM",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStat.ATK": {
+      "nombre": "Single stat [ATK]",
+      "stats": [
+        "ATK%"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStat.DEF": {
+      "nombre": "Single stat [DEF]",
+      "stats": [
+        "DEF%"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStat.HP": {
+      "nombre": "Single stat [HP]",
+      "stats": [
+        "HP%"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStat.EM": {
+      "nombre": "Single stat [EM]",
+      "stats": [
+        "EM"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStatFav.ATK": {
+      "nombre": "Single stat con Favonius [ATK + Crit rate]",
+      "stats": [
+        "ATK%",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStatFav.DEF": {
+      "nombre": "Single stat con Favonius [DEF + Crit rate]",
+      "stats": [
+        "DEF%",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStatFav.HP": {
+      "nombre": "Single stat con Favonius [HP + Crit rate]",
+      "stats": [
+        "HP%",
+        "CR"
+      ],
+      "elementalGoblet": false
+    },
+    "monoStatFav.EM": {
+      "nombre": "Single stat con Favonius [EM + Crit rate]",
+      "stats": [
+        "EM",
+        "CR"
+      ],
+      "elementalGoblet": false
+    }
+  },
+  "assignments": {
+    "10000002": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000003": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000005": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000006": [
+      "carry.ATK",
+      "carryER.ATK",
+      "carryEM.ATK",
+      "carryEMER.ATK",
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000007": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000014": [
+      "supp.HP",
+      "suppFav.HP",
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000015": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000016": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000020": [
+      "carryNoEle.ATK",
+      "carryERNoEle.ATK"
+    ],
+    "10000021": [
+      "carry.ATK",
+      "supp.HP"
+    ],
+    "10000022": [
+      "carry.EM",
+      "supp.EM"
+    ],
+    "10000023": [
+      "carryER.ATK",
+      "carryEMER.ATK"
+    ],
+    "10000024": [
+      "carryER.ATK",
+      "carry.ATK"
+    ],
+    "10000025": [
+      "carryER.ATK",
+      "suppFav.ATK"
+    ],
+    "10000026": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000027": [
+      "carry.ATK"
+    ],
+    "10000029": [
+      "carry.ATK"
+    ],
+    "10000030": [
+      "supp.HP",
+      "suppFav.HP",
+      "carry.HP"
+    ],
+    "10000031": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000032": [
+      "supp.HP",
+      "suppFav.HP",
+      "supp.ATK"
+    ],
+    "10000033": [
+      "carry.ATK"
+    ],
+    "10000034": [
+      "carry.DEF",
+      "carryER.DEF"
+    ],
+    "10000035": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000036": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000037": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000038": [
+      "carry.DEF",
+      "supp.DEF"
+    ],
+    "10000039": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000041": [
+      "carryER.ATK",
+      "suppFav.ATK"
+    ],
+    "10000042": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000043": [
+      "supp.EM",
+      "suppFav.EM",
+      "carry.EM"
+    ],
+    "10000044": [
+      "carryNoEle.ATK",
+      "carry.DEF"
+    ],
+    "10000045": [
+      "carry.ATK",
+      "carryER.ATK",
+      "suppFav.ATK"
+    ],
+    "10000046": [
+      "carryEM.HP",
+      "carry.HP"
+    ],
+    "10000047": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000048": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000049": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000050": [
+      "supp.HP",
+      "suppFav.HP",
+      "carry.EM"
+    ],
+    "10000051": [
+      "carryNoEle.ATK",
+      "carryERNoEle.ATK"
+    ],
+    "10000052": [
+      "carryER.ATK",
+      "carryERNoEle.ATK",
+      "carry.EM"
+    ],
+    "10000053": [
+      "supp.EM",
+      "supp.ATK"
+    ],
+    "10000054": [
+      "supp.HP",
+      "monoStat.HP"
+    ],
+    "10000055": [
+      "supp.DEF",
+      "suppFav.DEF"
+    ],
+    "10000056": [
+      "carryER.ATK",
+      "supp.ATK"
+    ],
+    "10000057": [
+      "carry.DEF",
+      "carryER.DEF"
+    ],
+    "10000058": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000059": [
+      "carry.ATK",
+      "carry.EM"
+    ],
+    "10000060": [
+      "carry.HP",
+      "carryER.HP"
+    ],
+    "10000061": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000062": [
+      "carry.ATK"
+    ],
+    "10000063": [
+      "supp.ATK",
+      "suppFav.ATK",
+      "monoStat.ATK"
+    ],
+    "10000064": [
+      "supp.DEF",
+      "suppFav.DEF"
+    ],
+    "10000065": [
+      "monoStat.EM",
+      "supp.EM",
+      "supp.HP"
+    ],
+    "10000066": [
+      "carry.ATK"
+    ],
+    "10000067": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000068": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000069": [
+      "carryEM.ATK",
+      "carry.EM"
+    ],
+    "10000070": [
+      "monoStat.HP",
+      "supp.HP"
+    ],
+    "10000071": [
+      "carryEM.ATK",
+      "carryEMER.ATK"
+    ],
+    "10000072": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000073": [
+      "carry.EM",
+      "supp.EM"
+    ],
+    "10000074": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000075": [
+      "carry.ATK"
+    ],
+    "10000076": [
+      "suppFav.ATK",
+      "supp.ATK"
+    ],
+    "10000077": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000078": [
+      "carry.EM",
+      "carryEM.ATK"
+    ],
+    "10000079": [
+      "carry.HP",
+      "supp.HP",
+      "carry.EM"
+    ],
+    "10000080": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000081": [
+      "supp.EM",
+      "monoStat.EM"
+    ],
+    "10000082": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000083": [
+      "supp.ATK"
+    ],
+    "10000084": [
+      "carry.ATK"
+    ],
+    "10000085": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000086": [
+      "carry.ATK"
+    ],
+    "10000087": [
+      "carry.HP",
+      "carryNoEle.HP"
+    ],
+    "10000088": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000089": [
+      "carryER.HP",
+      "carryERNoEle.HP",
+      "carry.HP",
+      "carryNoEle.HP"
+    ],
+    "10000090": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000091": [
+      "carry.ATK"
+    ],
+    "10000092": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000093": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000094": [
+      "carry.DEF"
+    ],
+    "10000095": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000096": [
+      "carry.ATK"
+    ],
+    "10000097": [
+      "carry.EM",
+      "carryEM.ATK"
+    ],
+    "10000098": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000099": [
+      "carry.ATK"
+    ],
+    "10000100": [
+      "supp.DEF",
+      "suppFav.DEF"
+    ],
+    "10000101": [
+      "carry.ATK"
+    ],
+    "10000102": [
+      "carry.HP",
+      "carryEM.HP"
+    ],
+    "10000103": [
+      "supp.DEF",
+      "suppFav.DEF"
+    ],
+    "10000104": [
+      "carryNoEle.ATK"
+    ],
+    "10000105": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000106": [
+      "carryEM.ATK",
+      "carry.ATK"
+    ],
+    "10000107": [
+      "supp.EM"
+    ],
+    "10000108": [
+      "supp.ATK",
+      "supp.EM",
+      "suppEM.ATK"
+    ],
+    "10000109": [
+      "monoStat.EM",
+      "supp.EM"
+    ],
+    "10000110": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000111": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000112": [
+      "carryER.ATK",
+      "carryERNoEle.ATK"
+    ],
+    "10000113": [
+      "supp.EM"
+    ],
+    "10000114": [
+      "carry.ATK"
+    ],
+    "10000115": [
+      "supp.HP",
+      "suppFav.HP"
+    ],
+    "10000116": [
+      "carryNoEle.ATK",
+      "carryEMNoEle.ATK",
+      "carryEMERNoEle.ATK"
+    ],
+    "10000117": [],
+    "10000118": [],
+    "10000119": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000120": [
+      "carryEMNoEle.ATK"
+    ],
+    "10000121": [
+      "supp.EM",
+      "suppFav.EM"
+    ],
+    "10000122": [
+      "carryNoEle.EM"
+    ],
+    "10000123": [
+      "carry.ATK",
+      "carryEM.ATK"
+    ],
+    "10000124": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000125": [
+      "carryEMERNoEle.HP",
+      "carryERNoEle.HP"
+    ],
+    "10000126": [
+      "carryNoEle.DEF"
+    ],
+    "10000127": [
+      "supp.DEF",
+      "suppFav.DEF"
+    ],
+    "10000128": [
+      "carryNoEle.ATK"
+    ],
+    "10000129": [
+      "carry.ATK",
+      "carryER.ATK"
+    ],
+    "10000130": [
+      "carryEMNoEle.DEF",
+      "carryEMERNoEle.DEF"
+    ],
+    "10000131": [
+      "monoStat.ATK",
+      "supp.ATK"
+    ],
+    "10000132": [
+      "supp.ATK",
+      "suppFav.ATK"
+    ],
+    "10000133": [
+      "carryNoEle.ATK",
+      "carryEMNoEle.ATK",
+      "carryERNoEle.ATK",
+      "carryEMERNoEle.ATK"
+    ],
+    "10000140": [
+      "monoStat.HP",
+      "supp.HP"
+    ],
+    "10000143": [
+      "carryNoEle.ATK",
+      "carryEMNoEle.ATK",
+      "carryERNoEle.ATK",
+      "carryEMERNoEle.ATK"
+    ],
+    "10000148": [
+      "supp.ATK",
+      "suppFav.ATK",
+      "suppEMFav.ATK"
+    ],
+    "10000150": [
+      "carryNoEle.ATK",
+      "carryEMNoEle.ATK"
+    ]
+  },
+  "overrides": {
+    "10000114": {
+      "elemento": "Cryo-abyss"
+    }
+  }
+}

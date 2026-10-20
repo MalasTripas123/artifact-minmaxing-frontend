@@ -74,6 +74,7 @@ const translations = {
         },
         character: {
             level: 'Nivel',
+            metadataPending: 'Los datos de este personaje todavía no están disponibles en el catálogo.',
             toggleView: 'Alternar Vista',
             stats: {
                 hp: 'Vida',
@@ -112,7 +113,7 @@ const translations = {
         maximizer: {
             description: 'Optimización teórica de tu build.',
             presets: 'Builds predeterminadas:',
-            noPresets: 'El personaje no tiene builds predeterminadas',
+            noPresets: 'Build pendiente de configurar. Puedes elegir las estadísticas manualmente.',
             custom: 'Personalizada',
             elementalGoblet: 'Copa con daño elemental',
             efficiencyTitle: 'Análisis de Eficiencia por Pieza',
@@ -216,6 +217,7 @@ const translations = {
         },
         character: {
             level: 'Level',
+            metadataPending: 'This character’s metadata is not available in the catalog yet.',
             toggleView: 'Toggle View',
             stats: {
                 hp: 'HP',
@@ -254,7 +256,7 @@ const translations = {
         maximizer: {
             description: 'Theoretical optimization for your build.',
             presets: 'Preset builds:',
-            noPresets: 'This character has no preset builds',
+            noPresets: 'Build not configured yet. You can select stats manually.',
             custom: 'Custom',
             elementalGoblet: 'Goblet with elemental damage',
             efficiencyTitle: 'Efficiency Analysis by Piece',

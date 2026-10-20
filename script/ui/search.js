@@ -172,7 +172,7 @@ function renderCharacterGrid(profileCharacters = characters) {
 
         return `
         <div class="char-btn" data-id="${char.avatarId}">
-            <div class="char-img" id="${char.avatarId}" style="background-image: url(&quot;${escapeHtml(char.assets.profileIcon)}&quot;);"></div>
+            <div class="char-img" id="${char.avatarId}" style="background-image: url(&quot;${escapeHtml(char.assets.profileIcon)}&quot;), url('./assets/character-placeholder.svg');"></div>
             <div class="char-name ${longStyle}">${escapeHtml(char.name)}</div>
         </div>`;
     }).join('');

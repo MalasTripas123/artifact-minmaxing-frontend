@@ -1,0 +1,5428 @@
+{
+  "manifest": {
+    "schemaVersion": 1,
+    "updatedAt": "2026-10-20T16:00:19.531Z",
+    "sourceRevision": "88fc20697fda924430943434c11e0c45eb39509f",
+    "source": "EnkaNetwork/API-docs",
+    "sources": {
+      "avatars": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/88fc20697fda924430943434c11e0c45eb39509f/store/gi/avatars.json",
+      "relics": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/88fc20697fda924430943434c11e0c45eb39509f/store/gi/relics.json",
+      "loc": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/88fc20697fda924430943434c11e0c45eb39509f/store/loc.json",
+      "giLocs": "https://raw.githubusercontent.com/EnkaNetwork/API-docs/88fc20697fda924430943434c11e0c45eb39509f/store/gi/locs.json"
+    }
+  },
+  "generated": {
+    "characters": {
+      "10000002": {
+        "nombre": "Kamisato Ayaka",
+        "names": {
+          "es": "Kamisato Ayaka",
+          "en": "Kamisato Ayaka"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000002",
+        "nameHash": "1006042610",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ayaka.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ayaka.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ayaka.png"
+        }
+      },
+      "10000003": {
+        "nombre": "Jean",
+        "names": {
+          "es": "Jean",
+          "en": "Jean"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000003",
+        "nameHash": "3221565738",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Qin.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Qin.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Qin.png"
+        }
+      },
+      "10000005": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": null,
+        "sourceId": "10000005",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000006": {
+        "nombre": "Lisa",
+        "names": {
+          "es": "Lisa",
+          "en": "Lisa"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000006",
+        "nameHash": "3344622722",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Lisa.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Lisa.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Lisa.png"
+        }
+      },
+      "10000007": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": null,
+        "sourceId": "10000007",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000014": {
+        "nombre": "Bárbara",
+        "names": {
+          "es": "Bárbara",
+          "en": "Barbara"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000014",
+        "nameHash": "3775298658",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Barbara.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Barbara.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Barbara.png"
+        }
+      },
+      "10000015": {
+        "nombre": "Kaeya",
+        "names": {
+          "es": "Kaeya",
+          "en": "Kaeya"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000015",
+        "nameHash": "4119662698",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kaeya.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kaeya.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kaeya.png"
+        }
+      },
+      "10000016": {
+        "nombre": "Diluc",
+        "names": {
+          "es": "Diluc",
+          "en": "Diluc"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000016",
+        "nameHash": "3608179810",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Diluc.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Diluc.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Diluc.png"
+        }
+      },
+      "10000020": {
+        "nombre": "Razor",
+        "names": {
+          "es": "Razor",
+          "en": "Razor"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000020",
+        "nameHash": "4160146730",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Razor.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Razor.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Razor.png"
+        }
+      },
+      "10000021": {
+        "nombre": "Amber",
+        "names": {
+          "es": "Amber",
+          "en": "Amber"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000021",
+        "nameHash": "1966438658",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ambor.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ambor.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ambor.png"
+        }
+      },
+      "10000022": {
+        "nombre": "Venti",
+        "names": {
+          "es": "Venti",
+          "en": "Venti"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000022",
+        "nameHash": "2466140362",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Venti.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Venti.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Venti.png"
+        }
+      },
+      "10000023": {
+        "nombre": "Xiangling",
+        "names": {
+          "es": "Xiangling",
+          "en": "Xiangling"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000023",
+        "nameHash": "1130995834",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Xiangling.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Xiangling.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xiangling.png"
+        }
+      },
+      "10000024": {
+        "nombre": "Beidou",
+        "names": {
+          "es": "Beidou",
+          "en": "Beidou"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000024",
+        "nameHash": "2646367730",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Beidou.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Beidou.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Beidou.png"
+        }
+      },
+      "10000025": {
+        "nombre": "Xingchiu",
+        "names": {
+          "es": "Xingchiu",
+          "en": "Xingqiu"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000025",
+        "nameHash": "4197635170",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Xingqiu.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Xingqiu.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xingqiu.png"
+        }
+      },
+      "10000026": {
+        "nombre": "Xiao",
+        "names": {
+          "es": "Xiao",
+          "en": "Xiao"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000026",
+        "nameHash": "1021947178",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Xiao.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Xiao.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xiao.png"
+        }
+      },
+      "10000027": {
+        "nombre": "Ninguang",
+        "names": {
+          "es": "Ninguang",
+          "en": "Ningguang"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000027",
+        "nameHash": "4127888458",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ningguang.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ningguang.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ningguang.png"
+        }
+      },
+      "10000029": {
+        "nombre": "Klee",
+        "names": {
+          "es": "Klee",
+          "en": "Klee"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000029",
+        "nameHash": "3339083250",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Klee.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Klee.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Klee.png"
+        }
+      },
+      "10000030": {
+        "nombre": "Zhongli",
+        "names": {
+          "es": "Zhongli",
+          "en": "Zhongli"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000030",
+        "nameHash": "3862787418",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Zhongli.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Zhongli.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Zhongli.png"
+        }
+      },
+      "10000031": {
+        "nombre": "Fischl",
+        "names": {
+          "es": "Fischl",
+          "en": "Fischl"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000031",
+        "nameHash": "3277782506",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Fischl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Fischl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Fischl.png"
+        }
+      },
+      "10000032": {
+        "nombre": "Bennett",
+        "names": {
+          "es": "Bennett",
+          "en": "Bennett"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000032",
+        "nameHash": "968892866",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Bennett.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Bennett.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Bennett.png"
+        }
+      },
+      "10000033": {
+        "nombre": "Tartaglia",
+        "names": {
+          "es": "Tartaglia",
+          "en": "Tartaglia"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000033",
+        "nameHash": "3847142754",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Tartaglia.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Tartaglia.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tartaglia.png"
+        }
+      },
+      "10000034": {
+        "nombre": "Noelle",
+        "names": {
+          "es": "Noelle",
+          "en": "Noelle"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000034",
+        "nameHash": "1921418330",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Noel.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Noel.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Noel.png"
+        }
+      },
+      "10000035": {
+        "nombre": "Qiqi",
+        "names": {
+          "es": "Qiqi",
+          "en": "Qiqi"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000035",
+        "nameHash": "168956210",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Qiqi.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Qiqi.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Qiqi.png"
+        }
+      },
+      "10000036": {
+        "nombre": "Chongyun",
+        "names": {
+          "es": "Chongyun",
+          "en": "Chongyun"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000036",
+        "nameHash": "2876340530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Chongyun.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Chongyun.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Chongyun.png"
+        }
+      },
+      "10000037": {
+        "nombre": "Ganyu",
+        "names": {
+          "es": "Ganyu",
+          "en": "Ganyu"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000037",
+        "nameHash": "2679780610",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ganyu.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ganyu.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ganyu.png"
+        }
+      },
+      "10000038": {
+        "nombre": "Albedo",
+        "names": {
+          "es": "Albedo",
+          "en": "Albedo"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000038",
+        "nameHash": "4108620210",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Albedo.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Albedo.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Albedo.png"
+        }
+      },
+      "10000039": {
+        "nombre": "Diona",
+        "names": {
+          "es": "Diona",
+          "en": "Diona"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000039",
+        "nameHash": "1468367026",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Diona.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Diona.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Diona.png"
+        }
+      },
+      "10000041": {
+        "nombre": "Mona",
+        "names": {
+          "es": "Mona",
+          "en": "Mona"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000041",
+        "nameHash": "1113306282",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Mona.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Mona.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mona.png"
+        }
+      },
+      "10000042": {
+        "nombre": "Keching",
+        "names": {
+          "es": "Keching",
+          "en": "Keqing"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000042",
+        "nameHash": "1864015138",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Keqing.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Keqing.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Keqing.png"
+        }
+      },
+      "10000043": {
+        "nombre": "Sacarosa",
+        "names": {
+          "es": "Sacarosa",
+          "en": "Sucrose"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000043",
+        "nameHash": "1053433018",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Sucrose.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Sucrose.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sucrose.png"
+        }
+      },
+      "10000044": {
+        "nombre": "Xinyan",
+        "names": {
+          "es": "Xinyan",
+          "en": "Xinyan"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000044",
+        "nameHash": "4273845410",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Xinyan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Xinyan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xinyan.png"
+        }
+      },
+      "10000045": {
+        "nombre": "Rosaria",
+        "names": {
+          "es": "Rosaria",
+          "en": "Rosaria"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000045",
+        "nameHash": "4260733330",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Rosaria.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Rosaria.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Rosaria.png"
+        }
+      },
+      "10000046": {
+        "nombre": "Hu Tao",
+        "names": {
+          "es": "Hu Tao",
+          "en": "Hu Tao"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000046",
+        "nameHash": "1940919482",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Hutao.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Hutao.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Hutao.png"
+        }
+      },
+      "10000047": {
+        "nombre": "Kaedehara Kazuha",
+        "names": {
+          "es": "Kaedehara Kazuha",
+          "en": "Kaedehara Kazuha"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000047",
+        "nameHash": "88505754",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kazuha.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kazuha.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kazuha.png"
+        }
+      },
+      "10000048": {
+        "nombre": "Yanfei",
+        "names": {
+          "es": "Yanfei",
+          "en": "Yanfei"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000048",
+        "nameHash": "697277554",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Feiyan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Feiyan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Feiyan.png"
+        }
+      },
+      "10000049": {
+        "nombre": "Yoimiya",
+        "names": {
+          "es": "Yoimiya",
+          "en": "Yoimiya"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000049",
+        "nameHash": "2504399314",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Yoimiya.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Yoimiya.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yoimiya.png"
+        }
+      },
+      "10000050": {
+        "nombre": "Thoma",
+        "names": {
+          "es": "Thoma",
+          "en": "Thoma"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000050",
+        "nameHash": "3555115090",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Tohma.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Tohma.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tohma.png"
+        }
+      },
+      "10000051": {
+        "nombre": "Eula",
+        "names": {
+          "es": "Eula",
+          "en": "Eula"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000051",
+        "nameHash": "3717666906",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Eula.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Eula.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Eula.png"
+        }
+      },
+      "10000052": {
+        "nombre": "Shogun Raiden",
+        "names": {
+          "es": "Shogun Raiden",
+          "en": "Raiden Shogun"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000052",
+        "nameHash": "3024506994",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Shougun.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Shougun.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shougun.png"
+        }
+      },
+      "10000053": {
+        "nombre": "Sayu",
+        "names": {
+          "es": "Sayu",
+          "en": "Sayu"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000053",
+        "nameHash": "2388785242",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Sayu.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Sayu.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sayu.png"
+        }
+      },
+      "10000054": {
+        "nombre": "Sangonomiya Kokomi",
+        "names": {
+          "es": "Sangonomiya Kokomi",
+          "en": "Sangonomiya Kokomi"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000054",
+        "nameHash": "3914045794",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kokomi.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kokomi.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kokomi.png"
+        }
+      },
+      "10000055": {
+        "nombre": "Gorou",
+        "names": {
+          "es": "Gorou",
+          "en": "Gorou"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000055",
+        "nameHash": "3400133034",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Gorou.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Gorou.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Gorou.png"
+        }
+      },
+      "10000056": {
+        "nombre": "Kujou Sara",
+        "names": {
+          "es": "Kujou Sara",
+          "en": "Kujou Sara"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000056",
+        "nameHash": "1483922610",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Sara.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Sara.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sara.png"
+        }
+      },
+      "10000057": {
+        "nombre": "Arataki Itto",
+        "names": {
+          "es": "Arataki Itto",
+          "en": "Arataki Itto"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000057",
+        "nameHash": "3068316954",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Itto.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Itto.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Itto.png"
+        }
+      },
+      "10000058": {
+        "nombre": "Yae Miko",
+        "names": {
+          "es": "Yae Miko",
+          "en": "Yae Miko"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000058",
+        "nameHash": "2713452722",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Yae.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Yae.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yae.png"
+        }
+      },
+      "10000059": {
+        "nombre": "Shikanoin Heizou",
+        "names": {
+          "es": "Shikanoin Heizou",
+          "en": "Shikanoin Heizou"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000059",
+        "nameHash": "646031578",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Heizo.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Heizo.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Heizo.png"
+        }
+      },
+      "10000060": {
+        "nombre": "Yelan",
+        "names": {
+          "es": "Yelan",
+          "en": "Yelan"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000060",
+        "nameHash": "2848373866",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Yelan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Yelan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yelan.png"
+        }
+      },
+      "10000061": {
+        "nombre": "Kirara",
+        "names": {
+          "es": "Kirara",
+          "en": "Kirara"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000061",
+        "nameHash": "1456642530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Momoka.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Momoka.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Momoka.png"
+        }
+      },
+      "10000062": {
+        "nombre": "Aloy",
+        "names": {
+          "es": "Aloy",
+          "en": "Aloy"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000062",
+        "nameHash": "3689107586",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Aloy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Aloy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Aloy.png"
+        }
+      },
+      "10000063": {
+        "nombre": "Shenhe",
+        "names": {
+          "es": "Shenhe",
+          "en": "Shenhe"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000063",
+        "nameHash": "334242122",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Shenhe.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Shenhe.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shenhe.png"
+        }
+      },
+      "10000064": {
+        "nombre": "Yun Jin",
+        "names": {
+          "es": "Yun Jin",
+          "en": "Yun Jin"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000064",
+        "nameHash": "655825362",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Yunjin.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Yunjin.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yunjin.png"
+        }
+      },
+      "10000065": {
+        "nombre": "Kuki Shinobu",
+        "names": {
+          "es": "Kuki Shinobu",
+          "en": "Kuki Shinobu"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000065",
+        "nameHash": "1940821474",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Shinobu.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Shinobu.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Shinobu.png"
+        }
+      },
+      "10000066": {
+        "nombre": "Kamisato Ayato",
+        "names": {
+          "es": "Kamisato Ayato",
+          "en": "Kamisato Ayato"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000066",
+        "nameHash": "1588620330",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ayato.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ayato.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ayato.png"
+        }
+      },
+      "10000067": {
+        "nombre": "Collei",
+        "names": {
+          "es": "Collei",
+          "en": "Collei"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000067",
+        "nameHash": "2948361666",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Collei.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Collei.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Collei.png"
+        }
+      },
+      "10000068": {
+        "nombre": "Dori",
+        "names": {
+          "es": "Dori",
+          "en": "Dori"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000068",
+        "nameHash": "388272194",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Dori.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Dori.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Dori.png"
+        }
+      },
+      "10000069": {
+        "nombre": "Tignari",
+        "names": {
+          "es": "Tignari",
+          "en": "Tighnari"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000069",
+        "nameHash": "2506955778",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Tighnari.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Tighnari.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Tighnari.png"
+        }
+      },
+      "10000070": {
+        "nombre": "Nilou",
+        "names": {
+          "es": "Nilou",
+          "en": "Nilou"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000070",
+        "nameHash": "3850149970",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Nilou.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Nilou.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nilou.png"
+        }
+      },
+      "10000071": {
+        "nombre": "Cyno",
+        "names": {
+          "es": "Cyno",
+          "en": "Cyno"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000071",
+        "nameHash": "1049891906",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Cyno.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Cyno.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Cyno.png"
+        }
+      },
+      "10000072": {
+        "nombre": "Candace",
+        "names": {
+          "es": "Candace",
+          "en": "Candace"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000072",
+        "nameHash": "3092975658",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Candace.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Candace.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Candace.png"
+        }
+      },
+      "10000073": {
+        "nombre": "Nahida",
+        "names": {
+          "es": "Nahida",
+          "en": "Nahida"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000073",
+        "nameHash": "712500570",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Nahida.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Nahida.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nahida.png"
+        }
+      },
+      "10000074": {
+        "nombre": "Laila",
+        "names": {
+          "es": "Laila",
+          "en": "Layla"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000074",
+        "nameHash": "2889777514",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Layla.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Layla.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Layla.png"
+        }
+      },
+      "10000075": {
+        "nombre": "Trotamundos",
+        "names": {
+          "es": "Trotamundos",
+          "en": "Wanderer"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000075",
+        "nameHash": "3230559562",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Wanderer.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Wanderer.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Wanderer.png"
+        }
+      },
+      "10000076": {
+        "nombre": "Faruzán",
+        "names": {
+          "es": "Faruzán",
+          "en": "Faruzan"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000076",
+        "nameHash": "2387711482",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Faruzan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Faruzan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Faruzan.png"
+        }
+      },
+      "10000077": {
+        "nombre": "Yaoyao",
+        "names": {
+          "es": "Yaoyao",
+          "en": "Yaoyao"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000077",
+        "nameHash": "1732417970",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Yaoyao.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Yaoyao.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Yaoyao.png"
+        }
+      },
+      "10000078": {
+        "nombre": "Alhacén",
+        "names": {
+          "es": "Alhacén",
+          "en": "Alhaitham"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000078",
+        "nameHash": "4002156906",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Alhatham.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Alhatham.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Alhatham.png"
+        }
+      },
+      "10000079": {
+        "nombre": "Dehya",
+        "names": {
+          "es": "Dehya",
+          "en": "Dehya"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000079",
+        "nameHash": "2360533154",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Dehya.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Dehya.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Dehya.png"
+        }
+      },
+      "10000080": {
+        "nombre": "Mika",
+        "names": {
+          "es": "Mika",
+          "en": "Mika"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000080",
+        "nameHash": "231911858",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Mika.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Mika.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mika.png"
+        }
+      },
+      "10000081": {
+        "nombre": "Kaveh",
+        "names": {
+          "es": "Kaveh",
+          "en": "Kaveh"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000081",
+        "nameHash": "466355514",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kaveh.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kaveh.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kaveh.png"
+        }
+      },
+      "10000082": {
+        "nombre": "Baizhu",
+        "names": {
+          "es": "Baizhu",
+          "en": "Baizhu"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000082",
+        "nameHash": "2984815066",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Baizhuer.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Baizhuer.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Baizhuer.png"
+        }
+      },
+      "10000083": {
+        "nombre": "Lynette",
+        "names": {
+          "es": "Lynette",
+          "en": "Lynette"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000083",
+        "nameHash": "1225226258",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Linette.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Linette.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Linette.png"
+        }
+      },
+      "10000084": {
+        "nombre": "Lyney",
+        "names": {
+          "es": "Lyney",
+          "en": "Lyney"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000084",
+        "nameHash": "2472444970",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Liney.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Liney.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Liney.png"
+        }
+      },
+      "10000085": {
+        "nombre": "Fréminet",
+        "names": {
+          "es": "Fréminet",
+          "en": "Freminet"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000085",
+        "nameHash": "4201963842",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Freminet.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Freminet.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Freminet.png"
+        }
+      },
+      "10000086": {
+        "nombre": "Wriothesley",
+        "names": {
+          "es": "Wriothesley",
+          "en": "Wriothesley"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000086",
+        "nameHash": "370150538",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Wriothesley.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Wriothesley.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Wriothesley.png"
+        }
+      },
+      "10000087": {
+        "nombre": "Neuvillette",
+        "names": {
+          "es": "Neuvillette",
+          "en": "Neuvillette"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000087",
+        "nameHash": "1504902330",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Neuvillette.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Neuvillette.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Neuvillette.png"
+        }
+      },
+      "10000088": {
+        "nombre": "Charlotte",
+        "names": {
+          "es": "Charlotte",
+          "en": "Charlotte"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000088",
+        "nameHash": "3831162130",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Charlotte.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Charlotte.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Charlotte.png"
+        }
+      },
+      "10000089": {
+        "nombre": "Furina",
+        "names": {
+          "es": "Furina",
+          "en": "Furina"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000089",
+        "nameHash": "2180900234",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Furina.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Furina.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Furina.png"
+        }
+      },
+      "10000090": {
+        "nombre": "Chevreuse",
+        "names": {
+          "es": "Chevreuse",
+          "en": "Chevreuse"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000090",
+        "nameHash": "540313842",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Chevreuse.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Chevreuse.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Chevreuse.png"
+        }
+      },
+      "10000091": {
+        "nombre": "Navia",
+        "names": {
+          "es": "Navia",
+          "en": "Navia"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000091",
+        "nameHash": "2877588578",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Navia.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Navia.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Navia.png"
+        }
+      },
+      "10000092": {
+        "nombre": "Gaming",
+        "names": {
+          "es": "Gaming",
+          "en": "Gaming"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000092",
+        "nameHash": "2822240322",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Gaming.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Gaming.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Gaming.png"
+        }
+      },
+      "10000093": {
+        "nombre": "Xianyun",
+        "names": {
+          "es": "Xianyun",
+          "en": "Xianyun"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000093",
+        "nameHash": "3648220258",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Liuyun.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Liuyun.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Liuyun.png"
+        }
+      },
+      "10000094": {
+        "nombre": "Chiori",
+        "names": {
+          "es": "Chiori",
+          "en": "Chiori"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000094",
+        "nameHash": "1944606922",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Chiori.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Chiori.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Chiori.png"
+        }
+      },
+      "10000095": {
+        "nombre": "Sigewinne",
+        "names": {
+          "es": "Sigewinne",
+          "en": "Sigewinne"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000095",
+        "nameHash": "781488450",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Sigewinne.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Sigewinne.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sigewinne.png"
+        }
+      },
+      "10000096": {
+        "nombre": "Arlecchino",
+        "names": {
+          "es": "Arlecchino",
+          "en": "Arlecchino"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000096",
+        "nameHash": "167198962",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Arlecchino.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Arlecchino.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Arlecchino.png"
+        }
+      },
+      "10000097": {
+        "nombre": "Sethos",
+        "names": {
+          "es": "Sethos",
+          "en": "Sethos"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000097",
+        "nameHash": "1431321834",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Sethos.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Sethos.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Sethos.png"
+        }
+      },
+      "10000098": {
+        "nombre": "Clorinde",
+        "names": {
+          "es": "Clorinde",
+          "en": "Clorinde"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000098",
+        "nameHash": "2745368786",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Clorinde.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Clorinde.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Clorinde.png"
+        }
+      },
+      "10000099": {
+        "nombre": "Émilie",
+        "names": {
+          "es": "Émilie",
+          "en": "Emilie"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000099",
+        "nameHash": "1705785610",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Emilie.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Emilie.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Emilie.png"
+        }
+      },
+      "10000100": {
+        "nombre": "Kachina",
+        "names": {
+          "es": "Kachina",
+          "en": "Kachina"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000100",
+        "nameHash": "2531816890",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kachina.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kachina.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kachina.png"
+        }
+      },
+      "10000101": {
+        "nombre": "Kinich",
+        "names": {
+          "es": "Kinich",
+          "en": "Kinich"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000101",
+        "nameHash": "4172712122",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Kinich.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Kinich.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Kinich.png"
+        }
+      },
+      "10000102": {
+        "nombre": "Mualani",
+        "names": {
+          "es": "Mualani",
+          "en": "Mualani"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000102",
+        "nameHash": "3949670506",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Mualani.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Mualani.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mualani.png"
+        }
+      },
+      "10000103": {
+        "nombre": "Xilonen",
+        "names": {
+          "es": "Xilonen",
+          "en": "Xilonen"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000103",
+        "nameHash": "2515292370",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Xilonen.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Xilonen.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Xilonen.png"
+        }
+      },
+      "10000104": {
+        "nombre": "Chasca",
+        "names": {
+          "es": "Chasca",
+          "en": "Chasca"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000104",
+        "nameHash": "3746229466",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Chasca.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Chasca.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Chasca.png"
+        }
+      },
+      "10000105": {
+        "nombre": "Ororon",
+        "names": {
+          "es": "Ororon",
+          "en": "Ororon"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000105",
+        "nameHash": "1198350762",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Olorun.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Olorun.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Olorun.png"
+        }
+      },
+      "10000106": {
+        "nombre": "Mavuika",
+        "names": {
+          "es": "Mavuika",
+          "en": "Mavuika"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000106",
+        "nameHash": "113398050",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Mavuika.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Mavuika.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mavuika.png"
+        }
+      },
+      "10000107": {
+        "nombre": "Citlalí",
+        "names": {
+          "es": "Citlalí",
+          "en": "Citlali"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000107",
+        "nameHash": "1197974530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Citlali.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Citlali.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Citlali.png"
+        }
+      },
+      "10000108": {
+        "nombre": "Lan Yan",
+        "names": {
+          "es": "Lan Yan",
+          "en": "Lan Yan"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000108",
+        "nameHash": "1888132250",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Lanyan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Lanyan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Lanyan.png"
+        }
+      },
+      "10000109": {
+        "nombre": "Yumemizuki Mizuki",
+        "names": {
+          "es": "Yumemizuki Mizuki",
+          "en": "Yumemizuki Mizuki"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000109",
+        "nameHash": "3784387026",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Mizuki.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Mizuki.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Mizuki.png"
+        }
+      },
+      "10000110": {
+        "nombre": "Iansán",
+        "names": {
+          "es": "Iansán",
+          "en": "Iansan"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000110",
+        "nameHash": "3120492002",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Iansan.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Iansan.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Iansan.png"
+        }
+      },
+      "10000111": {
+        "nombre": "Varesa",
+        "names": {
+          "es": "Varesa",
+          "en": "Varesa"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000111",
+        "nameHash": "283438362",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Varesa.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Varesa.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Varesa.png"
+        }
+      },
+      "10000112": {
+        "nombre": "Escoffier",
+        "names": {
+          "es": "Escoffier",
+          "en": "Escoffier"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000112",
+        "nameHash": "4035850498",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Escoffier.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Escoffier.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Escoffier.png"
+        }
+      },
+      "10000113": {
+        "nombre": "Ifá",
+        "names": {
+          "es": "Ifá",
+          "en": "Ifa"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000113",
+        "nameHash": "3398664506",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ifa.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ifa.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ifa.png"
+        }
+      },
+      "10000114": {
+        "nombre": "Skirk",
+        "names": {
+          "es": "Skirk",
+          "en": "Skirk"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000114",
+        "nameHash": "123650378",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_SkirkNew.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_SkirkNew.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_SkirkNew.png"
+        }
+      },
+      "10000115": {
+        "nombre": "Dahlia",
+        "names": {
+          "es": "Dahlia",
+          "en": "Dahlia"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000115",
+        "nameHash": "2332663914",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Dahlia.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Dahlia.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Dahlia.png"
+        }
+      },
+      "10000116": {
+        "nombre": "Ineffa",
+        "names": {
+          "es": "Ineffa",
+          "en": "Ineffa"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000116",
+        "nameHash": "2759230658",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Ineffa.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Ineffa.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Ineffa.png"
+        }
+      },
+      "10000117": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": null,
+        "sourceId": "10000117",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000118": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": null,
+        "sourceId": "10000118",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000119": {
+        "nombre": "Lauma",
+        "names": {
+          "es": "Lauma",
+          "en": "Lauma"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000119",
+        "nameHash": "1776873506",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Lauma.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Lauma.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Lauma.png"
+        }
+      },
+      "10000120": {
+        "nombre": "Flins",
+        "names": {
+          "es": "Flins",
+          "en": "Flins"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000120",
+        "nameHash": "1804674298",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Flins.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Flins.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Flins.png"
+        }
+      },
+      "10000121": {
+        "nombre": "Aino",
+        "names": {
+          "es": "Aino",
+          "en": "Aino"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000121",
+        "nameHash": "3887687898",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Aino.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Aino.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Aino.png"
+        }
+      },
+      "10000122": {
+        "nombre": "Néfer",
+        "names": {
+          "es": "Néfer",
+          "en": "Nefer"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000122",
+        "nameHash": "2745785690",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Nefer.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Nefer.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nefer.png"
+        }
+      },
+      "10000123": {
+        "nombre": "Durin",
+        "names": {
+          "es": "Durin",
+          "en": "Durin"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000123",
+        "nameHash": "2801077538",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Durin.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Durin.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Durin.png"
+        }
+      },
+      "10000124": {
+        "nombre": "Jahoda",
+        "names": {
+          "es": "Jahoda",
+          "en": "Jahoda"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000124",
+        "nameHash": "1438964010",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Jahoda.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Jahoda.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Jahoda.png"
+        }
+      },
+      "10000125": {
+        "nombre": "Colombina",
+        "names": {
+          "es": "Colombina",
+          "en": "Columbina"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000125",
+        "nameHash": "1888371106",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Columbina.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Columbina.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Columbina.png"
+        }
+      },
+      "10000126": {
+        "nombre": "Zibai",
+        "names": {
+          "es": "Zibai",
+          "en": "Zibai"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000126",
+        "nameHash": "937532578",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Zibai.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Zibai.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Zibai.png"
+        }
+      },
+      "10000127": {
+        "nombre": "Illuga",
+        "names": {
+          "es": "Illuga",
+          "en": "Illuga"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000127",
+        "nameHash": "102656474",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Illuga.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Illuga.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Illuga.png"
+        }
+      },
+      "10000128": {
+        "nombre": "Varka",
+        "names": {
+          "es": "Varka",
+          "en": "Varka"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000128",
+        "nameHash": "963351866",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Varka.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Varka.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Varka.png"
+        }
+      },
+      "10000129": {
+        "nombre": "Lohen",
+        "names": {
+          "es": "Lohen",
+          "en": "Lohen"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000129",
+        "nameHash": "2872823194",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Lohen.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Lohen.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Lohen.png"
+        }
+      },
+      "10000130": {
+        "nombre": "Linnéa",
+        "names": {
+          "es": "Linnéa",
+          "en": "Linnea"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000130",
+        "nameHash": "1961019898",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Linnea.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Linnea.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Linnea.png"
+        }
+      },
+      "10000131": {
+        "nombre": "Nicole",
+        "names": {
+          "es": "Nicole",
+          "en": "Nicole"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000131",
+        "nameHash": "1711582634",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Nicole.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Nicole.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Nicole.png"
+        }
+      },
+      "10000132": {
+        "nombre": "Prune",
+        "names": {
+          "es": "Prune",
+          "en": "Prune"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000132",
+        "nameHash": "2787504450",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Prune.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Prune.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Prune.png"
+        }
+      },
+      "10000133": {
+        "nombre": "Sandrone",
+        "names": {
+          "es": "Sandrone",
+          "en": "Sandrone"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000133",
+        "nameHash": "108893506",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MarionetteNew.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MarionetteNew.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MarionetteNew.png"
+        }
+      },
+      "10000140": {
+        "nombre": "Vodyanitsa",
+        "names": {
+          "es": "Vodyanitsa",
+          "en": "Vodyanitsa"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000140",
+        "nameHash": "1692132714",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Vodyanitsa.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Vodyanitsa.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Vodyanitsa.png"
+        }
+      },
+      "10000143": {
+        "nombre": "Vesna",
+        "names": {
+          "es": "Vesna",
+          "en": "Vesna"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000143",
+        "nameHash": "3992521194",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Vesna.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Vesna.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Vesna.png"
+        }
+      },
+      "10000148": {
+        "nombre": "Aliosha",
+        "names": {
+          "es": "Aliosha",
+          "en": "Alyosha"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000148",
+        "nameHash": "2727450010",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Alyosha.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Alyosha.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Alyosha.png"
+        }
+      },
+      "10000150": {
+        "nombre": "Odette",
+        "names": {
+          "es": "Odette",
+          "en": "Odette"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000150",
+        "nameHash": "2417850",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_Odette.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_Odette.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_Odette.png"
+        }
+      },
+      "10000005-501": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": null,
+        "sourceId": "10000005-501",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-502": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000005-502",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-503": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000005-503",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-504": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000005-504",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-505": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000005-505",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-506": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000005-506",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-507": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000005-507",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000005-508": {
+        "nombre": "Viajero",
+        "names": {
+          "es": "Viajero",
+          "en": "Traveler"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000005-508",
+        "nameHash": "1533656306",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerBoy.png"
+        }
+      },
+      "10000007-701": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": null,
+        "sourceId": "10000007-701",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-702": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000007-702",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-703": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000007-703",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-704": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000007-704",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-705": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000007-705",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-706": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000007-706",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-707": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000007-707",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000007-708": {
+        "nombre": "Viajera",
+        "names": {
+          "es": "Viajera",
+          "en": "Traveler"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000007-708",
+        "nameHash": "3816664530",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_PlayerGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_PlayerGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_PlayerGirl.png"
+        }
+      },
+      "10000117-11701": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": null,
+        "sourceId": "10000117-11701",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11702": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000117-11702",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11703": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000117-11703",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11704": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000117-11704",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11705": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000117-11705",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11706": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000117-11706",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11707": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000117-11707",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000117-11708": {
+        "nombre": "Manekín masculino",
+        "names": {
+          "es": "Manekín masculino",
+          "en": "Manekin"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000117-11708",
+        "nameHash": "1496871274",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinBoy.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinBoy.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinBoy.png"
+        }
+      },
+      "10000118-11801": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": null,
+        "sourceId": "10000118-11801",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11802": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Pyro",
+        "sourceId": "10000118-11802",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11803": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Hydro",
+        "sourceId": "10000118-11803",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11804": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Electro",
+        "sourceId": "10000118-11804",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11805": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Cryo",
+        "sourceId": "10000118-11805",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11806": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Anemo",
+        "sourceId": "10000118-11806",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11807": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Geo",
+        "sourceId": "10000118-11807",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      },
+      "10000118-11808": {
+        "nombre": "Manekín femenino",
+        "names": {
+          "es": "Manekín femenino",
+          "en": "Manekina"
+        },
+        "elemento": "Dendro",
+        "sourceId": "10000118-11808",
+        "nameHash": "4125864442",
+        "assets": {
+          "profileIcon": "https://enka.network/ui/UI_AvatarIcon_MannequinGirl.png",
+          "banner": "https://enka.network/ui/UI_Gacha_AvatarImg_MannequinGirl.png",
+          "sideIcon": "https://enka.network/ui/UI_AvatarIcon_Side_MannequinGirl.png"
+        }
+      }
+    },
+    "artifactSetsByLocale": {
+      "es": {
+        "10001": "Corazón del Viajero",
+        "10002": "Corazón del Guerrero",
+        "10003": "Corazón del Guardián",
+        "10004": "Milagro",
+        "10005": "Berserker",
+        "10006": "Artista Marcial",
+        "10007": "Instructor",
+        "10008": "Jugadora",
+        "10009": "Exiliado",
+        "10010": "Aventurero",
+        "10011": "Afortunado",
+        "10012": "Erudita",
+        "10013": "Médica Itinerante",
+        "14001": "Nómada del Invierno",
+        "14002": "Domador de Truenos",
+        "14003": "Virtuoso Corredor de Lava",
+        "14004": "Doncella Amada",
+        "15001": "Final del Gladiador",
+        "15002": "Sombra Verde Esmeralda",
+        "15003": "Orquesta del Errante",
+        "15004": "Arenas de hielo y nieve",
+        "15005": "Furia del Trueno",
+        "15006": "Bruja Carmesí en Llamas",
+        "15007": "Ritual Antiguo de la Nobleza",
+        "15008": "Caballería Sanguinaria",
+        "15009": "Ritual de la Iluminación",
+        "15010": "Ritual del Destino",
+        "15011": "Ritual de la Sabiduría",
+        "15012": "Ritual del Firmamento",
+        "15013": "Ritual de la Primavera",
+        "15014": "Petra Arcaica",
+        "15015": "Retroceso del Meteorito",
+        "15016": "Corazón de las Profundidades",
+        "15017": "Tenacidad de la Geoarmada",
+        "15018": "Llamas Albinas",
+        "15019": "Reminiscencia de la Purificación",
+        "15020": "Emblema del Destino",
+        "15021": "Cáscara de Sueños Opulentos",
+        "15022": "Perla Oceánica",
+        "15023": "Deceso del Cinabrio",
+        "15024": "Eco del Sacrificio",
+        "15025": "Recuerdos del Bosque",
+        "15026": "Sueños Áureos",
+        "15027": "Épica del Pabellón del Desierto",
+        "15028": "Flor Olvidada del Paraíso",
+        "15029": "Sueño de la Ninfa",
+        "15030": "Fulgor de Vurukasha",
+        "15031": "Cazador Fantasmal",
+        "15032": "Compañía Dorada",
+        "15033": "Son de Antaño",
+        "15034": "Murmullo del Bosque Reverberante",
+        "15035": "Fragmento de la Armonía Fantasiosa",
+        "15036": "Ensoñación Inacabada",
+        "15037": "Pergamino del Héroe de la Ciudad de las Cenizas",
+        "15038": "Códice de Obsidiana",
+        "15039": "Juramento de la Noche",
+        "15040": "Réquiem del Corredor",
+        "15041": "Noche de la Revelación del Cielo",
+        "15042": "Serenata de la Luna Tejida",
+        "15043": "Alborada de la Estrella del Alba y la Luna",
+        "15044": "Día de los Vientos Alzantes",
+        "15045": "Dádiva Celestial",
+        "15046": "Desilusión Congelada en las Sombras",
+        "15047": "Testimonio Escarlata",
+        "15048": "Corazón Forjado"
+      },
+      "en": {
+        "10001": "Resolution of Sojourner",
+        "10002": "Brave Heart",
+        "10003": "Defender's Will",
+        "10004": "Tiny Miracle",
+        "10005": "Berserker",
+        "10006": "Martial Artist",
+        "10007": "Instructor",
+        "10008": "Gambler",
+        "10009": "The Exile",
+        "10010": "Adventurer",
+        "10011": "Lucky Dog",
+        "10012": "Scholar",
+        "10013": "Traveling Doctor",
+        "14001": "Blizzard Strayer",
+        "14002": "Thundersoother",
+        "14003": "Lavawalker",
+        "14004": "Maiden Beloved",
+        "15001": "Gladiator's Finale",
+        "15002": "Viridescent Venerer",
+        "15003": "Wanderer's Troupe",
+        "15004": "Glacier and Snowfield",
+        "15005": "Thundering Fury",
+        "15006": "Crimson Witch of Flames",
+        "15007": "Noblesse Oblige",
+        "15008": "Bloodstained Chivalry",
+        "15009": "Prayers for Illumination",
+        "15010": "Prayers for Destiny",
+        "15011": "Prayers for Wisdom",
+        "15012": "Prayers to the Firmament",
+        "15013": "Prayers to Springtime",
+        "15014": "Archaic Petra",
+        "15015": "Retracing Bolide",
+        "15016": "Heart of Depth",
+        "15017": "Tenacity of the Millelith",
+        "15018": "Pale Flame",
+        "15019": "Shimenawa's Reminiscence",
+        "15020": "Emblem of Severed Fate",
+        "15021": "Husk of Opulent Dreams",
+        "15022": "Ocean-Hued Clam",
+        "15023": "Vermillion Hereafter",
+        "15024": "Echoes of an Offering",
+        "15025": "Deepwood Memories",
+        "15026": "Gilded Dreams",
+        "15027": "Desert Pavilion Chronicle",
+        "15028": "Flower of Paradise Lost",
+        "15029": "Nymph's Dream",
+        "15030": "Vourukasha's Glow",
+        "15031": "Marechaussee Hunter",
+        "15032": "Golden Troupe",
+        "15033": "Song of Days Past",
+        "15034": "Nighttime Whispers in the Echoing Woods",
+        "15035": "Fragment of Harmonic Whimsy",
+        "15036": "Unfinished Reverie",
+        "15037": "Scroll of the Hero of Cinder City",
+        "15038": "Obsidian Codex",
+        "15039": "Long Night's Oath",
+        "15040": "Finale of the Deep Galleries",
+        "15041": "Night of the Sky's Unveiling",
+        "15042": "Silken Moon's Serenade",
+        "15043": "Aubade of Morningstar and Moon",
+        "15044": "A Day Carved From Rising Winds",
+        "15045": "Celestial Gift",
+        "15046": "Disenchantment in Deep Shadow",
+        "15047": "Scarlet Proof",
+        "15048": "Heart of the Furnace"
+      }
+    },
+    "localizations": {
+      "es": {
+        "2417850": "Odette",
+        "11881155": "Sinfonía de sabores",
+        "20848859": "Gran Hoja del Peñasco Oscuro",
+        "21074019": "Laúd de la Luz Celestial",
+        "22949795": "Cielo añil",
+        "33330467": "Maestría Elemental",
+        "35587211": "Corazón del Viajero",
+        "37146739": "Perla Solar",
+        "37147251": "Perla Solar",
+        "43015699": "Por determinar",
+        "54857595": "Perdición de la tormenta y la marea",
+        "63399523": "Empuñadura de Túpac",
+        "83115355": "Doncella Amada",
+        "85795635": "Concentración",
+        "88505754": "Kaedehara Kazuha",
+        "91795051": "Oda atemporal",
+        "102656474": "Illuga",
+        "108893506": "Sandrone",
+        "113398050": "Mavuika",
+        "123650378": "Skirk",
+        "123650890": "Skirk",
+        "135182203": "Perdición de la tormenta y la marea",
+        "141119323": "Código vientoflorido",
+        "142003171": "Ofrenda para el viento y el sol",
+        "143051931": "Luz Lunar de Xifos",
+        "147298547": "Orquesta del Errante",
+        "156294403": "Corazón de las Profundidades",
+        "160492707": "Espada de Hierro Oscuro",
+        "160493219": "Espada de Hierro Oscuro",
+        "167198962": "Arlecchino",
+        "167199474": "Arlecchino",
+        "168956210": "Qiqi",
+        "168956722": "Qiqi",
+        "185760547": "Espada de los héroes",
+        "197755235": "Lanza Perforanubes",
+        "210291963": "Fuente de Ignición",
+        "212557219": "Ritual de la Sabiduría",
+        "212557731": "Ritual de la Sabiduría",
+        "231836963": "Cortador de Jade Primordial",
+        "231911858": "Mika",
+        "235897163": "Fulgor de Vurukasha",
+        "240385755": "Rompeolas",
+        "245002355": "Obertura del alba",
+        "246984427": "Perdición del fuego y el trueno",
+        "262428003": "Ritual de la Primavera",
+        "270124867": "Pureza del protector",
+        "275622963": "Clorofilo Refulgente",
+        "279470883": "Murmullo del Bosque Reverberante",
+        "282399443": "Sacroespada",
+        "283438362": "Varesa",
+        "283438874": "Varesa",
+        "287454451": "Ritual del Firmamento",
+        "287454963": "Ritual del Firmamento",
+        "287571027": "Dádiva Celestial",
+        "288666635": "Corazón inmaculado",
+        "302691299": "Catalizador de Ámbar",
+        "303155515": "Sin retorno",
+        "307541163": "Obra maestra inacabada",
+        "310246731": "Axioma de la Kagura",
+        "310247243": "Axioma de la Kagura",
+        "313300315": "Espada de Madera",
+        "316078299": "Perforaibis",
+        "316078811": "Perforaibis",
+        "334242122": "Shenhe",
+        "334242634": "Shenhe",
+        "339931171": "Victoria tras victoria",
+        "342097035": "Huso de Cinabrio",
+        "342097547": "Huso de Cinabrio",
+        "346510395": "Rey de los Mares",
+        "352459163": "Ensoñación Inacabada",
+        "357888027": "Alba de la Tejelunas",
+        "357888539": "Alba de la Tejelunas",
+        "359484419": "Reminiscencia de Tulaytulah",
+        "365216099": "Nocturno de Dryas",
+        "368014203": "Espina de dragón rompecielos",
+        "370150538": "Wriothesley",
+        "370151050": "Wriothesley",
+        "388272194": "Dori",
+        "391273955": "Colmillo quebrantador",
+        "411685275": "Arco Compuesto",
+        "415520051": "Estela Iridiscente",
+        "422144187": "Cuerno Veteazulado",
+        "426363227": "Estrella Errabunda",
+        "426363739": "Estrella Errabunda",
+        "440290627": "Flor Olvidada del Paraíso",
+        "449192411": "Balada de los Fiordos",
+        "449192923": "Balada de los Fiordos",
+        "452043283": "Balada Perdida",
+        "452357427": "Perforalunas",
+        "452357939": "Perforalunas",
+        "453444347": "Alba de las mil noches",
+        "454086795": "Llave de la Coronación",
+        "466355514": "Kaveh",
+        "479076483": "Hoja Fría",
+        "481755219": "Lanza del Peñasco Oscuro",
+        "486287579": "Calor residual",
+        "486512643": "Charla en el Pabellón",
+        "486513155": "Charla en el Pabellón",
+        "495182275": "Hueso Recio",
+        "500612819": "Asta de Bandera",
+        "506630267": "Avanza con el viento",
+        "514784907": "Perdición de las llamas y el agua",
+        "518077587": "Sinfonista de Aromas",
+        "521221323": "Pureza del protector",
+        "533413131": "Promesa de mil albas y crepúsculos",
+        "539533683": "Milagro",
+        "540313842": "Chevreuse",
+        "540938627": "Depredador",
+        "565052459": "Rompecadenas",
+        "565052971": "Rompecadenas",
+        "565328963": "Cazador de Dragones de Kunwu",
+        "565329475": "Cazador de Dragones de Kunwu",
+        "566772267": "Cuentos del rey Otogi",
+        "568163371": "Disparo silencioso",
+        "570546107": "Esencia de la falsedad",
+        "577103787": "Inmersión energética",
+        "578574771": "Pica Luna Creciente",
+        "578575283": "Pica Luna Creciente",
+        "586598971": "Culminación",
+        "590019915": "Calamidad de Eshu",
+        "594850707": "Espada Cruz de los Narcisos",
+        "597991835": "Noche de luna",
+        "607067963": "Claridad de la técnica Isshin",
+        "608159787": "Reminiscencia de la Purificación",
+        "613846163": "Descenso",
+        "618786059": "Alabarda",
+        "618786571": "Alabarda",
+        "623494555": "Diezmar",
+        "623534363": "Códice de Favonius",
+        "625305531": "Serenata de la Luna Tejida",
+        "630452219": "Palacio del Cerezo",
+        "646031578": "Shikanoin Heizou",
+        "646032090": "Shikanoin Heizou",
+        "646100491": "Axioma de la roca: Unidad",
+        "650049651": "Oda a las Flores de Viento",
+        "650438131": "Gracia del ojo de la sabiduría",
+        "655825362": "Yun Jin",
+        "655825874": "Yun Jin",
+        "656120259": "Juramento del Arquero",
+        "658627627": "Lámpara Medulaoscura",
+        "663168267": "Pacto del arroyo y el manantial",
+        "675511059": "Oleada sempiterna",
+        "680509899": "Sombra Blanca",
+        "680510411": "Sombra Blanca",
+        "688237043": "Gancho del Triunfo",
+        "688991243": "Pacificadora del Desastre",
+        "693353755": "Candado Terrenal",
+        "693354267": "Candado Terrenal",
+        "697277554": "Yanfei",
+        "712500570": "Nahida",
+        "712501082": "Nahida",
+        "716252627": "Lanza Lítica",
+        "724880659": "Supervisor Flujoáurico",
+        "724881171": "Supervisor Flujoáurico",
+        "724930075": "Testamento de la plata secreta",
+        "729851187": "Arenas de hielo y nieve",
+        "730759547": "Cazador Fantasmal",
+        "735056283": "Gran Espada de Favonius",
+        "735056795": "Gran Espada de Favonius",
+        "753404539": "Splendor Solis del rey del día",
+        "763535731": "Erudita",
+        "781488450": "Sigewinne",
+        "781488962": "Sigewinne",
+        "784952587": "Día de los Vientos Alzantes",
+        "797656147": "Cáscara de Sueños Opulentos",
+        "800766043": "Réquiem Abisal",
+        "807607555": "Pergamino Celestial",
+        "824949859": "¡Dodo-aventura!",
+        "828711395": "Arco de Amos",
+        "832268067": "Recuerdos del agua",
+        "836208539": "Dorado",
+        "850802171": "Espada de Hierro Blanco",
+        "853394138": "Hu Tao (prueba)",
+        "855894507": "Berserker",
+        "862591315": "Llamas Albinas",
+        "877751435": "Gran Espada Real",
+        "882305379": "Taladradora de Prospección",
+        "882305891": "Taladradora de Prospección",
+        "902184067": "Espada Real del Bosque",
+        "902184579": "Espada Real del Bosque",
+        "902264035": "Aquila Favonia",
+        "902282051": "Cosecha",
+        "909145139": "Pureza del protector",
+        "915692979": "Domador de Truenos",
+        "924032139": "Filo de la Caza de los Herejes",
+        "925251851": "Punta de lanza",
+        "930486499": "Emblema del Destino",
+        "930640955": "Espada del Tiempo",
+        "933076627": "Nómada del Invierno",
+        "933441683": "Superespada Mágica Suprema",
+        "933442195": "Superespada Mágica Suprema",
+        "937532578": "Zibai",
+        "942758755": "Concentración",
+        "944332883": "Rompemontañas",
+        "949506483": "Victoria oceánica",
+        "963351866": "Varka",
+        "968378595": "Resistencia del Halcón del Oeste",
+        "968892866": "Bennett",
+        "968893378": "Bennett",
+        "977648923": "Espada de Jade Inicial",
+        "980370707": "Báculo Rutilante de la Sacerdotisa",
+        "991968139": "Sueño atemporal: Horno eterno",
+        "994089035": "Murmullo del Bosque Reverberante",
+        "1006042610": "Kamisato Ayaka",
+        "1009471939": "Expiadora",
+        "1012170803": "Kagotsurube Isshin",
+        "1021898027": "Tirachinas",
+        "1021898539": "Tirachinas",
+        "1021947178": "Xiao",
+        "1021947690": "Xiao",
+        "1028735635": "Himno de la rebelión",
+        "1048849443": "Corazón Forjado",
+        "1049891906": "Cyno",
+        "1053433018": "Sacarosa",
+        "1055194523": "Medidor Telemétrico",
+        "1055195035": "Medidor Telemétrico",
+        "1057644843": "Peso de las ramas",
+        "1072884907": "Carta Náutica",
+        "1075646787": "Oda de los Pinos",
+        "1075647299": "Oda de los Pinos",
+        "1082448331": "Resplandor de las profundidades",
+        "1087496331": "Pergamino del Héroe de la Ciudad de las Cenizas",
+        "1089949747": "Orgullo Celestial",
+        "1089950259": "Orgullo Celestial",
+        "1095391539": "Testimonio Escarlata",
+        "1097898243": "Pesado",
+        "1103732675": "Afortunado",
+        "1113306282": "Mona",
+        "1113839851": "Saloma de los canteros",
+        "1114777131": "Acorde",
+        "1117408923": "Resolución",
+        "1119368259": "Viaje",
+        "1130995834": "Xiangling",
+        "1130996346": "Xiangling",
+        "1133599347": "Flecha imparable",
+        "1148024091": "La Captura",
+        "1148024603": "La Captura",
+        "1154009435": "Prototipo Estelar",
+        "1163263227": "Sinfonía de los Merodeadores",
+        "1163616891": "Entierro helado",
+        "1171552563": "Balada plumafloral",
+        "1176721851": "Saloma de los barqueros",
+        "1182966091": "Espada del Mercenario",
+        "1182966603": "Espada del Mercenario",
+        "1183453507": "Colmillo del Rey de la Montaña",
+        "1183454019": "Colmillo del Rey de la Montaña",
+        "1186209435": "Jugadora",
+        "1197974530": "Citlalí",
+        "1197975042": "Citlalí",
+        "1198350762": "Ororon",
+        "1198975171": "Espejo Tejenoches",
+        "1200948347": "Fierro Floriorlado",
+        "1200948859": "Fierro Floriorlado",
+        "1201790155": "Sueños de las Mil Noches",
+        "1201790667": "Sueños de las Mil Noches",
+        "1212345779": "Final del Gladiador",
+        "1213967619": "Furia del Trueno",
+        "1217552947": "Influjo afilado",
+        "1225226258": "Lynette",
+        "1229532227": "Viento boreazulado",
+        "1230304555": "Sombra del sol cenizo",
+        "1235520915": "Albores de la Historia",
+        "1235521427": "Albores de la Historia",
+        "1240067179": "Arco de Favonius",
+        "1249831867": "Cazador Fantasmal",
+        "1257395531": "Corazón de la Lluvia",
+        "1257396043": "Corazón de la Lluvia",
+        "1279937955": "Eco de la tierra de la fertilidad",
+        "1307222899": "Espadachín errante",
+        "1310150611": "Parsifal la Grande",
+        "1312582827": "Final del Gladiador",
+        "1313248691": "Arenas de hielo y nieve",
+        "1319974859": "Vigor",
+        "1321135155": "Rugido del León",
+        "1321135667": "Rugido del León",
+        "1330908195": "Petra Arcaica",
+        "1337666507": "Tenacidad de la Geoarmada",
+        "1344953075": "Avanza con el viento",
+        "1345343763": "Cortador de Jade Primordial",
+        "1348687251": "Senda de la Cazadora",
+        "1359826123": "Nueva Rama",
+        "1363661099": "Pluma Carmesí Buitreastral",
+        "1363661611": "Pluma Carmesí Buitreastral",
+        "1383427723": "Arista perlada",
+        "1383639611": "Milagro",
+        "1388004419": "Espada Surcacielos",
+        "1388004931": "Espada Surcacielos",
+        "1390797107": "Borla Blanca",
+        "1391705475": "Flor bordada y espada consagrada",
+        "1395607523": "Destino de las bestias",
+        "1404688115": "Canción de despedida",
+        "1406746947": "Historias de Otros Mundos",
+        "1407869099": "Ensoñación Inacabada",
+        "1414366819": "Majestad dorada",
+        "1414807643": "Virtuoso Corredor de Lava",
+        "1422574882": "Ineffa",
+        "1431321834": "Sethos",
+        "1431322346": "Sethos",
+        "1437658243": "Médula de la Serpiente Marina",
+        "1438964010": "Jahoda",
+        "1438964522": "Jahoda",
+        "1438974835": "Retroceso del Meteorito",
+        "1441327235": "Nocturno tras el Velo",
+        "1445287979": "Volver de las Olas",
+        "1455107483": "Oración Perdida a los Vientos Sagrados",
+        "1455107995": "Oración Perdida a los Vientos Sagrados",
+        "1456642530": "Kirara",
+        "1456643042": "Kirara",
+        "1468367026": "Diona",
+        "1468367538": "Diona",
+        "1470442731": "Alabarda del Viento Epistolar",
+        "1473084923": "Épica del Pabellón del Desierto",
+        "1473398931": "Fulgor de las Aguas Calmas",
+        "1473399443": "Fulgor de las Aguas Calmas",
+        "1479740763": "Fulgor Cerúleo",
+        "1479741275": "Fulgor Cerúleo",
+        "1479961067": "Sombra Férrea",
+        "1479961579": "Sombra Férrea",
+        "1483922610": "Kujou Sara",
+        "1485303435": "Aguijón de infusión",
+        "1492570003": "Fragmento de la Armonía Fantasiosa",
+        "1492752155": "Serenidad",
+        "1496871274": "Manekín masculino",
+        "1499235563": "Victoria tras victoria",
+        "1499745907": "Espada Egregia de Isshin",
+        "1499817443": "Viento esmeralda",
+        "1504902330": "Neuvillette",
+        "1515250179": "Luz verde del fisgón",
+        "1516554699": "Espada de Cuarzo",
+        "1519053043": "Exiliado",
+        "1522029867": "Perdición del fuego y el trueno",
+        "1523089323": "Amuleto de jade",
+        "1524173875": "Bruja Carmesí en Llamas",
+        "1533656306": "Viajero",
+        "1533656818": "Viajero",
+        "1533746995": "Historias de la tundra",
+        "1538092267": "Espada Egregia de Isshin",
+        "1541919827": "Caballería Sanguinaria",
+        "1543521331": "Jugadora",
+        "1545992315": "Justicia",
+        "1558036915": "Deceso del Cinabrio",
+        "1562601179": "Sombra Verde Esmeralda",
+        "1566338363": "Relicario de la Verdad",
+        "1573691659": "Refulgencia de la Luna",
+        "1588620330": "Kamisato Ayato",
+        "1593173243": "Frontera difusa",
+        "1600274803": "Luna Ondulante de Futsu",
+        "1600275315": "Luna Ondulante de Futsu",
+        "1605751859": "Noche de la Revelación del Cielo",
+        "1608953027": "Espada del Alba",
+        "1608953539": "Espada del Alba",
+        "1610242915": "Legado",
+        "1628928163": "Anhelo de las flores de viento",
+        "1632377563": "Virtuoso Corredor de Lava",
+        "1651985379": "Augurio diurno",
+        "1660598451": "Legado Iwakura",
+        "1673987515": "Hora de Surfear",
+        "1675079283": "Recuerdos del Bosque",
+        "1675686363": "Gran Espada de Sacrificio",
+        "1692132714": "Vodyanitsa",
+        "1702903411": "Susurro del genio",
+        "1705785610": "Émilie",
+        "1705786122": "Émilie",
+        "1706534267": "Conclusión contundente",
+        "1711582634": "Nicole",
+        "1722706579": "Perdición del agua y el hielo",
+        "1732417970": "Yaoyao",
+        "1732418482": "Yaoyao",
+        "1745286795": "Conducta de samurái",
+        "1745712907": "Dominaolas de Watatsumi",
+        "1750139131": "Ritual Antiguo de la Nobleza",
+        "1751039235": "Ritual Antiguo de la Nobleza",
+        "1756609915": "Perla Oceánica",
+        "1758346011": "Ceremonia de lamentación",
+        "1771603299": "Majestad dorada",
+        "1773424643": "Espada del Descenso",
+        "1773425155": "Espada del Descenso",
+        "1774579403": "Códice de Obsidiana",
+        "1776873506": "Lauma",
+        "1776874018": "Lauma",
+        "1779329091": "Aventurero",
+        "1789612403": "Eco",
+        "1790066971": "Sable de la Dársena",
+        "1790067483": "Sable de la Dársena",
+        "1804674298": "Flins",
+        "1804674810": "Flins",
+        "1818340435": "Cortatelones de Urakusai",
+        "1820235315": "Canción sin flechas",
+        "1836628747": "Protector de la rebelión",
+        "1860795787": "Luna de Mouun",
+        "1864015138": "Keching",
+        "1871665507": "Heptadas de los Ángeles",
+        "1873342283": "Domador de Truenos",
+        "1876377995": "Mil Soles Abrasadores",
+        "1888132250": "Lan Yan",
+        "1888371106": "Colombina",
+        "1890162851": "Luna Inalterable",
+        "1890163363": "Luna Inalterable",
+        "1896898739": "Hoja de Exáifanes",
+        "1901972563": "Estrella Invernal",
+        "1901973075": "Estrella Invernal",
+        "1921306659": "Vado del Río Ceniciento",
+        "1921418330": "Noelle",
+        "1921418842": "Noelle",
+        "1925210475": "Sueño de la Ninfa",
+        "1927643091": "Vigía del mar de arena",
+        "1928302715": "Bruja Carmesí en Llamas",
+        "1931332699": "Deceso del Cinabrio",
+        "1932742643": "Ley de la aniquilación",
+        "1934830979": "Anhelo infinito",
+        "1934855067": "Precepto de las nubes",
+        "1940821474": "Kuki Shinobu",
+        "1940821986": "Kuki Shinobu",
+        "1940919482": "Hu Tao",
+        "1940919994": "Hu Tao",
+        "1944606922": "Chiori",
+        "1948935171": "Elegía Lumidulce",
+        "1959332915": "Enigma del espejo y el humo",
+        "1959650699": "Nómada del Invierno",
+        "1961019898": "Linnéa",
+        "1965515155": "Púa Sustentamontañas",
+        "1965515667": "Púa Sustentamontañas",
+        "1966438658": "Amber",
+        "1982136171": "Concentración",
+        "1990641987": "Espada de Sacrificio",
+        "1990820123": "Espada Amenoma Gemela",
+        "1991707099": "Prototipo Rencor",
+        "1994080563": "Vista de Jade Primordial",
+        "1994081075": "Vista de Jade Primordial",
+        "1997709467": "Halcón de Jade",
+        "2003141763": "Réquiem del Corredor",
+        "2006422931": "Espada Lítica",
+        "2017033267": "Serenidad",
+        "2025598051": "Avanza con el viento",
+        "2029582603": "Fábula del youkai pluvioterrenal",
+        "2040573235": "Petra Arcaica",
+        "2060048587": "Ritual de la Iluminación",
+        "2060049099": "Ritual de la Iluminación",
+        "2077869251": "Sombra de la Marea",
+        "2077869763": "Sombra de la Marea",
+        "2089241987": "El último cantor",
+        "2108574027": "Quebrantarrocas",
+        "2109571443": "Concentración",
+        "2125205883": "Espada Plateada",
+        "2125206395": "Espada Plateada",
+        "2136397971": "Sombra de la Melodía Dorada",
+        "2149411851": "Majestad dorada",
+        "2153081171": "Luz Plateada",
+        "2153521307": "Pabellón de las arenas",
+        "2163007107": "Corona purificahielo",
+        "2172529947": "Victoria tras victoria",
+        "2176134843": "Concentración",
+        "2177723555": "Réquiem del Corredor",
+        "2180900234": "Furina",
+        "2190368347": "Determinación",
+        "2191797987": "Aventurero",
+        "2192523835": "Pacto letal",
+        "2195436779": "Saloma de los canteros",
+        "2195665171": "Memorias de Sacrificios",
+        "2195665683": "Memorias de Sacrificios",
+        "2211498234": "Colombina",
+        "2225698043": "Azada Excavatesoros",
+        "2242027395": "Arco de Ébano",
+        "2244980899": "Epopeya sepultada en las arenas",
+        "2250670211": "Rama del Juramento Escarchado",
+        "2257505883": "Gracia del bosque",
+        "2258943483": "Olas albugíneas",
+        "2265792579": "Colmillo Lupino",
+        "2267978875": "Fruto de la Culminación",
+        "2275710371": "Jade Sacrificial",
+        "2275710883": "Jade Sacrificial",
+        "2276480763": "Emblema del Destino",
+        "2279290283": "Guía Mágica",
+        "2297485451": "Disparo rápido",
+        "2312640651": "Serenidad",
+        "2317047563": "Ágil y sin sombra",
+        "2317820211": "Aguja de infusión",
+        "2320082227": "Pluvioarco de la Serpiente Arcoíris",
+        "2322648115": "Pulverizar",
+        "2324146259": "Anillo de Hakushin",
+        "2332663914": "Dahlia",
+        "2332664426": "Dahlia",
+        "2340969555": "Arco del Cazador Estacional",
+        "2340970067": "Arco del Cazador Estacional",
+        "2351445619": "Lágrimas zafíreas sepultadas",
+        "2359798963": "Rey del Mal",
+        "2359799475": "Rey del Mal",
+        "2360533154": "Dehya",
+        "2364208851": "Corazón del Viajero",
+        "2365025043": "Héroe errante",
+        "2375993851": "Espada Real Larga",
+        "2383998915": "Dominaolas de Watatsumi",
+        "2384519283": "Tirachinas",
+        "2387711482": "Faruzán",
+        "2387711994": "Faruzán",
+        "2388785242": "Sayu",
+        "2400012483": "Arco del Sacrificio",
+        "2400012995": "Arco del Sacrificio",
+        "2410593283": "Hoja Desafilada",
+        "2415974179": "Saloma de los barqueros",
+        "2417717595": "Cazador del Callejón",
+        "2425414923": "Desvanecimiento del Crepúsculo",
+        "2432865507": "Fluencia Impoluta",
+        "2433755451": "Himno rebelde",
+        "2440850563": "Balada resonante",
+        "2448629019": "Diluvio Florífero",
+        "2466140362": "Venti",
+        "2466897131": "Vigía de las Estrellas",
+        "2469300579": "Victoria tras victoria",
+        "2470144971": "Elocuencia",
+        "2470306939": "Imperio del trueno",
+        "2472444970": "Lyney",
+        "2474354867": "Espada de Favonius",
+        "2476346187": "Perdición de las llamas y el agua",
+        "2481463563": "Terragitador",
+        "2481464075": "Terragitador",
+        "2491796803": "Cruz de Kitain",
+        "2491797315": "Cruz de Kitain",
+        "2504399314": "Yoimiya",
+        "2506955778": "Tignari",
+        "2512309395": "Furia del Trueno",
+        "2515292370": "Xilonen",
+        "2515292882": "Xilonen",
+        "2519840043": "Fulgor de Vurukasha",
+        "2521338131": "Prototipo Ámbar",
+        "2531816890": "Kachina",
+        "2534304035": "Vaina cortatinieblas",
+        "2538235187": "Épica del Pabellón del Desierto",
+        "2539207947": "Ojo del Juramento",
+        "2539208459": "Ojo del Juramento",
+        "2546254811": "Cáscara de Sueños Opulentos",
+        "2556914171": "Último Acorde",
+        "2556914683": "Último Acorde",
+        "2559426851": "Reflexión Iridiscente",
+        "2572374387": "Colmillos por doquier",
+        "2587614459": "Frío Eterno",
+        "2597527627": "Historia Diferente",
+        "2600875323": "Serenata del Sosiego",
+        "2608472259": "Susurros estelares más allá del trono sagrado",
+        "2614169915": "Gran Espada Surcacielos",
+        "2614170427": "Gran Espada Surcacielos",
+        "2639070347": "Desilusión Congelada en las Sombras",
+        "2646367730": "Beidou",
+        "2649182251": "Deseo del arcoíris caído",
+        "2662294963": "Instructor",
+        "2664628619": "Perdición del Dragón",
+        "2664629131": "Perdición del Dragón",
+        "2666950755": "Gran Espada del Guerrero",
+        "2666951267": "Gran Espada del Guerrero",
+        "2669894379": "Roca tallada",
+        "2673337443": "Flecha de infusión",
+        "2677592067": "Himno del Vórtice",
+        "2679780610": "Ganyu",
+        "2679781122": "Ganyu",
+        "2684365579": "Debut",
+        "2691070627": "Gracia del bosque",
+        "2704460819": "Llamas Albinas",
+        "2705029563": "Grimorio de Bolsillo",
+        "2713452722": "Yae Miko",
+        "2713453234": "Yae Miko",
+        "2722902043": "Oda al Vasto Azul",
+        "2725855635": "Códice de Obsidiana",
+        "2727450010": "Aliosha",
+        "2743659331": "Rápidos",
+        "2745368786": "Clorinde",
+        "2745369298": "Clorinde",
+        "2745785690": "Néfer",
+        "2745786202": "Néfer",
+        "2748129963": "Resentimiento inmaculado",
+        "2749508387": "Majestad dorada",
+        "2749853923": "Deseo Ponzoñoso",
+        "2750781387": "Pensamiento floreciente",
+        "2753539107": "Argento Estelar de las Nieves",
+        "2753539619": "Argento Estelar de las Nieves",
+        "2759230658": "Ineffa",
+        "2764598579": "Exiliado",
+        "2770785803": "Caza de la turquesa",
+        "2786354179": "Alborada de la Estrella del Alba y la Luna",
+        "2787504450": "Prune",
+        "2792766467": "Espada de la Desidia",
+        "2796697027": "Lanza del Principiante",
+        "2801077538": "Durin",
+        "2803305851": "Son de Antaño",
+        "2822240322": "Gaming",
+        "2824690859": "Espejo Roto",
+        "2829471083": "Eco del Sacrificio",
+        "2832647675": "Arco Real",
+        "2832648187": "Arco Real",
+        "2834063555": "Emblema del Mar de Juncos",
+        "2834803571": "Majestad dorada",
+        "2846112011": "Cadencia de la Soledad",
+        "2846112523": "Cadencia de la Soledad",
+        "2847771107": "Discusión de los Sabios del Desierto",
+        "2848373866": "Yelan",
+        "2848374378": "Yelan",
+        "2853296811": "Colmillo perforacielos",
+        "2871793795": "Afilado",
+        "2872823194": "Lohen",
+        "2876340530": "Chongyun",
+        "2877588578": "Navia",
+        "2878068027": "Halo Fracturado",
+        "2889777514": "Laila",
+        "2890909531": "Artista Marcial",
+        "2893964243": "Mensaje del arquero",
+        "2915865819": "Arrebol del abismo",
+        "2918525435": "Agitador del Relámpago",
+        "2918525947": "Agitador del Relámpago",
+        "2935286203": "Lanza de Caza Real",
+        "2935286715": "Lanza de Caza Real",
+        "2944936171": "Semblante de la Luna Carmesí",
+        "2944936683": "Semblante de la Luna Carmesí",
+        "2947140987": "Destello en la Oscuridad",
+        "2948361666": "Collei",
+        "2948362178": "Collei",
+        "2949388203": "Pergamino del Héroe de la Ciudad de las Cenizas",
+        "2949448043": "Juramento por la Libertad",
+        "2949448555": "Juramento por la Libertad",
+        "2956779603": "Juramento de la Noche",
+        "2958179435": "Descendientes del Sol Abrasador",
+        "2963220587": "Orbe Esmeralda",
+        "2984815066": "Baizhu",
+        "2988480723": "El Primer Gran Número de Magia",
+        "2998374891": "Corazón del Invierno",
+        "3001782875": "Serenidad",
+        "3016493443": "Espada Cruz de los Narcisos",
+        "3016493955": "Espada Cruz de los Narcisos",
+        "3018479371": "Saloma",
+        "3024506994": "Shogun Raiden",
+        "3024507506": "Shogun Raiden",
+        "3029494867": "Fragmento de la Armonía Fantasiosa",
+        "3034568739": "Llave de la Trascendencia",
+        "3063191787": "Fin de las Aguas",
+        "3063488107": "Golpe contundente",
+        "3068316954": "Arataki Itto",
+        "3070169307": "Punta de Hierro",
+        "3073454355": "Májaira Aguamarina",
+        "3073454867": "Májaira Aguamarina",
+        "3078961123": "¡Tú puedes!",
+        "3079462611": "Dominaolas de Watatsumi",
+        "3082528187": "Tañido de las profundidades",
+        "3090373787": "Vino y Poesía",
+        "3092853059": "Anillo del Yaxché",
+        "3092975658": "Candace",
+        "3094139291": "Flor Olvidada del Paraíso",
+        "3097441403": "Garrote del Debate",
+        "3097441915": "Garrote del Debate",
+        "3101537195": "Marea aureosangrienta",
+        "3102522787": "Sublime final",
+        "3112448011": "Resolución",
+        "3112678643": "Elegía del Fin",
+        "3112679155": "Elegía del Fin",
+        "3120492002": "Iansán",
+        "3120492514": "Iansán",
+        "3121311955": "Cantar de Gesta del Lobo",
+        "3135412419": "Doncella Amada",
+        "3156385219": "Ojo de la Perspicacia",
+        "3156385731": "Ojo de la Perspicacia",
+        "3159145923": "Espadachín errante",
+        "3169209451": "Herrumbre",
+        "3176598571": "Vasalla del Rey",
+        "3176599083": "Vasalla del Rey",
+        "3192689683": "Entierro helado",
+        "3209694115": "Estrella de la selva",
+        "3221565738": "Jean",
+        "3221566250": "Jean",
+        "3225522227": "Llave Maestra",
+        "3228308731": "Son de Antaño",
+        "3230559562": "Trotamundos",
+        "3235179115": "Esperanza más allá de las cumbres",
+        "3235324379": "Báculo de Homa",
+        "3235324891": "Báculo de Homa",
+        "3237665819": "Sombra Verde Esmeralda",
+        "3252085691": "Avanza con el viento",
+        "3258658763": "Fanático de la magia",
+        "3259124203": "Tajo Redentor",
+        "3265161211": "Filo de infusión",
+        "3271318547": "Balada de la Custodia",
+        "3273998499": "Ágata del Peñasco Oscuro",
+        "3273999011": "Ágata del Peñasco Oscuro",
+        "3277782506": "Fischl",
+        "3293134650": "Mavuika (prueba)",
+        "3302787771": "Entierro helado",
+        "3305772819": "Táctica de asalto",
+        "3314157803": "Antipegajoso",
+        "3337185491": "Gran jugada",
+        "3337249451": "Sobrecarga",
+        "3339083250": "Klee",
+        "3344622722": "Lisa",
+        "3364338659": "Bendición infinita",
+        "3371922315": "Danza kagura del Cerezo Sagrado",
+        "3376210043": "Desastre y Arrepentimiento",
+        "3378007475": "Espada Larga del Peñasco Oscuro",
+        "3380504699": "Gancho Trampero",
+        "3380505211": "Gancho Trampero",
+        "3398664506": "Ifá",
+        "3398665018": "Ifá",
+        "3400133034": "Gorou",
+        "3400133546": "Gorou",
+        "3406113971": "Avanza con el viento",
+        "3410220315": "Compañía Dorada",
+        "3415819563": "Orgullo del trampero",
+        "3421966723": "Hoja de Filetear",
+        "3421967235": "Hoja de Filetear",
+        "3426916507": "Silbido Melifluo",
+        "3431172331": "Corazón del Guardián",
+        "3432339555": "Himno de las Cumbres",
+        "3434743027": "Flauta de Ezpitzal",
+        "3439749347": "Arco de la Cazadora Esmeralda",
+        "3439749859": "Arco de la Cazadora Esmeralda",
+        "3443142923": "Lanza de Espinadragón",
+        "3445371443": "Gracia de la montaña blanca",
+        "3447736723": "Arco del Peñasco Oscuro",
+        "3447737235": "Arco del Peñasco Oscuro",
+        "3450579043": "Sueños Áureos",
+        "3453611803": "Romperredes",
+        "3456986307": "Cuentos de Dodoco",
+        "3456986819": "Cuentos de Dodoco",
+        "3459616011": "Garrote del Diálogo",
+        "3464027035": "Espada Egregia de Isshin",
+        "3465493459": "Precisión",
+        "3497154619": "Escarcha del Albor",
+        "3497155131": "Escarcha del Albor",
+        "3500934491": "Cuentos de Cazadores de Dragones",
+        "3500935003": "Cuentos de Cazadores de Dragones",
+        "3513240283": "Viento inalcanzable",
+        "3532343811": "Cazador de Dioses",
+        "3535784755": "Corazón del Guerrero",
+        "3539134667": "Compañía Dorada",
+        "3541083923": "Gladiador",
+        "3544286883": "Sueños nocturnos",
+        "3555115090": "Thoma",
+        "3555115602": "Thoma",
+        "3567247531": "Berserker",
+        "3573591363": "Sabiduría Fraguada",
+        "3573591875": "Sabiduría Fraguada",
+        "3583902035": "Sueño de la Ninfa",
+        "3584825427": "Apuntes del Aprendiz",
+        "3587062891": "Axioma de la roca: Unidad",
+        "3587621259": "Flauta",
+        "3594490091": "Eco del Corazón",
+        "3600133283": "Prueba del pacto",
+        "3600623979": "Arco del Cazador",
+        "3608179810": "Diluc",
+        "3608180322": "Diluc",
+        "3611039419": "Juramento de la senda esmeralda",
+        "3618167299": "Erudita",
+        "3618693771": "Balneario, halcón, Narukami",
+        "3625393307": "Prototipo Luz de Luna",
+        "3625393819": "Prototipo Luz de Luna",
+        "3626268211": "Eco del Sacrificio",
+        "3639055403": "Corazón de las Profundidades",
+        "3648220258": "Xianyun",
+        "3648220770": "Xianyun",
+        "3660626387": "Reverberación de la Grulla",
+        "3669095707": "Retroceso del Meteorito",
+        "3673791555": "Espada del Viajero",
+        "3673792067": "Espada del Viajero",
+        "3678125795": "Inflorescencia del Porvenir",
+        "3684723963": "Segadora de la Lluvia",
+        "3685215283": "Artista Marcial",
+        "3685735523": "Espadachín errante",
+        "3689107586": "Aloy",
+        "3689108098": "Aloy",
+        "3690673363": "Noche de la Revelación del Cielo",
+        "3693117451": "Motosierra Transportable",
+        "3717341819": "Sombras de la luna",
+        "3717666906": "Eula",
+        "3717667418": "Eula",
+        "3717849275": "Luz del Segador",
+        "3719372203": "Nefrita Gemela",
+        "3719372715": "Nefrita Gemela",
+        "3722933411": "Prototipo Arcaico",
+        "3724297467": "Serenata de la Luna Tejida",
+        "3730903067": "Juramento de la Escarcha",
+        "3746229466": "Chasca",
+        "3747103099": "Precepto del sol",
+        "3755004051": "Lanza de Favonius",
+        "3761477451": "Juramento de la Noche",
+        "3762130179": "Letanía milenaria",
+        "3763051755": "Estribillo del Viento",
+        "3770314931": "Silencio profundo",
+        "3775298658": "Bárbara",
+        "3775299170": "Bárbara",
+        "3779886187": "Amanecer del crepúsculo",
+        "3780343147": "Destino Vacío",
+        "3782508715": "Médica Itinerante",
+        "3783773579": "Visión de Jade",
+        "3784387026": "Yumemizuki Mizuki",
+        "3784387538": "Yumemizuki Mizuki",
+        "3787561923": "Alba y ocaso en el lago",
+        "3790622155": "Hibernación Matutina de Año Nuevo",
+        "3790622667": "Hibernación Matutina de Año Nuevo",
+        "3794490427": "Corazón del Guerrero",
+        "3796702635": "Versatilidad",
+        "3796905099": "Espada Negra",
+        "3796905611": "Espada Negra",
+        "3812523339": "Sentenciadora",
+        "3816664530": "Viajera",
+        "3827788923": "Grimorio Real",
+        "3827789435": "Grimorio Real",
+        "3831162130": "Charlotte",
+        "3832443723": "Inquebrantable",
+        "3836188467": "Libertad de la mariposa cinabrio",
+        "3847142754": "Tartaglia",
+        "3847143266": "Tartaglia",
+        "3850149970": "Nilou",
+        "3857111235": "Recuerdos del Bosque",
+        "3862787418": "Zhongli",
+        "3869745515": "Ruinas Ensangrentadas",
+        "3881404531": "Choque de Reyes",
+        "3884163131": "Hálito Glacial",
+        "3887687898": "Aino",
+        "3887688410": "Aino",
+        "3890292467": "Instructor",
+        "3898539027": "Nubes pasajeras",
+        "3898556667": "Médica Itinerante",
+        "3909785739": "Sueño en el horizonte",
+        "3914045794": "Sangonomiya Kokomi",
+        "3914951691": "Espadón Cornirrojo",
+        "3933622347": "Alas Celestiales",
+        "3948272755": "Aro lunar",
+        "3949653067": "Vals Nocturno",
+        "3949653579": "Vals Nocturno",
+        "3949670506": "Mualani",
+        "3956074723": "Enseñanzas del Rey del Laberinto",
+        "3966753539": "Purificaformas",
+        "3975746731": "Arco de Cuervo",
+        "3986000746": "Arconte Pyro (prueba)",
+        "3992521194": "Vesna",
+        "3995709851": "Lápida del Lobo",
+        "3995710363": "Lápida del Lobo",
+        "3996017211": "Cosecha",
+        "3999792395": "Ritual del Destino",
+        "3999792907": "Ritual del Destino",
+        "4000770243": "Emboscada",
+        "4002156906": "Alhacén",
+        "4002157418": "Alhacén",
+        "4007101907": "Tenacidad de la Geoarmada",
+        "4007372867": "Centelleo Jadecaído",
+        "4019353779": "Penacho Engalanado",
+        "4019696531": "Ley del equilibrio",
+        "4022012131": "Victoria tras victoria",
+        "4035850498": "Escoffier",
+        "4038675555": "Cimentador de Nubes",
+        "4038676067": "Cimentador de Nubes",
+        "4049410139": "Lanza del Duelo",
+        "4049410651": "Lanza del Duelo",
+        "4055003299": "Hoja Afilada Celestial",
+        "4060235987": "Brillo solar",
+        "4080317355": "Valentía",
+        "4082302819": "Corazón del Guardián",
+        "4086029419": "Allende la Crisálida",
+        "4090429643": "Gran Espada Sangrienta",
+        "4099034547": "Athame Artis",
+        "4103021923": "Espina de Hierro",
+        "4103022435": "Espina de Hierro",
+        "4103766499": "Borla Negra",
+        "4108620210": "Albedo",
+        "4108620722": "Albedo",
+        "4113623219": "Pluma Invernal Lagoblanco",
+        "4113638323": "Lanza justiciera del halcón",
+        "4119662698": "Kaeya",
+        "4119663210": "Kaeya",
+        "4122508571": "Aleta Cortaolas",
+        "4122509083": "Aleta Cortaolas",
+        "4124851547": "Reflejo de las Tinieblas",
+        "4125864442": "Manekín femenino",
+        "4127888458": "Ninguang",
+        "4127888970": "Ninguang",
+        "4129404939": "Afortunado",
+        "4139294019": "Mensajero",
+        "4139294531": "Mensajero",
+        "4144069251": "Reminiscencia de la Purificación",
+        "4145306051": "Sueños Áureos",
+        "4158505107": "Púa Celestial",
+        "4158505619": "Púa Celestial",
+        "4158971171": "Retribución de la Justicia",
+        "4160146730": "Razor",
+        "4160147242": "Razor",
+        "4172712122": "Kinich",
+        "4172712634": "Kinich",
+        "4176922867": "Escrituras del Fluir Sempiterno",
+        "4176923379": "Escrituras del Fluir Sempiterno",
+        "4186179883": "Masacrademonios",
+        "4186446859": "Perla Oceánica",
+        "4193089947": "Asesinato de Katsuragi",
+        "4197635170": "Xingchiu",
+        "4197635682": "Xingchiu",
+        "4201963842": "Fréminet",
+        "4201964354": "Fréminet",
+        "4205439699": "Fácil solución",
+        "4211407267": "Caballería Sanguinaria",
+        "4226083179": "Conducta de samurái",
+        "4227142475": "Jade fluctuante",
+        "4230231107": "Aqua Simulacra",
+        "4231466539": "Tuétano ferroso",
+        "4238339131": "Báculo de las Arenas Escarlatas",
+        "4245213187": "Pergamino de infusión",
+        "4254250539": "Era dorada interminable",
+        "4257423419": "Orquesta del Errante",
+        "4258047555": "Dueto de la noche",
+        "4260733330": "Rosaria",
+        "4267718859": "Arco Recurvo",
+        "4273845410": "Xinyan",
+        "4275754179": "Cazador salvaje",
+        "abyss": "Espiral del Abismo",
+        "stygian": "Conflagración estigia",
+        "achievements": "Logros totales",
+        "level": "Niv.",
+        "theater": "Teatro Fantasía",
+        "FIGHT_PROP_BASE_HP": "Vida Base",
+        "FIGHT_PROP_HP": "Vida",
+        "FIGHT_PROP_HP_PERCENT": "Vida",
+        "FIGHT_PROP_BASE_ATTACK": "ATQ Base",
+        "FIGHT_PROP_ATTACK": "ATQ",
+        "FIGHT_PROP_ATTACK_PERCENT": "ATQ",
+        "FIGHT_PROP_BASE_DEFENSE": "DEF Base",
+        "FIGHT_PROP_DEFENSE": "DEF",
+        "FIGHT_PROP_DEFENSE_PERCENT": "DEF",
+        "FIGHT_PROP_BASE_SPEED": "Vel. Mov.",
+        "FIGHT_PROP_SPEED_PERCENT": "Vel. Mov.",
+        "FIGHT_PROP_CRITICAL": "Prob. CRIT",
+        "FIGHT_PROP_ANTI_CRITICAL": "RES CRIT",
+        "FIGHT_PROP_CRITICAL_HURT": "Daño CRIT",
+        "FIGHT_PROP_ELEMENT_MASTERY": "Maestría Elemental",
+        "FIGHT_PROP_CHARGE_EFFICIENCY": "Recarga de Energía",
+        "FIGHT_PROP_ADD_HURT": "Bono de Daño",
+        "FIGHT_PROP_SUB_HURT": "Reducción Daño",
+        "FIGHT_PROP_HEAL_ADD": "Bono de Curación",
+        "FIGHT_PROP_HEALED_ADD": "Bono de Curación recibida",
+        "FIGHT_PROP_FIRE_ADD_HURT": "Bono de Daño Pyro",
+        "FIGHT_PROP_FIRE_SUB_HURT": "RES Pyro",
+        "FIGHT_PROP_WATER_ADD_HURT": "Bono de Daño Hydro",
+        "FIGHT_PROP_WATER_SUB_HURT": "RES Hydro",
+        "FIGHT_PROP_GRASS_ADD_HURT": "Bono de Daño Dendro",
+        "FIGHT_PROP_GRASS_SUB_HURT": "RES Dendro",
+        "FIGHT_PROP_ELEC_ADD_HURT": "Bono de Daño Electro",
+        "FIGHT_PROP_ELEC_SUB_HURT": "RES Electro",
+        "FIGHT_PROP_ICE_ADD_HURT": "Bono de Daño Cryo",
+        "FIGHT_PROP_ICE_SUB_HURT": "RES Cryo",
+        "FIGHT_PROP_WIND_ADD_HURT": "Bono de Daño Anemo",
+        "FIGHT_PROP_WIND_SUB_HURT": "RES Anemo",
+        "FIGHT_PROP_PHYSICAL_ADD_HURT": "Bono de Daño Físico",
+        "FIGHT_PROP_PHYSICAL_SUB_HURT": "RES Física",
+        "FIGHT_PROP_ROCK_ADD_HURT": "Bono de Daño Geo",
+        "FIGHT_PROP_ROCK_SUB_HURT": "RES Geo",
+        "FIGHT_PROP_EFFECT_HIT": "Golpear",
+        "FIGHT_PROP_EFFECT_RESIST": "Resistido",
+        "FIGHT_PROP_FREEZE_SHORTEN": "Reduc. Duración Congelado",
+        "FIGHT_PROP_TORPOR_SHORTEN": "Reduc. Duración Paralizado",
+        "FIGHT_PROP_DIZZY_SHORTEN": "Reduc. Duración Aturdido",
+        "FIGHT_PROP_MAX_HP": "Vida Máx.",
+        "FIGHT_PROP_CUR_ATTACK": "ATQ",
+        "FIGHT_PROP_CUR_DEFENSE": "DEF",
+        "FIGHT_PROP_CUR_SPEED": "Vel. Mov.",
+        "FIGHT_PROP_CUR_HP": "Vida",
+        "FIGHT_PROP_SKILL_CD_MINUS_RATIO": "Disminución de TdE",
+        "FIGHT_PROP_SHIELD_COST_MINUS_RATIO": "Protección de Escudo",
+        "FIGHT_PROP_ELEMENT_ADD_HURT": "Aumento del Daño Elemental",
+        "FIGHT_PROP_ATTACK_PERCENT_A": "Porcentaje de ATQ",
+        "FIGHT_PROP_DEFENSE_PERCENT_A": "Porcentaje de DEF",
+        "FIGHT_PROP_HP_PERCENT_A": "Porcentaje de Vida"
+      },
+      "en": {
+        "2417850": "Odette",
+        "11881155": "Seasoned Symphony",
+        "20848859": "Blackcliff Slasher",
+        "21074019": "Etherlight Spindlelute",
+        "22949795": "Azure Skies",
+        "33330467": "Elemental Mastery",
+        "35587211": "Resolution of Sojourner",
+        "37146739": "Solar Pearl",
+        "37147251": "Solar Pearl",
+        "43015699": "TBD",
+        "54857595": "Bane of Storm and Tide",
+        "63399523": "Tupac's Grip",
+        "83115355": "Maiden Beloved",
+        "85795635": "Focus",
+        "88505754": "Kaedehara Kazuha",
+        "91795051": "Ode Beyond Time",
+        "102656474": "Illuga",
+        "108893506": "Sandrone",
+        "113398050": "Mavuika",
+        "123650378": "Skirk",
+        "123650890": "Skirk",
+        "135182203": "Bane of Storm and Tide",
+        "141119323": "Whispers of Wind and Flower",
+        "142003171": "Offering Unto Wind and Sun",
+        "143051931": "Xiphos' Moonlight",
+        "147298547": "Wanderer's Troupe",
+        "156294403": "Heart of Depth",
+        "160492707": "Dark Iron Sword",
+        "160493219": "Dark Iron Sword",
+        "167198962": "Arlecchino",
+        "167199474": "Arlecchino",
+        "168956210": "Qiqi",
+        "168956722": "Qiqi",
+        "185760547": "Hero's Blade",
+        "197755235": "Vortex Vanquisher",
+        "210291963": "Emberwell",
+        "212557219": "Prayers for Wisdom",
+        "212557731": "Prayers for Wisdom",
+        "231836963": "Primordial Jade Cutter",
+        "231911858": "Mika",
+        "235897163": "Vourukasha's Glow",
+        "240385755": "Wavesplitter",
+        "245002355": "Bright Dawn Overture",
+        "246984427": "Bane of Fire and Thunder",
+        "262428003": "Prayers to Springtime",
+        "270124867": "Protector's Virtue",
+        "275622963": "Light of Foliar Incision",
+        "279470883": "Nighttime Whispers in the Echoing Woods",
+        "282399443": "\"Holy Sword\"",
+        "283438362": "Varesa",
+        "283438874": "Varesa",
+        "287454451": "Prayers to the Firmament",
+        "287454963": "Prayers to the Firmament",
+        "287571027": "Celestial Gift",
+        "288666635": "Spotless Heart",
+        "302691299": "Amber Bead",
+        "303155515": "Unreturning",
+        "307541163": "Unfinished Masterpiece",
+        "310246731": "Kagura's Verity",
+        "310247243": "Kagura's Verity",
+        "313300315": "Sapwood Blade",
+        "316078299": "Ibis Piercer",
+        "316078811": "Ibis Piercer",
+        "334242122": "Shenhe",
+        "334242634": "Shenhe",
+        "339931171": "Press the Advantage",
+        "342097035": "Cinnabar Spindle",
+        "342097547": "Cinnabar Spindle",
+        "346510395": "Luxurious Sea-Lord",
+        "352459163": "Unfinished Reverie",
+        "357888027": "Moonweaver's Dawn",
+        "357888539": "Moonweaver's Dawn",
+        "359484419": "Tulaytullah's Remembrance",
+        "365216099": "Dryas's Nocturne",
+        "368014203": "Sky-ripping Dragon Spine",
+        "370150538": "Wriothesley",
+        "370151050": "Wriothesley",
+        "388272194": "Dori",
+        "391273955": "Black Wing",
+        "411685275": "Compound Bow",
+        "415520051": "Footprint of the Rainbow",
+        "422144187": "Ash-Graven Drinking Horn",
+        "426363227": "Wandering Evenstar",
+        "426363739": "Wandering Evenstar",
+        "440290627": "Flower of Paradise Lost",
+        "449192411": "Ballad of the Fjords",
+        "449192923": "Ballad of the Fjords",
+        "452043283": "Lost Ballade",
+        "452357427": "Moonpiercer",
+        "452357939": "Moonpiercer",
+        "453444347": "A Thousand Nights' Dawnsong",
+        "454086795": "Key of Khaj-Nisut",
+        "466355514": "Kaveh",
+        "479076483": "Cool Steel",
+        "481755219": "Blackcliff Pole",
+        "486287579": "Residual Heat",
+        "486512643": "Tamayuratei no Ohanashi",
+        "486513155": "Tamayuratei no Ohanashi",
+        "495182275": "Sturdy Bone",
+        "500612819": "The Flagstaff",
+        "506630267": "Windfall",
+        "514784907": "Bane of Flame and Water",
+        "518077587": "Symphonist of Scents",
+        "521221323": "Protector's Virtue",
+        "533413131": "Many Oaths of Dawn and Dusk",
+        "539533683": "Tiny Miracle",
+        "540313842": "Chevreuse",
+        "540938627": "Predator",
+        "565052459": "Chain Breaker",
+        "565052971": "Chain Breaker",
+        "565328963": "Kunwu's Wyrmbane",
+        "565329475": "Kunwu's Wyrmbane",
+        "566772267": "Gokadaiou Otogibanashi",
+        "568163371": "Silent Trigger",
+        "570546107": "Essence of Falsity",
+        "577103787": "Energy Shower",
+        "578574771": "Crescent Pike",
+        "578575283": "Crescent Pike",
+        "586598971": "Full Circle",
+        "590019915": "Calamity of Eshu",
+        "594850707": "Sword of Narzissenkreuz",
+        "597991835": "Byakuya Kougetsu",
+        "607067963": "Isshin Art Clarity",
+        "608159787": "Shimenawa's Reminiscence",
+        "613846163": "Descension",
+        "618786059": "Halberd",
+        "618786571": "Halberd",
+        "623494555": "Decimate",
+        "623534363": "Favonius Codex",
+        "625305531": "Silken Moon's Serenade",
+        "630452219": "Sakura Saiguu",
+        "646031578": "Shikanoin Heizou",
+        "646032090": "Shikanoin Heizou",
+        "646100491": "Lithic Axiom: Unity",
+        "650049651": "Windblume Ode",
+        "650438131": "Secret Wisdom's Favor",
+        "655825362": "Yun Jin",
+        "655825874": "Yun Jin",
+        "656120259": "Sharpshooter's Oath",
+        "658627627": "Blackmarrow Lantern",
+        "663168267": "Pact of Flowing Springs",
+        "675511059": "Aeon Wave",
+        "680509899": "Whiteblind",
+        "680510411": "Whiteblind",
+        "688237043": "Fruitful Hook",
+        "688991243": "Calamity Queller",
+        "693353755": "Memory of Dust",
+        "693354267": "Memory of Dust",
+        "697277554": "Yanfei",
+        "712500570": "Nahida",
+        "712501082": "Nahida",
+        "716252627": "Lithic Spear",
+        "724880659": "Cashflow Supervision",
+        "724881171": "Cashflow Supervision",
+        "724930075": "Secret Silver's Testament",
+        "729851187": "Glacier and Snowfield",
+        "730759547": "Marechaussee Hunter",
+        "735056283": "Favonius Greatsword",
+        "735056795": "Favonius Greatsword",
+        "753404539": "Day King's Splendor Solis",
+        "763535731": "Scholar",
+        "781488450": "Sigewinne",
+        "781488962": "Sigewinne",
+        "784952587": "A Day Carved From Rising Winds",
+        "797656147": "Husk of Opulent Dreams",
+        "800766043": "Finale of the Deep",
+        "807607555": "Skyward Atlas",
+        "824949859": "Dodoventure!",
+        "828711395": "Amos' Bow",
+        "832268067": "Aqua Remembrance",
+        "836208539": "Gilding",
+        "850802171": "White Iron Greatsword",
+        "853394138": "Hu Tao (Trial)",
+        "855894507": "Berserker",
+        "862591315": "Pale Flame",
+        "877751435": "Royal Greatsword",
+        "882305379": "Prospector's Drill",
+        "882305891": "Prospector's Drill",
+        "902184067": "Forest Regalia",
+        "902184579": "Forest Regalia",
+        "902264035": "Aquila Favonia",
+        "902282051": "Cull the Weak",
+        "909145139": "Protector's Virtue",
+        "915692979": "Thundersoother",
+        "924032139": "Heretic's Molten Blade",
+        "925251851": "Tip of the Spear",
+        "930486499": "Emblem of Severed Fate",
+        "930640955": "The Bell",
+        "933076627": "Blizzard Strayer",
+        "933441683": "\"Ultimate Overlord's Mega Magic Sword\"",
+        "933442195": "\"Ultimate Overlord's Mega Magic Sword\"",
+        "937532578": "Zibai",
+        "942758755": "Focus",
+        "944332883": "Summit Shaper",
+        "949506483": "Oceanic Victory",
+        "963351866": "Varka",
+        "968378595": "Falcon's Defiance",
+        "968892866": "Bennett",
+        "968893378": "Bennett",
+        "977648923": "Primordial Jade Greatsword",
+        "980370707": "Sacrificer's Staff",
+        "991968139": "Timeless Dream: Eternal Stove",
+        "994089035": "Nighttime Whispers in the Echoing Woods",
+        "1006042610": "Kamisato Ayaka",
+        "1009471939": "Absolution",
+        "1012170803": "Kagotsurube Isshin",
+        "1021898027": "Slingshot",
+        "1021898539": "Slingshot",
+        "1021947178": "Xiao",
+        "1021947690": "Xiao",
+        "1028735635": "Revolutionary Chorale",
+        "1048849443": "Heart of the Furnace",
+        "1049891906": "Cyno",
+        "1053433018": "Sucrose",
+        "1055194523": "Range Gauge",
+        "1055195035": "Range Gauge",
+        "1057644843": "The Weight of Falling Branches",
+        "1072884907": "Mappa Mare",
+        "1075646787": "Song of Broken Pines",
+        "1075647299": "Song of Broken Pines",
+        "1082448331": "People of the Faltering Light",
+        "1087496331": "Scroll of the Hero of Cinder City",
+        "1089949747": "Skyward Pride",
+        "1089950259": "Skyward Pride",
+        "1095391539": "Scarlet Proof",
+        "1097898243": "Heavy",
+        "1103732675": "Lucky Dog",
+        "1113306282": "Mona",
+        "1113839851": "Masons' Ditty",
+        "1114777131": "Chord",
+        "1117408923": "Swift and Sure",
+        "1119368259": "Journey",
+        "1130995834": "Xiangling",
+        "1130996346": "Xiangling",
+        "1133599347": "Strong-Willed",
+        "1148024091": "\"The Catch\"",
+        "1148024603": "\"The Catch\"",
+        "1154009435": "Prototype Starglitter",
+        "1163263227": "The Widsith",
+        "1163616891": "Frost Burial",
+        "1171552563": "Flower-Feather Song",
+        "1176721851": "Sea Shanty",
+        "1182966091": "Old Merc's Pal",
+        "1182966603": "Old Merc's Pal",
+        "1183453507": "Fang of the Mountain King",
+        "1183454019": "Fang of the Mountain King",
+        "1186209435": "Gambler",
+        "1197974530": "Citlali",
+        "1197975042": "Citlali",
+        "1198350762": "Ororon",
+        "1198975171": "Nightweaver's Looking Glass",
+        "1200948347": "Mailed Flower",
+        "1200948859": "Mailed Flower",
+        "1201790155": "A Thousand Floating Dreams",
+        "1201790667": "A Thousand Floating Dreams",
+        "1212345779": "Gladiator's Finale",
+        "1213967619": "Thundering Fury",
+        "1217552947": "Honed Flow",
+        "1225226258": "Lynette",
+        "1229532227": "Northwind Wolf",
+        "1230304555": "Ashen Sun's Shadow",
+        "1235520915": "The Daybreak Chronicles",
+        "1235521427": "The Daybreak Chronicles",
+        "1240067179": "Favonius Warbow",
+        "1249831867": "Marechaussee Hunter",
+        "1257395531": "Silvershower Heartstrings",
+        "1257396043": "Silvershower Heartstrings",
+        "1279937955": "Echoes of the Plentiful Land",
+        "1307222899": "Wandering Striker",
+        "1310150611": "Parsifal the Great",
+        "1312582827": "Gladiator's Finale",
+        "1313248691": "Glacier and Snowfield",
+        "1319974859": "Vigorous",
+        "1321135155": "Lion's Roar",
+        "1321135667": "Lion's Roar",
+        "1330908195": "Archaic Petra",
+        "1337666507": "Tenacity of the Millelith",
+        "1344953075": "Windfall",
+        "1345343763": "Primordial Jade Cutter",
+        "1348687251": "Hunter's Path",
+        "1359826123": "New Bough",
+        "1363661099": "Astral Vulture's Crimson Plumage",
+        "1363661611": "Astral Vulture's Crimson Plumage",
+        "1383427723": "Whitemoon Bristle",
+        "1383639611": "Tiny Miracle",
+        "1388004419": "Skyrider Sword",
+        "1388004931": "Skyrider Sword",
+        "1390797107": "White Tassel",
+        "1391705475": "Brocade Bloom, Shrine Sword",
+        "1395607523": "At the End of the Beast-Paths",
+        "1404688115": "The Parting Refrain",
+        "1406746947": "Otherworldly Story",
+        "1407869099": "Unfinished Reverie",
+        "1414366819": "Golden Majesty",
+        "1414807643": "Lavawalker",
+        "1422574882": "Ineffa",
+        "1431321834": "Sethos",
+        "1431322346": "Sethos",
+        "1437658243": "Serpent Spine",
+        "1438964010": "Jahoda",
+        "1438964522": "Jahoda",
+        "1438974835": "Retracing Bolide",
+        "1441327235": "Nocturne's Curtain Call",
+        "1445287979": "Waveriding Whirl",
+        "1455107483": "Lost Prayer to the Sacred Winds",
+        "1455107995": "Lost Prayer to the Sacred Winds",
+        "1456642530": "Kirara",
+        "1456643042": "Kirara",
+        "1468367026": "Diona",
+        "1468367538": "Diona",
+        "1470442731": "Missive Windspear",
+        "1473084923": "Desert Pavilion Chronicle",
+        "1473398931": "Splendor of Tranquil Waters",
+        "1473399443": "Splendor of Tranquil Waters",
+        "1479740763": "Azurelight",
+        "1479741275": "Azurelight",
+        "1479961067": "Ferrous Shadow",
+        "1479961579": "Ferrous Shadow",
+        "1483922610": "Kujou Sara",
+        "1485303435": "Infusion Stinger",
+        "1492570003": "Fragment of Harmonic Whimsy",
+        "1492752155": "Composed",
+        "1496871274": "Manekin",
+        "1499235563": "Press the Advantage",
+        "1499745907": "Prized Isshin Blade",
+        "1499817443": "Verdant Wind",
+        "1504902330": "Neuvillette",
+        "1515250179": "Busybody's Running Light",
+        "1516554699": "Quartz",
+        "1519053043": "The Exile",
+        "1522029867": "Bane of Fire and Thunder",
+        "1523089323": "Primordial Jade Regalia",
+        "1524173875": "Crimson Witch of Flames",
+        "1533656306": "Traveler",
+        "1533656818": "Traveler",
+        "1533746995": "Tales of the Tundra",
+        "1538092267": "Prized Isshin Blade",
+        "1541919827": "Bloodstained Chivalry",
+        "1543521331": "Gambler",
+        "1545992315": "Justice",
+        "1558036915": "Vermillion Hereafter",
+        "1562601179": "Viridescent Venerer",
+        "1566338363": "Reliquary of Truth",
+        "1573691659": "Lightbearing Moonshard",
+        "1588620330": "Kamisato Ayato",
+        "1593173243": "Diffusing Boundary",
+        "1600274803": "Haran Geppaku Futsu",
+        "1600275315": "Haran Geppaku Futsu",
+        "1605751859": "Night of the Sky's Unveiling",
+        "1608953027": "Harbinger of Dawn",
+        "1608953539": "Harbinger of Dawn",
+        "1610242915": "Heritage",
+        "1628928163": "Windblume Wish",
+        "1632377563": "Lavawalker",
+        "1651985379": "Daylight's Augury",
+        "1660598451": "Iwakura Succession",
+        "1673987515": "Surf's Up",
+        "1675079283": "Deepwood Memories",
+        "1675686363": "Sacrificial Greatsword",
+        "1692132714": "Vodyanitsa",
+        "1702903411": "Jinni's Whisper",
+        "1705785610": "Emilie",
+        "1705786122": "Emilie",
+        "1706534267": "Blunt Conclusion",
+        "1711582634": "Nicole",
+        "1722706579": "Bane of Water and Ice",
+        "1732417970": "Yaoyao",
+        "1732418482": "Yaoyao",
+        "1745286795": "Samurai Conduct",
+        "1745712907": "Watatsumi Wavewalker",
+        "1750139131": "Noblesse Oblige",
+        "1751039235": "Noblesse Oblige",
+        "1756609915": "Ocean-Hued Clam",
+        "1758346011": "Mournful Tribute",
+        "1771603299": "Golden Majesty",
+        "1773424643": "Sword of Descension",
+        "1773425155": "Sword of Descension",
+        "1774579403": "Obsidian Codex",
+        "1776873506": "Lauma",
+        "1776874018": "Lauma",
+        "1779329091": "Adventurer",
+        "1789612403": "Echo",
+        "1790066971": "The Dockhand's Assistant",
+        "1790067483": "The Dockhand's Assistant",
+        "1804674298": "Flins",
+        "1804674810": "Flins",
+        "1818340435": "Uraku Misugiri",
+        "1820235315": "Arrowless Song",
+        "1836628747": "Rebellious Guardian",
+        "1860795787": "Mouun's Moon",
+        "1864015138": "Keqing",
+        "1871665507": "Angelos' Heptades",
+        "1873342283": "Thundersoother",
+        "1876377995": "A Thousand Blazing Suns",
+        "1888132250": "Lan Yan",
+        "1888371106": "Columbina",
+        "1890162851": "Everlasting Moonglow",
+        "1890163363": "Everlasting Moonglow",
+        "1896898739": "Exaiphanes Blade",
+        "1901972563": "Polar Star",
+        "1901973075": "Polar Star",
+        "1921306659": "Fleuve Cendre Ferryman",
+        "1921418330": "Noelle",
+        "1921418842": "Noelle",
+        "1925210475": "Nymph's Dream",
+        "1927643091": "Desert Watch",
+        "1928302715": "Crimson Witch of Flames",
+        "1931332699": "Vermillion Hereafter",
+        "1932742643": "Extinguishing Precept",
+        "1934830979": "Undying Admiration",
+        "1934855067": "Cloudfall Axiom",
+        "1940821474": "Kuki Shinobu",
+        "1940821986": "Kuki Shinobu",
+        "1940919482": "Hu Tao",
+        "1940919994": "Hu Tao",
+        "1944606922": "Chiori",
+        "1948935171": "Lumidouce Elegy",
+        "1959332915": "Smoke-and-Mirror Mystery",
+        "1959650699": "Blizzard Strayer",
+        "1961019898": "Linnea",
+        "1965515155": "Mountain-Bracing Bolt",
+        "1965515667": "Mountain-Bracing Bolt",
+        "1966438658": "Amber",
+        "1982136171": "Focus",
+        "1990641987": "Sacrificial Sword",
+        "1990820123": "Amenoma Kageuchi",
+        "1991707099": "Prototype Rancour",
+        "1994080563": "Primordial Jade Vista",
+        "1994081075": "Primordial Jade Vista",
+        "1997709467": "Primordial Jade Winged-Spear",
+        "2003141763": "Finale of the Deep Galleries",
+        "2006422931": "Lithic Blade",
+        "2017033267": "Composed",
+        "2025598051": "Windfall",
+        "2029582603": "Kaidan: Rainfall Earthbinder",
+        "2040573235": "Archaic Petra",
+        "2060048587": "Prayers for Illumination",
+        "2060049099": "Prayers for Illumination",
+        "2077869251": "Tidal Shadow",
+        "2077869763": "Tidal Shadow",
+        "2089241987": "Last Singer",
+        "2108574027": "Smashed Stone",
+        "2109571443": "Focus",
+        "2125205883": "Silver Sword",
+        "2125206395": "Silver Sword",
+        "2136397971": "Forged by the Golden Melody",
+        "2149411851": "Golden Majesty",
+        "2153081171": "Silver Light",
+        "2153521307": "Desert Pavilion",
+        "2163007107": "Purifying Crown",
+        "2172529947": "Press the Advantage",
+        "2176134843": "Focus",
+        "2177723555": "Finale of the Deep Galleries",
+        "2180900234": "Furina",
+        "2190368347": "Gash",
+        "2191797987": "Adventurer",
+        "2192523835": "Deathly Pact",
+        "2195436779": "Masons' Ditty",
+        "2195665171": "Sacrificial Fragments",
+        "2195665683": "Sacrificial Fragments",
+        "2211498234": "Columbina",
+        "2225698043": "Prospector's Shovel",
+        "2242027395": "Ebony Bow",
+        "2244980899": "Sunken Song of the Sands",
+        "2250670211": "Golden Frostbound Oath",
+        "2257505883": "Forest Sanctuary",
+        "2258943483": "White Cruising Wave",
+        "2265792579": "Wolf-Fang",
+        "2267978875": "Fruit of Fulfillment",
+        "2275710371": "Sacrificial Jade",
+        "2275710883": "Sacrificial Jade",
+        "2276480763": "Emblem of Severed Fate",
+        "2279290283": "Magic Guide",
+        "2297485451": "Rapid Firing",
+        "2312640651": "Composed",
+        "2317047563": "Phantom Flash",
+        "2317820211": "Infusion Needle",
+        "2320082227": "Rainbow Serpent's Rain Bow",
+        "2322648115": "Crush",
+        "2324146259": "Hakushin Ring",
+        "2332663914": "Dahlia",
+        "2332664426": "Dahlia",
+        "2340969555": "Seasoned Hunter's Bow",
+        "2340970067": "Seasoned Hunter's Bow",
+        "2351445619": "Bygone Azure Teardrop",
+        "2359798963": "Akuoumaru",
+        "2359799475": "Akuoumaru",
+        "2360533154": "Dehya",
+        "2364208851": "Resolution of Sojourner",
+        "2365025043": "Itinerant Hero",
+        "2375993851": "Royal Longsword",
+        "2383998915": "Watatsumi Wavewalker",
+        "2384519283": "Slingshot",
+        "2387711482": "Faruzan",
+        "2387711994": "Faruzan",
+        "2388785242": "Sayu",
+        "2400012483": "Sacrificial Bow",
+        "2400012995": "Sacrificial Bow",
+        "2410593283": "Dull Blade",
+        "2415974179": "Sea Shanty",
+        "2417717595": "Alley Hunter",
+        "2425414923": "Fading Twilight",
+        "2432865507": "Flowing Purity",
+        "2433755451": "Rebel's Banner-Hymn",
+        "2440850563": "Echoing Ballad",
+        "2448629019": "Toukabou Shigure",
+        "2466140362": "Venti",
+        "2466897131": "Starcaller's Watch",
+        "2469300579": "Press the Advantage",
+        "2470144971": "\"The Silver Tongue\"",
+        "2470306939": "Rule by Thunder",
+        "2472444970": "Lyney",
+        "2474354867": "Favonius Sword",
+        "2476346187": "Bane of Flame and Water",
+        "2481463563": "Earth Shaker",
+        "2481464075": "Earth Shaker",
+        "2491796803": "Kitain Cross Spear",
+        "2491797315": "Kitain Cross Spear",
+        "2504399314": "Yoimiya",
+        "2506955778": "Tighnari",
+        "2512309395": "Thundering Fury",
+        "2515292370": "Xilonen",
+        "2515292882": "Xilonen",
+        "2519840043": "Vourukasha's Glow",
+        "2521338131": "Prototype Amber",
+        "2531816890": "Kachina",
+        "2534304035": "Mistsplitter's Edge",
+        "2538235187": "Desert Pavilion Chronicle",
+        "2539207947": "Oathsworn Eye",
+        "2539208459": "Oathsworn Eye",
+        "2546254811": "Husk of Opulent Dreams",
+        "2556914171": "The Stringless",
+        "2556914683": "The Stringless",
+        "2559426851": "Vivid Notions",
+        "2572374387": "Fangs Flying To and Fro",
+        "2587614459": "Frostbearer",
+        "2597527627": "The Other Side",
+        "2600875323": "Song of Stillness",
+        "2608472259": "Astral Whispers Beyond the Sacred Throne",
+        "2614169915": "Skyrider Greatsword",
+        "2614170427": "Skyrider Greatsword",
+        "2639070347": "Disenchantment in Deep Shadow",
+        "2646367730": "Beidou",
+        "2649182251": "Falling Rainbow's Wish",
+        "2662294963": "Instructor",
+        "2664628619": "Dragon's Bane",
+        "2664629131": "Dragon's Bane",
+        "2666950755": "Waster Greatsword",
+        "2666951267": "Waster Greatsword",
+        "2669894379": "Crag-Chiseled Forge",
+        "2673337443": "Infusion Arrow",
+        "2677592067": "Hymn of the Maelstrom",
+        "2679780610": "Ganyu",
+        "2679781122": "Ganyu",
+        "2684365579": "Debut",
+        "2691070627": "Forest Sanctuary",
+        "2704460819": "Pale Flame",
+        "2705029563": "Pocket Grimoire",
+        "2713452722": "Yae Miko",
+        "2713453234": "Yae Miko",
+        "2722902043": "Ballad of the Boundless Blue",
+        "2725855635": "Obsidian Codex",
+        "2727450010": "Alyosha",
+        "2743659331": "Rapids",
+        "2745368786": "Clorinde",
+        "2745369298": "Clorinde",
+        "2745785690": "Nefer",
+        "2745786202": "Nefer",
+        "2748129963": "Untainted Desire",
+        "2749508387": "Golden Majesty",
+        "2749853923": "Festering Desire",
+        "2750781387": "Mind in Bloom",
+        "2753539107": "Snow-Tombed Starsilver",
+        "2753539619": "Snow-Tombed Starsilver",
+        "2759230658": "Ineffa",
+        "2764598579": "The Exile",
+        "2770785803": "Turquoise Hunt",
+        "2786354179": "Aubade of Morningstar and Moon",
+        "2787504450": "Prune",
+        "2792766467": "The Unforged",
+        "2796697027": "Beginner's Protector",
+        "2801077538": "Durin",
+        "2803305851": "Song of Days Past",
+        "2822240322": "Gaming",
+        "2824690859": "Mirror Breaker",
+        "2829471083": "Echoes of an Offering",
+        "2832647675": "Royal Bow",
+        "2832648187": "Royal Bow",
+        "2834063555": "Beacon of the Reed Sea",
+        "2834803571": "Golden Majesty",
+        "2846112011": "Sequence of Solitude",
+        "2846112523": "Sequence of Solitude",
+        "2847771107": "Dialogues of the Desert Sages",
+        "2848373866": "Yelan",
+        "2848374378": "Yelan",
+        "2853296811": "Sky-Piercing Fang",
+        "2871793795": "Sharp",
+        "2872823194": "Lohen",
+        "2876340530": "Chongyun",
+        "2877588578": "Navia",
+        "2878068027": "Fractured Halo",
+        "2889777514": "Layla",
+        "2890909531": "Martial Artist",
+        "2893964243": "Archer's Message",
+        "2915865819": "Radiance of the Deeps",
+        "2918525435": "Thundering Pulse",
+        "2918525947": "Thundering Pulse",
+        "2935286203": "Royal Spear",
+        "2935286715": "Royal Spear",
+        "2944936171": "Crimson Moon's Semblance",
+        "2944936683": "Crimson Moon's Semblance",
+        "2947140987": "The Alley Flash",
+        "2948361666": "Collei",
+        "2948362178": "Collei",
+        "2949388203": "Scroll of the Hero of Cinder City",
+        "2949448043": "Freedom-Sworn",
+        "2949448555": "Freedom-Sworn",
+        "2956779603": "Long Night's Oath",
+        "2958179435": "Scion of the Blazing Sun",
+        "2963220587": "Emerald Orb",
+        "2984815066": "Baizhu",
+        "2988480723": "The First Great Magic",
+        "2998374891": "Winter's Heavy Heart",
+        "3001782875": "Composed",
+        "3016493443": "Sword of Narzissenkreuz",
+        "3016493955": "Sword of Narzissenkreuz",
+        "3018479371": "Shanty",
+        "3024506994": "Raiden Shogun",
+        "3024507506": "Raiden Shogun",
+        "3029494867": "Fragment of Harmonic Whimsy",
+        "3034568739": "A Teaspoon of Transcendence",
+        "3063191787": "End of the Line",
+        "3063488107": "Strong Strike",
+        "3068316954": "Arataki Itto",
+        "3070169307": "Iron Point",
+        "3073454355": "Makhaira Aquamarine",
+        "3073454867": "Makhaira Aquamarine",
+        "3078961123": "Melussistance!",
+        "3079462611": "Watatsumi Wavewalker",
+        "3082528187": "Benthic Pulse",
+        "3090373787": "Wine and Song",
+        "3092853059": "Ring of Yaxche",
+        "3092975658": "Candace",
+        "3094139291": "Flower of Paradise Lost",
+        "3097441403": "Debate Club",
+        "3097441915": "Debate Club",
+        "3101537195": "Golden Blood-Tide",
+        "3102522787": "An End Sublime",
+        "3112448011": "Determination",
+        "3112678643": "Elegy for the End",
+        "3112679155": "Elegy for the End",
+        "3120492002": "Iansan",
+        "3120492514": "Iansan",
+        "3121311955": "Gest of the Mighty Wolf",
+        "3135412419": "Maiden Beloved",
+        "3156385219": "Eye of Perception",
+        "3156385731": "Eye of Perception",
+        "3159145923": "Wandering Striker",
+        "3169209451": "Rust",
+        "3176598571": "King's Squire",
+        "3176599083": "King's Squire",
+        "3192689683": "Frost Burial",
+        "3209694115": "Wildling Nightstar",
+        "3221565738": "Jean",
+        "3221566250": "Jean",
+        "3225522227": "Master Key",
+        "3228308731": "Song of Days Past",
+        "3230559562": "Wanderer",
+        "3235179115": "Hope Beyond the Peaks",
+        "3235324379": "Staff of Homa",
+        "3235324891": "Staff of Homa",
+        "3237665819": "Viridescent Venerer",
+        "3252085691": "Windfall",
+        "3258658763": "Magic Affinity",
+        "3259124203": "Blade of Atonement",
+        "3265161211": "Infusion Blade",
+        "3271318547": "Song of the Vigil",
+        "3273998499": "Blackcliff Agate",
+        "3273999011": "Blackcliff Agate",
+        "3277782506": "Fischl",
+        "3293134650": "Mavuika (Trial)",
+        "3302787771": "Frost Burial",
+        "3305772819": "Guerilla Tactics",
+        "3314157803": "Bane of the Soft",
+        "3337185491": "Full Draw",
+        "3337249451": "Overloaded",
+        "3339083250": "Klee",
+        "3344622722": "Lisa",
+        "3364338659": "Boundless Blessing",
+        "3371922315": "Kagura Dance of the Sacred Sakura",
+        "3376210043": "Disaster and Remorse",
+        "3378007475": "Blackcliff Longsword",
+        "3380504699": "Snare Hook",
+        "3380505211": "Snare Hook",
+        "3398664506": "Ifa",
+        "3398665018": "Ifa",
+        "3400133034": "Gorou",
+        "3400133546": "Gorou",
+        "3406113971": "Windfall",
+        "3410220315": "Golden Troupe",
+        "3415819563": "Trapper's Pride",
+        "3421966723": "Fillet Blade",
+        "3421967235": "Fillet Blade",
+        "3426916507": "Serenity's Call",
+        "3431172331": "Defender's Will",
+        "3432339555": "Peak Patrol Song",
+        "3434743027": "Flute of Ezpitzal",
+        "3439749347": "The Viridescent Hunt",
+        "3439749859": "The Viridescent Hunt",
+        "3443142923": "Dragonspine Spear",
+        "3445371443": "Whitehill's Bestowal",
+        "3447736723": "Blackcliff Warbow",
+        "3447737235": "Blackcliff Warbow",
+        "3450579043": "Gilded Dreams",
+        "3453611803": "Net Snapper",
+        "3456986307": "Dodoco Tales",
+        "3456986819": "Dodoco Tales",
+        "3459616011": "Talking Stick",
+        "3464027035": "Prized Isshin Blade",
+        "3465493459": "Precise",
+        "3497154619": "Dawning Frost",
+        "3497155131": "Dawning Frost",
+        "3500934491": "Thrilling Tales of Dragon Slayers",
+        "3500935003": "Thrilling Tales of Dragon Slayers",
+        "3513240283": "The Wind Unattained",
+        "3532343811": "Deicide",
+        "3535784755": "Brave Heart",
+        "3539134667": "Golden Troupe",
+        "3541083923": "Gladiator",
+        "3544286883": "Nocturnal Dreams",
+        "3555115090": "Thoma",
+        "3555115602": "Thoma",
+        "3567247531": "Berserker",
+        "3573591363": "Flame-Forged Insight",
+        "3573591875": "Flame-Forged Insight",
+        "3583902035": "Nymph's Dream",
+        "3584825427": "Apprentice's Notes",
+        "3587062891": "Lithic Axiom: Unity",
+        "3587621259": "The Flute",
+        "3594490091": "Echoes of the Heart",
+        "3600133283": "Token of Covenant",
+        "3600623979": "Hunter's Bow",
+        "3608179810": "Diluc",
+        "3608180322": "Diluc",
+        "3611039419": "Oath of Qhapaq Nan",
+        "3618167299": "Scholar",
+        "3618693771": "Bathhouses, Hawks, and Narukami",
+        "3625393307": "Prototype Crescent",
+        "3625393819": "Prototype Crescent",
+        "3626268211": "Echoes of an Offering",
+        "3639055403": "Heart of Depth",
+        "3648220258": "Xianyun",
+        "3648220770": "Xianyun",
+        "3660626387": "Crane's Echoing Call",
+        "3669095707": "Retracing Bolide",
+        "3673791555": "Traveler's Handy Sword",
+        "3673792067": "Traveler's Handy Sword",
+        "3678125795": "Inflorescence Unattainable",
+        "3684723963": "Rainslasher",
+        "3685215283": "Martial Artist",
+        "3685735523": "Wandering Striker",
+        "3689107586": "Aloy",
+        "3689108098": "Aloy",
+        "3690673363": "Night of the Sky's Unveiling",
+        "3693117451": "Portable Power Saw",
+        "3717341819": "Stillwood Moonshadow",
+        "3717666906": "Eula",
+        "3717667418": "Eula",
+        "3717849275": "Engulfing Lightning",
+        "3719372203": "Twin Nephrite",
+        "3719372715": "Twin Nephrite",
+        "3722933411": "Prototype Archaic",
+        "3724297467": "Silken Moon's Serenade",
+        "3730903067": "Covenant of Frost and Snow",
+        "3746229466": "Chasca",
+        "3747103099": "The Way of Sunfire",
+        "3755004051": "Favonius Lance",
+        "3761477451": "Long Night's Oath",
+        "3762130179": "Millennial Hymn",
+        "3763051755": "Breezeborne Refrain",
+        "3770314931": "Solemn Silence",
+        "3775298658": "Barbara",
+        "3775299170": "Barbara",
+        "3779886187": "Sunset Reignites the Dawn",
+        "3780343147": "One Side",
+        "3782508715": "Traveling Doctor",
+        "3783773579": "Jade Vista",
+        "3784387026": "Yumemizuki Mizuki",
+        "3784387538": "Yumemizuki Mizuki",
+        "3787561923": "Dawn and Dusk by the Lake",
+        "3790622155": "Sunny Morning Sleep-In",
+        "3790622667": "Sunny Morning Sleep-In",
+        "3794490427": "Brave Heart",
+        "3796702635": "Ever-Changing",
+        "3796905099": "The Black Sword",
+        "3796905611": "The Black Sword",
+        "3812523339": "Verdict",
+        "3816664530": "Traveler",
+        "3827788923": "Royal Grimoire",
+        "3827789435": "Royal Grimoire",
+        "3831162130": "Charlotte",
+        "3832443723": "Unbending",
+        "3836188467": "Reckless Cinnabar",
+        "3847142754": "Tartaglia",
+        "3847143266": "Tartaglia",
+        "3850149970": "Nilou",
+        "3857111235": "Deepwood Memories",
+        "3862787418": "Zhongli",
+        "3869745515": "Bloodsoaked Ruins",
+        "3881404531": "Clash of Kings",
+        "3884163131": "Frostbreath",
+        "3887687898": "Aino",
+        "3887688410": "Aino",
+        "3890292467": "Instructor",
+        "3898539027": "Wandering Clouds",
+        "3898556667": "Traveling Doctor",
+        "3909785739": "Heat Haze at Horizon's End",
+        "3914045794": "Sangonomiya Kokomi",
+        "3914951691": "Redhorn Stonethresher",
+        "3933622347": "Skyward Harp",
+        "3948272755": "The Moonring Sighted",
+        "3949653067": "Mitternachts Waltz",
+        "3949653579": "Mitternachts Waltz",
+        "3949670506": "Mualani",
+        "3956074723": "Labyrinth Lord's Instruction",
+        "3966753539": "The Cleansing Form",
+        "3975746731": "Raven Bow",
+        "3986000746": "Pyro Archon (Test)",
+        "3992521194": "Vesna",
+        "3995709851": "Wolf's Gravestone",
+        "3995710363": "Wolf's Gravestone",
+        "3996017211": "Cull the Weak",
+        "3999792395": "Prayers for Destiny",
+        "3999792907": "Prayers for Destiny",
+        "4000770243": "Oppidan Ambush",
+        "4002156906": "Alhaitham",
+        "4002157418": "Alhaitham",
+        "4007101907": "Tenacity of the Millelith",
+        "4007372867": "Jadefall's Splendor",
+        "4019353779": "Flower-Wreathed Feathers",
+        "4019696531": "Principle of Equilibrium",
+        "4022012131": "Press the Advantage",
+        "4035850498": "Escoffier",
+        "4038675555": "Cloudforged",
+        "4038676067": "Cloudforged",
+        "4049410139": "Deathmatch",
+        "4049410651": "Deathmatch",
+        "4055003299": "Skyward Blade",
+        "4060235987": "Solar Shine",
+        "4080317355": "Courage",
+        "4082302819": "Defender's Will",
+        "4086029419": "Beyond the Chrysalis",
+        "4090429643": "Bloodtainted Greatsword",
+        "4099034547": "Athame Artis",
+        "4103021923": "Iron Sting",
+        "4103022435": "Iron Sting",
+        "4103766499": "Black Tassel",
+        "4108620210": "Albedo",
+        "4108620722": "Albedo",
+        "4113623219": "Whitelake Frostfeather",
+        "4113638323": "Eagle Spear of Justice",
+        "4119662698": "Kaeya",
+        "4119663210": "Kaeya",
+        "4122508571": "Wavebreaker's Fin",
+        "4122509083": "Wavebreaker's Fin",
+        "4124851547": "Mistsplitter Reforged",
+        "4125864442": "Manekina",
+        "4127888458": "Ningguang",
+        "4127888970": "Ningguang",
+        "4129404939": "Lucky Dog",
+        "4139294019": "Messenger",
+        "4139294531": "Messenger",
+        "4144069251": "Shimenawa's Reminiscence",
+        "4145306051": "Gilded Dreams",
+        "4158505107": "Skyward Spine",
+        "4158505619": "Skyward Spine",
+        "4158971171": "Rightful Reward",
+        "4160146730": "Razor",
+        "4160147242": "Razor",
+        "4172712122": "Kinich",
+        "4172712634": "Kinich",
+        "4176922867": "Tome of the Eternal Flow",
+        "4176923379": "Tome of the Eternal Flow",
+        "4186179883": "Hamayumi",
+        "4186446859": "Ocean-Hued Clam",
+        "4193089947": "Katsuragikiri Nagamasa",
+        "4197635170": "Xingqiu",
+        "4197635682": "Xingqiu",
+        "4201963842": "Freminet",
+        "4201964354": "Freminet",
+        "4205439699": "Fall Into Place",
+        "4211407267": "Bloodstained Chivalry",
+        "4226083179": "Samurai Conduct",
+        "4227142475": "Jade Circulation",
+        "4230231107": "Aqua Simulacra",
+        "4231466539": "Ironbone",
+        "4238339131": "Staff of the Scarlet Sands",
+        "4245213187": "Infusion Scroll",
+        "4254250539": "Halcyon Years Unending",
+        "4257423419": "Wanderer's Troupe",
+        "4258047555": "Evernight Duet",
+        "4260733330": "Rosaria",
+        "4267718859": "Recurve Bow",
+        "4273845410": "Xinyan",
+        "4275754179": "Wolfish Tracker",
+        "abyss": "Spiral Abyss",
+        "stygian": "Stygian Onslaught",
+        "achievements": "Total Achievements",
+        "level": "Lv.",
+        "theater": "Imaginarium Theater",
+        "FIGHT_PROP_BASE_HP": "Base HP",
+        "FIGHT_PROP_HP": "HP",
+        "FIGHT_PROP_HP_PERCENT": "HP",
+        "FIGHT_PROP_BASE_ATTACK": "Base ATK",
+        "FIGHT_PROP_ATTACK": "ATK",
+        "FIGHT_PROP_ATTACK_PERCENT": "ATK",
+        "FIGHT_PROP_BASE_DEFENSE": "Base DEF",
+        "FIGHT_PROP_DEFENSE": "DEF",
+        "FIGHT_PROP_DEFENSE_PERCENT": "DEF",
+        "FIGHT_PROP_BASE_SPEED": "Movement SPD",
+        "FIGHT_PROP_SPEED_PERCENT": "Movement SPD",
+        "FIGHT_PROP_CRITICAL": "CRIT Rate",
+        "FIGHT_PROP_ANTI_CRITICAL": "CRIT RES",
+        "FIGHT_PROP_CRITICAL_HURT": "CRIT DMG",
+        "FIGHT_PROP_ELEMENT_MASTERY": "Elemental Mastery",
+        "FIGHT_PROP_CHARGE_EFFICIENCY": "Energy Recharge",
+        "FIGHT_PROP_ADD_HURT": "DMG Bonus",
+        "FIGHT_PROP_SUB_HURT": "DMG Reduction",
+        "FIGHT_PROP_HEAL_ADD": "Healing Bonus",
+        "FIGHT_PROP_HEALED_ADD": "Incoming Healing Bonus",
+        "FIGHT_PROP_FIRE_ADD_HURT": "Pyro DMG Bonus",
+        "FIGHT_PROP_FIRE_SUB_HURT": "Pyro RES",
+        "FIGHT_PROP_WATER_ADD_HURT": "Hydro DMG Bonus",
+        "FIGHT_PROP_WATER_SUB_HURT": "Hydro RES",
+        "FIGHT_PROP_GRASS_ADD_HURT": "Dendro DMG Bonus",
+        "FIGHT_PROP_GRASS_SUB_HURT": "Dendro RES",
+        "FIGHT_PROP_ELEC_ADD_HURT": "Electro DMG Bonus",
+        "FIGHT_PROP_ELEC_SUB_HURT": "Electro RES",
+        "FIGHT_PROP_ICE_ADD_HURT": "Cryo DMG Bonus",
+        "FIGHT_PROP_ICE_SUB_HURT": "Cryo RES",
+        "FIGHT_PROP_WIND_ADD_HURT": "Anemo DMG Bonus",
+        "FIGHT_PROP_WIND_SUB_HURT": "Anemo RES",
+        "FIGHT_PROP_PHYSICAL_ADD_HURT": "Physical DMG Bonus",
+        "FIGHT_PROP_PHYSICAL_SUB_HURT": "Physical RES",
+        "FIGHT_PROP_ROCK_ADD_HURT": "Geo DMG Bonus",
+        "FIGHT_PROP_ROCK_SUB_HURT": "Geo RES",
+        "FIGHT_PROP_EFFECT_HIT": "Hit",
+        "FIGHT_PROP_EFFECT_RESIST": "Resisted",
+        "FIGHT_PROP_FREEZE_SHORTEN": "Frozen Duration Reduction",
+        "FIGHT_PROP_TORPOR_SHORTEN": "Paralyzed Duration Reduction",
+        "FIGHT_PROP_DIZZY_SHORTEN": "Stunned Duration Reduction",
+        "FIGHT_PROP_MAX_HP": "Max HP",
+        "FIGHT_PROP_CUR_ATTACK": "ATK",
+        "FIGHT_PROP_CUR_DEFENSE": "DEF",
+        "FIGHT_PROP_CUR_SPEED": "Movement SPD",
+        "FIGHT_PROP_CUR_HP": "HP",
+        "FIGHT_PROP_SKILL_CD_MINUS_RATIO": "CD Reduction",
+        "FIGHT_PROP_SHIELD_COST_MINUS_RATIO": "Shield Strength",
+        "FIGHT_PROP_ELEMENT_ADD_HURT": "Increases Elemental DMG dealt",
+        "FIGHT_PROP_ATTACK_PERCENT_A": "ATK Percentage",
+        "FIGHT_PROP_DEFENSE_PERCENT_A": "DEF Percentage",
+        "FIGHT_PROP_HP_PERCENT_A": "HP Percentage"
+      }
+    }
+  },
+  "curated": {
+    "templates": {
+      "carry.ATK": {
+        "nombre": "DPS [ATK + Crit + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%"
+        ],
+        "elementalGoblet": true
+      },
+      "carry.DEF": {
+        "nombre": "DPS [DEF + Crit + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%"
+        ],
+        "elementalGoblet": true
+      },
+      "carry.HP": {
+        "nombre": "DPS [HP + Crit + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%"
+        ],
+        "elementalGoblet": true
+      },
+      "carry.EM": {
+        "nombre": "DPS [EM + Crit + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "EM"
+        ],
+        "elementalGoblet": true
+      },
+      "carry.ER": {
+        "nombre": "DPS [ER + Crit + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryNoEle.ATK": {
+        "nombre": "DPS [ATK + Crit] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%"
+        ],
+        "elementalGoblet": false
+      },
+      "carryNoEle.DEF": {
+        "nombre": "DPS [DEF + Crit] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%"
+        ],
+        "elementalGoblet": false
+      },
+      "carryNoEle.HP": {
+        "nombre": "DPS [HP + Crit] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%"
+        ],
+        "elementalGoblet": false
+      },
+      "carryNoEle.EM": {
+        "nombre": "DPS [EM + Crit] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "carryNoEle.ER": {
+        "nombre": "DPS [ER + Crit] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryER.ATK": {
+        "nombre": "DPS [ATK + Crit + ER + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryER.DEF": {
+        "nombre": "DPS [DEF + Crit + ER + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryER.HP": {
+        "nombre": "DPS [HP + Crit + ER + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryER.EM": {
+        "nombre": "DPS [EM + Crit + ER + Elemental DMG]",
+        "stats": [
+          "CR",
+          "CD",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryERNoEle.ATK": {
+        "nombre": "DPS [ATK + Crit + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryERNoEle.DEF": {
+        "nombre": "DPS [DEF + Crit + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryERNoEle.HP": {
+        "nombre": "DPS [HP + Crit + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryERNoEle.EM": {
+        "nombre": "DPS [EM + Crit + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEM.ATK": {
+        "nombre": "DPS [ATK + Crit + EM + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "EM"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEM.DEF": {
+        "nombre": "DPS [DEF + Crit + EM + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "EM"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEM.HP": {
+        "nombre": "DPS [HP + Crit + EM + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "EM"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEM.ER": {
+        "nombre": "DPS [ER + Crit + EM + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "ER",
+          "EM"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEMNoEle.ATK": {
+        "nombre": "DPS [ATK + Crit + EM] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMNoEle.DEF": {
+        "nombre": "DPS [DEF + Crit + EM] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMNoEle.HP": {
+        "nombre": "DPS [HP + Crit + EM] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMNoEle.ER": {
+        "nombre": "DPS [ER + Crit + EM] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ER",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMER.ATK": {
+        "nombre": "DPS [ATK + Crit + EM + ER + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEMER.DEF": {
+        "nombre": "DPS [DEF + Crit + EM + ER + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEMER.HP": {
+        "nombre": "DPS [HP + Crit + EM + ER + Elemental DMG]]",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": true
+      },
+      "carryEMERNoEle.ATK": {
+        "nombre": "DPS [ATK + Crit + EM + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "ATK%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMERNoEle.DEF": {
+        "nombre": "DPS [DEF + Crit + EM + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "DEF%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "carryEMERNoEle.HP": {
+        "nombre": "DPS [HP + Crit + EM + ER] --sin Elemental DMG",
+        "stats": [
+          "CR",
+          "CD",
+          "HP%",
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "supp.ATK": {
+        "nombre": "Support [ATK + ER]",
+        "stats": [
+          "ATK%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "supp.DEF": {
+        "nombre": "Support [DEF + ER]",
+        "stats": [
+          "DEF%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "supp.HP": {
+        "nombre": "Support [HP + ER]",
+        "stats": [
+          "HP%",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "supp.EM": {
+        "nombre": "Support [EM + ER]",
+        "stats": [
+          "EM",
+          "ER"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEM.ATK": {
+        "nombre": "Support [ATK + ER + EM]",
+        "stats": [
+          "ATK%",
+          "ER",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEM.DEF": {
+        "nombre": "Support [DEF + ER + EM]",
+        "stats": [
+          "DEF%",
+          "ER",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEM.HP": {
+        "nombre": "Support [HP + ER + EM]",
+        "stats": [
+          "HP%",
+          "ER",
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "suppFav.ATK": {
+        "nombre": "Support con Favonius [ATK + ER + Crit rate]",
+        "stats": [
+          "ATK%",
+          "ER",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppFav.DEF": {
+        "nombre": "Support con Favonius [DEF + ER + Crit rate]",
+        "stats": [
+          "DEF%",
+          "ER",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppFav.HP": {
+        "nombre": "Support con Favonius [HP + ER + Crit rate]",
+        "stats": [
+          "HP%",
+          "ER",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppFav.EM": {
+        "nombre": "Support con Favonius [EM + ER + Crit rate]",
+        "stats": [
+          "EM",
+          "ER",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEMFav.ATK": {
+        "nombre": "Support [ATK + ER + EM + CR]",
+        "stats": [
+          "ATK%",
+          "ER",
+          "EM",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEMFav.DEF": {
+        "nombre": "Support [DEF + ER + EM + CR]",
+        "stats": [
+          "DEF%",
+          "ER",
+          "EM",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "suppEMFav.HP": {
+        "nombre": "Support [HP + ER + EM + CR]",
+        "stats": [
+          "HP%",
+          "ER",
+          "EM",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStat.ATK": {
+        "nombre": "Single stat [ATK]",
+        "stats": [
+          "ATK%"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStat.DEF": {
+        "nombre": "Single stat [DEF]",
+        "stats": [
+          "DEF%"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStat.HP": {
+        "nombre": "Single stat [HP]",
+        "stats": [
+          "HP%"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStat.EM": {
+        "nombre": "Single stat [EM]",
+        "stats": [
+          "EM"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStatFav.ATK": {
+        "nombre": "Single stat con Favonius [ATK + Crit rate]",
+        "stats": [
+          "ATK%",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStatFav.DEF": {
+        "nombre": "Single stat con Favonius [DEF + Crit rate]",
+        "stats": [
+          "DEF%",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStatFav.HP": {
+        "nombre": "Single stat con Favonius [HP + Crit rate]",
+        "stats": [
+          "HP%",
+          "CR"
+        ],
+        "elementalGoblet": false
+      },
+      "monoStatFav.EM": {
+        "nombre": "Single stat con Favonius [EM + Crit rate]",
+        "stats": [
+          "EM",
+          "CR"
+        ],
+        "elementalGoblet": false
+      }
+    },
+    "assignments": {
+      "10000002": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000003": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000005": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000006": [
+        "carry.ATK",
+        "carryER.ATK",
+        "carryEM.ATK",
+        "carryEMER.ATK",
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000007": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000014": [
+        "supp.HP",
+        "suppFav.HP",
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000015": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000016": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000020": [
+        "carryNoEle.ATK",
+        "carryERNoEle.ATK"
+      ],
+      "10000021": [
+        "carry.ATK",
+        "supp.HP"
+      ],
+      "10000022": [
+        "carry.EM",
+        "supp.EM"
+      ],
+      "10000023": [
+        "carryER.ATK",
+        "carryEMER.ATK"
+      ],
+      "10000024": [
+        "carryER.ATK",
+        "carry.ATK"
+      ],
+      "10000025": [
+        "carryER.ATK",
+        "suppFav.ATK"
+      ],
+      "10000026": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000027": [
+        "carry.ATK"
+      ],
+      "10000029": [
+        "carry.ATK"
+      ],
+      "10000030": [
+        "supp.HP",
+        "suppFav.HP",
+        "carry.HP"
+      ],
+      "10000031": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000032": [
+        "supp.HP",
+        "suppFav.HP",
+        "supp.ATK"
+      ],
+      "10000033": [
+        "carry.ATK"
+      ],
+      "10000034": [
+        "carry.DEF",
+        "carryER.DEF"
+      ],
+      "10000035": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000036": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000037": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000038": [
+        "carry.DEF",
+        "supp.DEF"
+      ],
+      "10000039": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000041": [
+        "carryER.ATK",
+        "suppFav.ATK"
+      ],
+      "10000042": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000043": [
+        "supp.EM",
+        "suppFav.EM",
+        "carry.EM"
+      ],
+      "10000044": [
+        "carryNoEle.ATK",
+        "carry.DEF"
+      ],
+      "10000045": [
+        "carry.ATK",
+        "carryER.ATK",
+        "suppFav.ATK"
+      ],
+      "10000046": [
+        "carryEM.HP",
+        "carry.HP"
+      ],
+      "10000047": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000048": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000049": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000050": [
+        "supp.HP",
+        "suppFav.HP",
+        "carry.EM"
+      ],
+      "10000051": [
+        "carryNoEle.ATK",
+        "carryERNoEle.ATK"
+      ],
+      "10000052": [
+        "carryER.ATK",
+        "carryERNoEle.ATK",
+        "carry.EM"
+      ],
+      "10000053": [
+        "supp.EM",
+        "supp.ATK"
+      ],
+      "10000054": [
+        "supp.HP",
+        "monoStat.HP"
+      ],
+      "10000055": [
+        "supp.DEF",
+        "suppFav.DEF"
+      ],
+      "10000056": [
+        "carryER.ATK",
+        "supp.ATK"
+      ],
+      "10000057": [
+        "carry.DEF",
+        "carryER.DEF"
+      ],
+      "10000058": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000059": [
+        "carry.ATK",
+        "carry.EM"
+      ],
+      "10000060": [
+        "carry.HP",
+        "carryER.HP"
+      ],
+      "10000061": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000062": [
+        "carry.ATK"
+      ],
+      "10000063": [
+        "supp.ATK",
+        "suppFav.ATK",
+        "monoStat.ATK"
+      ],
+      "10000064": [
+        "supp.DEF",
+        "suppFav.DEF"
+      ],
+      "10000065": [
+        "monoStat.EM",
+        "supp.EM",
+        "supp.HP"
+      ],
+      "10000066": [
+        "carry.ATK"
+      ],
+      "10000067": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000068": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000069": [
+        "carryEM.ATK",
+        "carry.EM"
+      ],
+      "10000070": [
+        "monoStat.HP",
+        "supp.HP"
+      ],
+      "10000071": [
+        "carryEM.ATK",
+        "carryEMER.ATK"
+      ],
+      "10000072": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000073": [
+        "carry.EM",
+        "supp.EM"
+      ],
+      "10000074": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000075": [
+        "carry.ATK"
+      ],
+      "10000076": [
+        "suppFav.ATK",
+        "supp.ATK"
+      ],
+      "10000077": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000078": [
+        "carry.EM",
+        "carryEM.ATK"
+      ],
+      "10000079": [
+        "carry.HP",
+        "supp.HP",
+        "carry.EM"
+      ],
+      "10000080": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000081": [
+        "supp.EM",
+        "monoStat.EM"
+      ],
+      "10000082": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000083": [
+        "supp.ATK"
+      ],
+      "10000084": [
+        "carry.ATK"
+      ],
+      "10000085": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000086": [
+        "carry.ATK"
+      ],
+      "10000087": [
+        "carry.HP",
+        "carryNoEle.HP"
+      ],
+      "10000088": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000089": [
+        "carryER.HP",
+        "carryERNoEle.HP",
+        "carry.HP",
+        "carryNoEle.HP"
+      ],
+      "10000090": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000091": [
+        "carry.ATK"
+      ],
+      "10000092": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000093": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000094": [
+        "carry.DEF"
+      ],
+      "10000095": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000096": [
+        "carry.ATK"
+      ],
+      "10000097": [
+        "carry.EM",
+        "carryEM.ATK"
+      ],
+      "10000098": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000099": [
+        "carry.ATK"
+      ],
+      "10000100": [
+        "supp.DEF",
+        "suppFav.DEF"
+      ],
+      "10000101": [
+        "carry.ATK"
+      ],
+      "10000102": [
+        "carry.HP",
+        "carryEM.HP"
+      ],
+      "10000103": [
+        "supp.DEF",
+        "suppFav.DEF"
+      ],
+      "10000104": [
+        "carryNoEle.ATK"
+      ],
+      "10000105": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000106": [
+        "carryEM.ATK",
+        "carry.ATK"
+      ],
+      "10000107": [
+        "supp.EM"
+      ],
+      "10000108": [
+        "supp.ATK",
+        "supp.EM",
+        "suppEM.ATK"
+      ],
+      "10000109": [
+        "monoStat.EM",
+        "supp.EM"
+      ],
+      "10000110": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000111": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000112": [
+        "carryER.ATK",
+        "carryERNoEle.ATK"
+      ],
+      "10000113": [
+        "supp.EM"
+      ],
+      "10000114": [
+        "carry.ATK"
+      ],
+      "10000115": [
+        "supp.HP",
+        "suppFav.HP"
+      ],
+      "10000116": [
+        "carryNoEle.ATK",
+        "carryEMNoEle.ATK",
+        "carryEMERNoEle.ATK"
+      ],
+      "10000117": [],
+      "10000118": [],
+      "10000119": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000120": [
+        "carryEMNoEle.ATK"
+      ],
+      "10000121": [
+        "supp.EM",
+        "suppFav.EM"
+      ],
+      "10000122": [
+        "carryNoEle.EM"
+      ],
+      "10000123": [
+        "carry.ATK",
+        "carryEM.ATK"
+      ],
+      "10000124": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000125": [
+        "carryEMERNoEle.HP",
+        "carryERNoEle.HP"
+      ],
+      "10000126": [
+        "carryNoEle.DEF"
+      ],
+      "10000127": [
+        "supp.DEF",
+        "suppFav.DEF"
+      ],
+      "10000128": [
+        "carryNoEle.ATK"
+      ],
+      "10000129": [
+        "carry.ATK",
+        "carryER.ATK"
+      ],
+      "10000130": [
+        "carryEMNoEle.DEF",
+        "carryEMERNoEle.DEF"
+      ],
+      "10000131": [
+        "monoStat.ATK",
+        "supp.ATK"
+      ],
+      "10000132": [
+        "supp.ATK",
+        "suppFav.ATK"
+      ],
+      "10000133": [
+        "carryNoEle.ATK",
+        "carryEMNoEle.ATK",
+        "carryERNoEle.ATK",
+        "carryEMERNoEle.ATK"
+      ],
+      "10000140": [
+        "monoStat.HP",
+        "supp.HP"
+      ],
+      "10000143": [
+        "carryNoEle.ATK",
+        "carryEMNoEle.ATK",
+        "carryERNoEle.ATK",
+        "carryEMERNoEle.ATK"
+      ],
+      "10000148": [
+        "supp.ATK",
+        "suppFav.ATK",
+        "suppEMFav.ATK"
+      ],
+      "10000150": [
+        "carryNoEle.ATK",
+        "carryEMNoEle.ATK"
+      ]
+    },
+    "overrides": {
+      "10000114": {
+        "elemento": "Cryo-abyss"
+      }
+    }
+  }
+}

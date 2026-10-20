@@ -1,12 +1,5 @@
-import {
-    getBuildById,
-    getCharNameById,
-    getElementById,
-    getGeneratedCharacterAssetsById,
-    getManualCharacterAssetNameById,
-    hasManualCharacter,
-} from '../parcing/character-names.js';
-import { t } from '../ui/language.js';
+import { getCharacter } from '../catalog/store.js';
+import { getCurrentLanguage, t } from '../ui/language.js';
 
 const REMOTE_API_BASE_URL = 'https://artifact-minmaxing-backend.onrender.com';
 const LOCAL_API_BASE_URL = 'http://127.0.0.1:3000';
@@ -154,27 +147,21 @@ function normalizeCharacter(character) {
 
 export function localizeCharacterProfile(character) {
     const avatarId = Number(character?.avatarId);
-    const name = getCharNameById(avatarId);
-    const element = getElementById(avatarId);
+    const metadata = getCharacter(avatarId, getCurrentLanguage(), character.skillDepotId);
+    const element = metadata.elemento;
 
     return {
         ...character,
         avatarId,
-        name,
+        name: metadata.nombre,
         element,
-        builds: getBuildById(avatarId),
-        assets: getCharacterAssets(avatarId, element),
-    };
-}
-
-function getCharacterAssets(avatarId, element) {
-    const generatedAssets = getGeneratedCharacterAssetsById(avatarId);
-    const useGeneratedAssets = generatedAssets && !hasManualCharacter(avatarId);
-    const assetName = getManualCharacterAssetNameById(avatarId);
-
-    return {
-        profileIcon: useGeneratedAssets ? generatedAssets.profileIcon : `./assets/pfp/${assetName}_Icon.webp`,
-        banner: useGeneratedAssets ? generatedAssets.banner : `./assets/gacha-img/${assetName}.png`,
-        elementIcon: element ? `./assets/elements/${element.toLowerCase()}.webp` : '',
+        builds: metadata.builds,
+        metadataAvailable: metadata.metadataAvailable,
+        buildStatus: metadata.buildStatus,
+        assets: {
+            profileIcon: metadata.assets.profileIcon || './assets/character-placeholder.svg',
+            banner: metadata.assets.banner || './assets/character-placeholder.svg',
+            elementIcon: element ? `./assets/elements/${element.toLowerCase()}.webp` : '',
+        },
     };
 }

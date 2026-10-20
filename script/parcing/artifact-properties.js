@@ -1,11 +1,9 @@
 // Mapa liviano de localizaciones publicado por Enka para resolver hashes de nombres.
 import { generatedArtifactSetsById, generatedArtifactSetsByLocale } from './generated-game-data.js';
 import { getCurrentLanguage, t } from '../ui/language.js';
+import { catalog } from '../catalog/store.js';
 
-const textMaps = await Promise.all([
-    fetch('./config-data/EnkaLocES.json').then(res => res.json()),
-    fetch('./config-data/EnkaLocEN.json').then(res => res.json()).catch(() => ({})),
-]).then(([es, en]) => ({ es, en }));
+const textMaps = catalog.generated.localizations;
 
 // tipo artefacto
 const artifactTypes = {
@@ -40,7 +38,7 @@ export const getSetName = (setNameTextMapHash, artifactFlat = {}) => {
 
 export const getArtifactPieceImage = (icon = '') => {
     const iconName = getArtifactIconName(icon);
-    return iconName ? `./assets/artifacts/sets/${iconName}.png` : '';
+    return /^[\w-]+$/.test(iconName) ? `https://enka.network/ui/${iconName}.png` : '';
 };
 
 function getSetIdFromArtifactIcon(icon = '') {
