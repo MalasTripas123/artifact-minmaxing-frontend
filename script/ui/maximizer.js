@@ -36,7 +36,28 @@ const artifactIcons = {
 
 export let selectedBuild;
 
+function hoverStatFrom(target) {
+    if (!(target instanceof Element)) return null;
+    const source = target.closest('.substat[data-stat], .toggle-stat-btn[data-id]');
+    const stat = source?.dataset.stat ?? source?.dataset.id;
+    return stat && stat !== 'goblet' ? stat : null;
+}
+
+function highlightMatchingSubstats(stat) {
+    document.querySelectorAll('.substat[data-stat]').forEach(row => {
+        row.classList.toggle('hovered-substat', row.dataset.stat === stat);
+    });
+}
+
 export function initMaximizerEvents() {
+    // Delegation also covers artifact cards and filters rendered after a character change.
+    document.addEventListener('mouseover', event => {
+        highlightMatchingSubstats(hoverStatFrom(event.target));
+    });
+    document.addEventListener('mouseout', event => {
+        highlightMatchingSubstats(hoverStatFrom(event.relatedTarget));
+    });
+    window.addEventListener('blur', () => highlightMatchingSubstats(null));
     document.addEventListener('click', (e) => {
         const summaryToggle = e.target.closest('.summary-toggle');
         if (summaryToggle) {
