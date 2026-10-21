@@ -13,11 +13,14 @@
         (() => {
             const read = fn => { try { return fn(); } catch { return null; } };
             const key = 'artifactMinmaxingTheme';
-            const theme = read(() => localStorage.getItem(key))
+            let theme = read(() => localStorage.getItem(key))
                 || read(() => sessionStorage.getItem(key))
                 || read(() => decodeURIComponent(document.cookie.split('; ').find(c => c.startsWith(key + '='))?.slice(key.length + 1) || ''))
                 || read(() => JSON.parse(window.name || '{}').artifactMinmaxing?.theme)
                 || read(() => history.state?.artifactMinmaxing?.theme);
+            if ((read(() => localStorage.getItem('artifactMinmaxingAutoTheme')) || read(() => sessionStorage.getItem('artifactMinmaxingAutoTheme'))) === 'true') {
+                theme = read(() => localStorage.getItem('artifactMinmaxingNeutralTheme')) || read(() => sessionStorage.getItem('artifactMinmaxingNeutralTheme')) || 'dark';
+            }
             if (['dark', 'light', 'pastel', 'pyro', 'hydro', 'electro', 'dendro', 'cryo', 'anemo', 'geo'].includes(theme)) {
                 document.body.dataset.theme = theme;
             }
@@ -31,6 +34,7 @@
     <div class="theme-selector">
         <button id="language-toggle-btn" class="fav-menu-btn language-toggle-btn">Idioma: ES</button>
         <button id="theme-selector-btn" class="fav-menu-btn">Tema: Oscuro ▾</button>
+        <label class="auto-theme-label"><input type="checkbox" id="auto-element-theme"><span data-i18n="controls.autoTheme">Tema según elemento</span></label>
         <div class="theme-drop-content" id="theme-opts">
             <div class="theme-opt" data-theme="dark" data-i18n="themes.dark">Oscuro</div>
             <div class="theme-opt" data-theme="light" data-i18n="themes.light">Claro</div>
@@ -113,6 +117,7 @@
                     <button class="refresh-profile-btn" id="refresh-profile-btn" type="button" data-i18n="controls.refreshProfile">Actualizar datos</button>
                     <button class="star-btn" id="fav-toggle" title="Favorito">★</button>
                     <button class="close-btn" id="close-btn" title="Cerrar">×</button>
+                    <small id="player-last-updated" tabindex="0"></small>
                 </div>
                 <p id="player-signature" class="player-signature" hidden></p>
                 <dl id="player-stats" class="player-stats"></dl>

@@ -6,8 +6,11 @@ let assetsPromise;
 let renderId = 0;
 const placeholder = './assets/character-placeholder.svg';
 
-export async function renderPlayerCard(player = currentPlayer) {
+export async function renderPlayerCard(player = currentPlayer, cache = {}) {
     const id = ++renderId;
+    lastUpdated = cache.lastEnkaRefreshAt || cache.updatedAt || null;
+    renderLastUpdated();
+    if (!lastUpdatedTimer) lastUpdatedTimer = setInterval(renderLastUpdated, 30000);
     document.getElementById('display-player-name').removeAttribute('data-i18n');
     document.getElementById('display-player-lv').removeAttribute('data-i18n');
     document.getElementById('display-player-name').textContent = player.nickname;
@@ -93,4 +96,25 @@ export function renderPlayerStats(player = currentPlayer) {
     const note = document.getElementById('player-stats-note');
     note.hidden = true;
     note.textContent = '';
+}
+
+let lastUpdated = null;
+let lastUpdatedTimer = null;
+export function renderLastUpdated() {
+    const label = document.getElementById('player-last-updated');
+    const date = lastUpdated ? new Date(lastUpdated) : null;
+    if (!date || Number.isNaN(date.getTime())) {
+        label.textContent = t('controls.unknownUpdate');
+        label.removeAttribute('title');
+        return;
+    }
+    const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000));
+    const [unit, amount] = seconds < 60 ? ['second', seconds]
+        : seconds < 3600 ? ['minute', Math.floor(seconds / 60)]
+        : seconds < 86400 ? ['hour', Math.floor(seconds / 3600)]
+        : ['day', Math.floor(seconds / 86400)];
+    const relative = new Intl.RelativeTimeFormat(document.documentElement.lang, { numeric: 'always' })
+        .format(-amount, unit);
+    label.textContent = t('controls.lastUpdated', { date: relative });
+    label.title = date.toLocaleString(document.documentElement.lang, { dateStyle: 'long', timeStyle: 'long' });
 }

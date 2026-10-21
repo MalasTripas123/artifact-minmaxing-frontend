@@ -80,3 +80,12 @@ assert.equal(summary.principalStatsCount, 1);
 assert.equal(summary.artifactBreakDown.Copa.artifRV, 440);
 
 console.log('maximizer-calculator tests passed');
+
+// Flat stats are independent, capped at four substats and excluded by fixed mains.
+assert.equal(getMaxUsefulSubstats('flor', new Set(['HP'])), 0);
+assert.equal(getMaxUsefulSubstats('pluma', new Set(['ATK'])), 0);
+assert.equal(getMaxUsefulSubstats('reloj', new Set(['DEF'])), 1);
+assert.equal(getMaxUsefulSubstats('corona', new Set(['ATK', 'DEF'])), 2);
+assert.equal(getMaxUsefulSubstats('copa', new Set(['HP%', 'ATK%', 'DEF%', 'CR', 'CD', 'EM', 'ER', 'HP', 'ATK', 'DEF'])), 4);
+assert.equal(countArtifactStats([electroGoblet], new Set(['DEF%'])).count, 0);
+assert.equal(countArtifactStats([electroGoblet], new Set(['DEF'])).count, 1);

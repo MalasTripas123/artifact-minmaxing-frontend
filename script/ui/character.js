@@ -1,3 +1,4 @@
+import { syncCharacterTheme } from './theme.js';
 import {
     characters,
     gearInitialStats,
@@ -62,6 +63,7 @@ export function showCharacter(id, shouldScroll = true) {
     if (!char) return;
 
     setCurrentSelectedChar(char);
+    syncCharacterTheme();
     selectedFilterStats.clear();
     setElementalCupEnabled(false);
     const detail = document.getElementById('character-detail');
@@ -311,7 +313,7 @@ function renderSub(name, rollsWithValue, type) {
     const sum = rolls.reduce((a, b) => a + b, 0);
     const total = Number.isInteger(sum) ? sum : sum.toFixed(1);
     return `
-        <div class="substat">
+        <div class="substat" data-stat="${escapeHtml(type)}">
             <div style="display:flex; justify-content:space-between"><span>${name}</span><b>${total}${
                     type === 'HP'||
                     type === 'ATK'||
@@ -326,6 +328,9 @@ function renderSub(name, rollsWithValue, type) {
 }
 
 export function applyRVValues(){
+    document.querySelectorAll('.substat[data-stat]').forEach(row => {
+        row.classList.toggle('selected-substat', selectedFilterStats.has(row.dataset.stat));
+    });
     const artifacts = getArtifacts();
 
     artifacts.forEach((artifact, i) => {

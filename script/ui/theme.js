@@ -1,3 +1,4 @@
+import { currentSelectedChar } from '../state.js';
 import { onLanguageChange, t } from './language.js';
 
 const THEME_STORAGE_KEY = 'artifactMinmaxingTheme';
@@ -166,6 +167,14 @@ function loadStoredTheme() {
 // inicia los elementos relacionados a los temas
 export function initThemeEvents() {
     loadStoredTheme();
+    if (['dark', 'light', 'pastel'].includes(getAppliedTheme())) savePreference('NeutralTheme', getAppliedTheme());
+    const checkbox = document.getElementById('auto-element-theme');
+    checkbox.checked = readPreference('AutoTheme') === 'true';
+    checkbox.addEventListener('change', () => {
+        savePreference('AutoTheme', String(checkbox.checked));
+        syncCharacterTheme();
+    });
+    syncCharacterTheme();
 
     onLanguageChange(() => {
         applyTheme(getAppliedTheme());
@@ -196,5 +205,28 @@ export function setTheme(theme) {
 
     applyTheme(theme);
     saveTheme(theme);
+    if (['dark', 'light', 'pastel'].includes(theme)) savePreference('NeutralTheme', theme);
     document.getElementById('theme-opts').classList.remove('show');
+}
+
+function readPreference(suffix) {
+    const key = 'artifactMinmaxing' + suffix;
+    try { const value = localStorage.getItem(key); if (value !== null) return value; } catch {}
+    try { return sessionStorage.getItem(key); } catch { return null; }
+}
+function savePreference(suffix, value) {
+    const key = 'artifactMinmaxing' + suffix;
+    try { localStorage.setItem(key, value); } catch {}
+    try { sessionStorage.setItem(key, value); } catch {}
+}
+export function syncCharacterTheme() {
+    if (!document.getElementById('auto-element-theme')?.checked) return;
+    const element = String(currentSelectedChar?.element ?? '').toLowerCase();
+    const aliases = { fire: 'pyro', water: 'hydro', electric: 'electro', grass: 'dendro', ice: 'cryo', wind: 'anemo', rock: 'geo' };
+    const neutral = readPreference('NeutralTheme');
+    const theme = currentSelectedChar && getThemeOption(aliases[element] || element)
+        ? aliases[element] || element
+        : ['dark', 'light', 'pastel'].includes(neutral) ? neutral : 'dark';
+    applyTheme(theme);
+    saveTheme(theme);
 }

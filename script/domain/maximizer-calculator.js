@@ -35,6 +35,12 @@ export function calculateRolls(maxUsefulSubstats, initialSubstats = 4) {
 
 export function getMaxUsefulSubstats(slot, selectedStats, usesElementalGoblet = true) {
     const stats = asStatSet(selectedStats);
+    const flatStats = ['HP', 'ATK', 'DEF'].filter(stat => stats.has(stat));
+    if (flatStats.length) {
+        const otherStats = new Set([...stats].filter(stat => !flatStats.includes(stat)));
+        const availableFlat = flatStats.filter(stat => !(slot === 'flor' && stat === 'HP') && !(slot === 'pluma' && stat === 'ATK')).length;
+        return Math.min(4, getMaxUsefulSubstats(slot, otherStats, usesElementalGoblet) + availableFlat);
+    }
     let critCount = 0;
     let erNeeded = false;
 

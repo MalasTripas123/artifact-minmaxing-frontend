@@ -93,8 +93,15 @@ export function renderMaximizerSection() {
                 `).join('')}
             </div>
             
-            <div style="margin-top:10px; margin-bottom:25px">
+            <div class="maximizer-secondary-row">
                 <button class="toggle-stat-btn ${elementalCupEnabled ? 'active' : ''}" data-id="goblet">${t('maximizer.elementalGoblet')}</button>
+                <div class="flat-stat-filters">
+                    ${['HP', 'ATK', 'DEF'].map(id => `
+                        <button class="toggle-stat-btn flat-stat-btn ${selectedFilterStats.has(id) ? 'active' : ''}" data-id="${id}">
+                            <span class="stat-filter-heading">${t('maximizer.filters.' + id)}<span class="stat-roll-count">×${rollCounts[id] ?? 0}</span></span>
+                            <span class="stat-filter-total">${totals[id] ?? 0}</span>
+                        </button>`).join('')}
+                </div>
 
             </div>
 
@@ -250,7 +257,7 @@ function fillBuilds() {
     if (builds.length === 0) return `<option value="custom" selected>${t('maximizer.noPresets')}</option>`;
 
     selectedBuild = builds[0];
-    selectedBuild.stats.forEach(s => selectedFilterStats.add(s));
+    selectedBuild.stats.filter(s => !['HP', 'ATK', 'DEF'].includes(s)).forEach(s => selectedFilterStats.add(s));
     if (selectedBuild.goblet === '') setElementalCupEnabled(true);
 
     const options = builds
@@ -275,7 +282,7 @@ function selectBuild() {
     const builds = currentSelectedChar.builds ?? [];
     const build = builds.find(b => b.id === buildSelect.value);
     if (build) {
-        build.stats.forEach(s => selectedFilterStats.add(s));
+        build.stats.filter(s => !['HP', 'ATK', 'DEF'].includes(s)).forEach(s => selectedFilterStats.add(s));
         if (build.goblet === '') setElementalCupEnabled(true);
     }
 

@@ -1,3 +1,4 @@
+import { syncCharacterTheme } from './theme.js';
 import {
     setCurrentPlayer,
     setCurrentPlayerId,
@@ -13,7 +14,7 @@ import { hideLoading, showLoading } from './loading.js';
 import { requestSectionNavigationSync } from './navigation.js';
 import { showCharacter } from './character.js';
 import { onLanguageChange, t } from './language.js';
-import { renderPlayerCard, renderPlayerStats } from './player-card.js';
+import { renderPlayerCard, renderPlayerStats, renderLastUpdated } from './player-card.js';
 
 const PROFILE_UID_PARAM = 'uid';
 let isSearchBusy = false;
@@ -147,14 +148,14 @@ function applyProfile(profile, {
 
     document.getElementById('header-section').classList.add('minimized');
     document.getElementById('player-info-bar').style.display = 'flex';
-    renderPlayerCard(profile.player);
+    renderPlayerCard(profile.player, profile.cache);
 
     const isFav = favorites.find(f => f.id === profile.uid);
     document.getElementById('fav-toggle').classList.toggle('active', !!isFav);
 
     document.getElementById('results-area').style.display = 'block';
     document.getElementById('character-detail').style.display = selectedCharacterId ? 'block' : 'none';
-    if (!selectedCharacterId) setCurrentSelectedChar(null);
+    if (!selectedCharacterId) { setCurrentSelectedChar(null); syncCharacterTheme(); }
 
     renderCharacterGrid(profile.characters);
 
@@ -190,6 +191,7 @@ function renderCharacterGrid(profileCharacters = characters) {
 
 function refreshVisibleProfileLanguage() {
     renderPlayerStats();
+    renderLastUpdated();
     setSearchBusy(isSearchBusy);
     renderRefreshButton();
 
@@ -257,6 +259,7 @@ export function resetSearch({ updateUrl = true } = {}) {
     setCurrentPlayerId(null);
     setCurrentPlayer({});
     setCurrentSelectedChar(null);
+    syncCharacterTheme();
     setCharacters([]);
     setRefreshCooldown(0);
     if (updateUrl) clearProfileUrl();
