@@ -158,7 +158,7 @@ export function localizeCharacterProfile(character) {
         name: metadata.nombre,
         constellation: characterConstellation(character),
         talents: characterTalents(character, metadata.talents),
-        equippedWeapon: characterWeapon(character, catalog.generated.weapons, catalog.generated.localizations, getCurrentLanguage()),
+        equippedWeapon: characterWeapon(character, catalog.generated.weapons, catalog.generated.localizations, getCurrentLanguage(), catalog.generated.weaponCurves),
         element,
         builds: metadata.builds,
         metadataAvailable: metadata.metadataAvailable,

@@ -1,3 +1,6 @@
+import { validateWeaponCatalog } from './weapon-validation.js';
+import { validateCharacterAndSetCatalog } from './character-set-validation.js';
+
 export const STATS = ['HP%', 'ATK%', 'DEF%', 'CR', 'CD', 'EM', 'ER'];
 const record = value => value && typeof value === 'object' && !Array.isArray(value);
 const keyPattern = /^\d+(?:-\d+)?$/;
@@ -13,6 +16,8 @@ export function validateCatalog(catalog) {
         if (!record(curated?.[field])) errors.push(`Falta curated.${field}.`);
     }
     if (errors.length) return { errors, warnings };
+    errors.push(...validateWeaponCatalog(generated));
+    errors.push(...validateCharacterAndSetCatalog(generated));
     for (const [id, c] of Object.entries(generated.characters)) {
         if (!keyPattern.test(id) || !record(c) || typeof c.nombre !== 'string' || !c.nombre.trim()) {
             errors.push(`Personaje inválido: ${id}.`);

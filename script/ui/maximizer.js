@@ -1,3 +1,4 @@
+import { initPlannerEvents, renderPlanner, refreshPlanner, plannerTitle } from './attribute-planner.js';
 import {
     currentSelectedChar,
     selectedFilterStats,
@@ -50,6 +51,7 @@ function highlightMatchingSubstats(stat) {
 }
 
 export function initMaximizerEvents() {
+    initPlannerEvents();
     // Delegation also covers artifact cards and filters rendered after a character change.
     document.addEventListener('mouseover', event => {
         highlightMatchingSubstats(hoverStatFrom(event.target));
@@ -131,11 +133,15 @@ export function renderMaximizerSection() {
                 ${renderMaximizerData()}
             </div>
 
-            <div class="breakdown-column">
-                <h4 style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px">${t('maximizer.efficiencyTitle')}</h4>
-                <div id="vertical-breakdown-container">
-                    ${renderVerticalBreakdown()}
+            <div class="maximizer-workspace">
+                <div class="maximizer-tabs" role="tablist" aria-label="${t('sections.maximizer')}">
+                    <button type="button" role="tab" id="maximizer-tab-analysis" data-maximizer-tab="analysis" aria-controls="maximizer-panel-analysis" aria-selected="true">${t('maximizer.efficiencyTitle')}</button>
+                    <button type="button" role="tab" id="maximizer-tab-planner" data-maximizer-tab="planner" aria-controls="maximizer-panel-planner" aria-selected="false" tabindex="-1">${plannerTitle()}</button>
                 </div>
+                <div id="maximizer-panel-analysis" class="breakdown-column" role="tabpanel" aria-labelledby="maximizer-tab-analysis">
+                    <div id="vertical-breakdown-container">${renderVerticalBreakdown()}</div>
+                </div>
+                <div id="maximizer-panel-planner" role="tabpanel" aria-labelledby="maximizer-tab-planner" hidden>${renderPlanner()}</div>
             </div>
         </div>
     `;
@@ -333,6 +339,7 @@ function refreshMaximizerSection() {
     document.getElementById('maximizer-output').innerHTML = renderMaximizerData();
     document.getElementById('vertical-breakdown-container').innerHTML = renderVerticalBreakdown();
     applyRVValues();
+    refreshPlanner();
 
     const btns = document.querySelectorAll('.toggle-stat-btn');
     btns.forEach(btn => {
