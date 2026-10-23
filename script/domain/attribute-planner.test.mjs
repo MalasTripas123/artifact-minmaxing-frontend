@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { assignRolls, initialPlan, plannerCharacter, planSetCounts, reconcileRolls, rollBudget, rollValue, simulatePlan } from './attribute-planner.js';
+import { activeRollGoals, assignRolls, initialPlan, plannerCharacter, plannerStatTotal, planSetCounts, reconcileRolls, rollBudget, rollValue, simulatePlan } from './attribute-planner.js';
 import { characterStatsAtLevel } from './character-stats.js';
 import { weaponStatsAtLevel } from './weapon-stats.js';
 
@@ -9,6 +9,37 @@ const { generated: g } = JSON.parse(await readFile(new URL('../../data/catalog.j
 const close = (actual, expected) => assert.ok(Math.abs(actual - expected) < 1e-8, `${actual} != ${expected}`);
 const character = (avatarId = 10000046) => ({ avatarId, level: 90, propMap: { 1002: { ival: '6' } }, equipList: [] });
 const mains = { flower: 'HP', plume: 'ATK', sands: 'ATK%', goblet: 'Pyro%', circlet: 'CD' };
+
+test('sliders start at equipped rolls, activate only edited goals and reset to a new character', () => {
+    const artifacts = [{ subStats: [
+        { subStatName: 'CR', upgrades: Array(4).fill({ rv: 80 }) },
+        { subStatName: 'ER', upgrades: Array(3).fill({ rv: 90 }) },
+        { subStatName: 'ATK', upgrades: Array(2).fill({ rv: 100 }) },
+    ] }];
+    const plan = initialPlan(character(), g, artifacts);
+    const selected = new Set(['CR', 'ER']);
+    reconcileRolls(plan, selected);
+    assert.deepEqual(plan.rolls, { CR: 4, ER: 3 });
+    assert.deepEqual(activeRollGoals(plan, selected), {});
+    assignRolls(plan, selected, 'ER', 1);
+    assert.deepEqual(activeRollGoals(plan, selected), { ER: 1 });
+    plan.quality = 5;
+    assert.deepEqual(activeRollGoals(plan, selected), { ER: 1 });
+    selected.delete('ER');
+    reconcileRolls(plan, selected);
+    assert.deepEqual(activeRollGoals(plan, selected), {});
+    selected.add('ER'); selected.add('ATK');
+    reconcileRolls(plan, selected);
+    assert.deepEqual(plan.rolls, { CR: 4, ER: 1, ATK: 2 });
+    assert.deepEqual(activeRollGoals(plan, selected), { ER: 1 });
+    assignRolls(plan, selected, 'ER', 3);
+    assert.deepEqual(activeRollGoals(plan, selected), {});
+    const next = initialPlan(character(10000052), g, []);
+    reconcileRolls(next, selected);
+    assert.deepEqual(next.rolls, { CR: 0, ER: 0, ATK: 0 });
+    assert.deepEqual(activeRollGoals(next, selected), {});
+    assert.deepEqual(activeRollGoals(initialPlan(character(), g, artifacts), selected), {});
+});
 
 test('planner budget follows the user example, fixed mains, zero and 45-point limits', () => {
     const result = rollBudget(['CR', 'CD', 'ATK%'], mains);
@@ -154,4 +185,15 @@ test('an explicitly unselected weapon level or ascension contributes no weapon s
     plan.weaponLevel = 90;
     plan.weaponAscension = null;
     assert.deepEqual(simulatePlan(g, char, plan).stats, bare);
+});
+
+test('slider totals show final character stats, with ratios only for percent stats', () => {
+    const stats = { FIGHT_PROP_MAX_HP: 15140.4, FIGHT_PROP_CUR_ATTACK: 1504.1, FIGHT_PROP_CUR_DEFENSE: 676.2, FIGHT_PROP_CRITICAL: 0.4781, FIGHT_PROP_CRITICAL_HURT: 2.248, FIGHT_PROP_CHARGE_EFFICIENCY: 1.162, FIGHT_PROP_ELEMENT_MASTERY: 598.4 };
+    for (const key of ['HP', 'HP%']) assert.deepEqual(plannerStatTotal(stats, key), { value: 15140, percent: false });
+    for (const key of ['ATK', 'ATK%']) assert.deepEqual(plannerStatTotal(stats, key), { value: 1504, percent: false });
+    for (const key of ['DEF', 'DEF%']) assert.deepEqual(plannerStatTotal(stats, key), { value: 676, percent: false });
+    assert.deepEqual(plannerStatTotal(stats, 'CR'), { value: 47.8, percent: true });
+    assert.deepEqual(plannerStatTotal(stats, 'CD'), { value: 224.8, percent: true });
+    assert.deepEqual(plannerStatTotal(stats, 'ER'), { value: 116.2, percent: true });
+    assert.deepEqual(plannerStatTotal(stats, 'EM'), { value: 598, percent: false });
 });

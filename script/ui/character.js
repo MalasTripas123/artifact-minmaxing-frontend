@@ -26,6 +26,8 @@ import {
 import { requestSectionNavigationSync } from './navigation.js';
 import { t } from './language.js';
 import { equippedSets } from '../domain/artifact-summary.js';
+import { refreshPlanner, getPlannerRollGoals } from './attribute-planner.js';
+import { applyRollGoals } from '../domain/roll-goals.js';
 
 function escapeHtml(value) {
     return String(value)
@@ -51,7 +53,7 @@ export function initCharacterEvents() {
             showCharacter(Number(charBtn.dataset.id));
         }
 
-        if (e.target.closest('.view-toggle-btn')) {
+        if (e.target.closest('#eq-section .view-toggle-btn')) {
             toggleView();
         }
     });
@@ -173,6 +175,7 @@ export function showCharacter(id, shouldScroll = true) {
         }, { once: true });
     });
 
+    refreshPlanner();
     applyRVValues();
 
     const elementIcon = document.getElementById('element-icon');
@@ -227,12 +230,12 @@ export function getArtifacts(){
             artifact.totalRolls = item.reliquary.appendPropIdList.length;
             // subs
             let upgradesList = item.reliquary.appendPropIdList; // lista de todos los upgrades del artefacto
-            for (let i = 0; i < 4; i++) { // 4 por 4 substats que tiene un artefacto
+            for (const rawSubstat of item.flat.reliquarySubstats ?? []) {
                 // crea un objeto que representa a un substat y le asigna un nombre que es el nombre del substat conseguido del artefacto del json
                 let subStat = {
-                    subStatName: getStatNameParced(item.flat.reliquarySubstats[i].appendPropId),
-                    totalValue: Number(item.flat.reliquarySubstats[i].statValue),
-                    value: item.flat.reliquarySubstats[i].statValue,
+                    subStatName: getStatNameParced(rawSubstat.appendPropId),
+                    totalValue: Number(rawSubstat.statValue),
+                    value: rawSubstat.statValue,
                     upgrades: []
                 };
 
@@ -242,7 +245,7 @@ export function getArtifacts(){
                     // asigna a una variable el objeto de esa mejora - props: valor, stat (nombre del stat), RV
                     const stat = getUpgradesValue(upgrade);
                     // si el nombre de la mejora conseguida es igual al nombre del substat asignado antes
-                    if (stat.stat == subStat.subStatName) {
+                    if (stat?.stat == subStat.subStatName) {
                         // parcea el valor
                         let value = stat.valor;
                         if (subStat.subStatName == 'ER' || 
@@ -293,10 +296,7 @@ function renderGears() {
                 </div>
             </div>
             <div class="substats-list">
-                ${renderSub(artifact.subStats[0].subStatName, artifact.subStats[0].upgrades, artifact.subStats[0].subStatName)}
-                ${renderSub(artifact.subStats[1].subStatName, artifact.subStats[1].upgrades, artifact.subStats[1].subStatName)}
-                ${renderSub(artifact.subStats[2].subStatName, artifact.subStats[2].upgrades, artifact.subStats[2].subStatName)}
-                ${renderSub(artifact.subStats[3].subStatName, artifact.subStats[3].upgrades, artifact.subStats[3].subStatName)}
+                ${artifact.subStats.map(sub => renderSub(sub.subStatName, sub.upgrades, sub.subStatName)).join('')}
             </div>
             <div class="eq-footer"><span id="rv-${i++}">RV: - %</span></div>
             <div class="eq-footer"><span id="cv-${artifact.type}">CV: ${calculateCritValue(artifact).toFixed(1)}</span></div>
@@ -331,7 +331,7 @@ export function applyRVValues(){
     document.querySelectorAll('.substat[data-stat]').forEach(row => {
         row.classList.toggle('selected-substat', selectedFilterStats.has(row.dataset.stat));
     });
-    const artifacts = getArtifacts();
+    const artifacts = applyRollGoals(getArtifacts(), getPlannerRollGoals());
 
     artifacts.forEach((artifact, i) => {
         const rv = calculateArtifactRv(artifact, selectedFilterStats);

@@ -1,4 +1,5 @@
-import { initPlannerEvents, renderPlanner, refreshPlanner, plannerTitle } from './attribute-planner.js';
+import { initializePlanner, initPlannerEvents, renderPlanner, refreshPlanner, plannerTitle, getPlannerRollGoals, getPlannerComparisons, rollGoalLabel, PLANNER_CHANGE_EVENT } from './attribute-planner.js';
+import { applyRollGoals } from '../domain/roll-goals.js';
 import {
     currentSelectedChar,
     selectedFilterStats,
@@ -52,6 +53,7 @@ function highlightMatchingSubstats(stat) {
 
 export function initMaximizerEvents() {
     initPlannerEvents();
+    document.addEventListener(PLANNER_CHANGE_EVENT, refreshGoalAnalysis);
     // Delegation also covers artifact cards and filters rendered after a character change.
     document.addEventListener('mouseover', event => {
         highlightMatchingSubstats(hoverStatFrom(event.target));
@@ -90,6 +92,8 @@ export function initMaximizerEvents() {
 
 export function renderMaximizerSection() {
     const artifacts = getArtifacts();
+    const buildOptions = fillBuilds();
+    initializePlanner(artifacts);
     const rollCounts = statRollCounts(artifacts);
     const totals = statValueTotals(artifacts);
     return `
@@ -103,16 +107,19 @@ export function renderMaximizerSection() {
             <div class="build-selector-container">
                 <label for="build-presets">${t('maximizer.presets')}</label>
                 <select id="build-presets" class="build-select">
-                    ${fillBuilds()}
+                    ${buildOptions}
                 </select>
             </div>
             
             <div class="maximizer-grid">
                 ${getStatFilters().map(s => `
+                    <div class="stat-filter-option">
                     <button class="toggle-stat-btn ${selectedFilterStats.has(s.id) ? 'active' : ''}" data-id="${s.id}">
                         <span class="stat-filter-heading">${s.name}<span class="stat-roll-count">×${rollCounts[s.id] ?? 0}</span></span>
                         <span class="stat-filter-total">${totals[s.id] ?? 0}${s.id === 'EM' ? '' : '%'}</span>
                     </button>
+                    <span class="stat-goal-indicator" data-stat-goal="${s.id}" hidden></span>
+                    </div>
                 `).join('')}
             </div>
             
@@ -120,10 +127,13 @@ export function renderMaximizerSection() {
                 <button class="toggle-stat-btn ${elementalCupEnabled ? 'active' : ''}" data-id="goblet">${t('maximizer.elementalGoblet')}</button>
                 <div class="flat-stat-filters">
                     ${['HP', 'ATK', 'DEF'].map(id => `
+                        <div class="stat-filter-option">
                         <button class="toggle-stat-btn flat-stat-btn ${selectedFilterStats.has(id) ? 'active' : ''}" data-id="${id}">
                             <span class="stat-filter-heading">${t('maximizer.filters.' + id)}<span class="stat-roll-count">×${rollCounts[id] ?? 0}</span></span>
                             <span class="stat-filter-total">${totals[id] ?? 0}</span>
-                        </button>`).join('')}
+                        </button>
+                        <span class="stat-goal-indicator" data-stat-goal="${id}" hidden></span>
+                        </div>`).join('')}
                 </div>
 
             </div>
@@ -150,6 +160,9 @@ export function renderMaximizerSection() {
 function renderMaximizerData() {
     const theoreticalMax = calculateMaxRolls(selectedFilterStats, elementalCupEnabled).totalRollsMaximos;
     const foundSubs = countStats();
+    const comparisons = Object.values(getPlannerComparisons());
+    const excess = comparisons.reduce((sum, stat) => sum + stat.excess, 0);
+    const missing = comparisons.reduce((sum, stat) => sum + stat.missing, 0);
 
     return `
         <div class="info-tile">
@@ -168,6 +181,7 @@ function renderMaximizerData() {
         </div>
         <div class="info-tile">
             <span class="label" style="font-size: 16px"><b>${t('maximizer.currentTitle')}</b></span>
+            <p class="roll-goal-summary" role="status">${comparisons.length ? `${t('maximizer.rollGoalSummary', { missing, excess })}${excess ? ` ${t('maximizer.rollGoalQuality')}` : ''}` : ''}</p>
             <div class="summary-current-row"><div>
                 <span class="label">${t('maximizer.currentSubstats')}</span>
                 <span class="value">${foundSubs.count}</span>
@@ -194,12 +208,13 @@ function renderMaximizerData() {
 }
 
 function renderVerticalBreakdown() {
-    const artifacts = getArtifacts();
+    const artifacts = applyRollGoals(getArtifacts(), getPlannerRollGoals());
 
     return artifacts.map((artifact) => {
         const analysis = analyzeArtifact(artifact, selectedFilterStats, elementalCupEnabled);
         const statIsUseful = getMainStatMarker(artifact, analysis.mainStatUseful);
         const icon = `url('./assets/artifacts/${artifactIcons[artifact.type]}.webp')`;
+        const excluded = artifact.subStats.reduce((sum, stat) => sum + (stat.excludedRolls ?? 0), 0);
 
         return `
         <div class="gear-row-analisys">
@@ -209,6 +224,7 @@ function renderVerticalBreakdown() {
                     <span class="analysis-label">${artifact.typeLabel ?? artifact.type}</span>
                     <span class="analysis-val">${artifact.mainStat}: ${artifact.mainStatValue} ${statIsUseful}</span>
                     <span class="analysis-label">${t('maximizer.initialSubs')}: ${artifact.totalRolls === 9 ? '4' : '3'}</span>
+                    ${excluded ? `<span class="analysis-label goal-excess">${t('maximizer.excludedRolls', { count: excluded })}</span>` : ''}
                 </div>
             </div>
 
@@ -332,15 +348,27 @@ function toggleCup() {
 }
 
 export function countStats() {
-    return countArtifactStats(getArtifacts(), selectedFilterStats, elementalCupEnabled);
+    return countArtifactStats(applyRollGoals(getArtifacts(), getPlannerRollGoals()), selectedFilterStats, elementalCupEnabled);
+}
+
+function refreshGoalAnalysis() {
+    const output = document.getElementById('maximizer-output');
+    if (!output) return;
+    output.innerHTML = renderMaximizerData();
+    document.getElementById('vertical-breakdown-container').innerHTML = renderVerticalBreakdown();
+    applyRVValues();
+    const comparisons = getPlannerComparisons();
+    document.querySelectorAll('[data-stat-goal]').forEach(badge => {
+        const comparison = comparisons[badge.dataset.statGoal];
+        badge.hidden = !comparison;
+        badge.textContent = rollGoalLabel(comparison);
+        badge.classList.toggle('goal-excess', Boolean(comparison?.excess));
+        badge.classList.toggle('goal-missing', Boolean(comparison?.missing));
+    });
 }
 
 function refreshMaximizerSection() {
-    document.getElementById('maximizer-output').innerHTML = renderMaximizerData();
-    document.getElementById('vertical-breakdown-container').innerHTML = renderVerticalBreakdown();
-    applyRVValues();
     refreshPlanner();
-
     const btns = document.querySelectorAll('.toggle-stat-btn');
     btns.forEach(btn => {
         const stat = btn.dataset.id;

@@ -2,7 +2,8 @@ import { catalog } from '../catalog/store.js';
 import { currentSelectedChar, selectedFilterStats } from '../state.js';
 import { getCurrentLanguage, t } from './language.js';
 import { escapeHtml } from './html.js';
-import { assignRolls, FLAT_STATS, initialPlan, MAIN_VALUES, plannerCharacter, planSetCounts, reconcileRolls, ROLL_TIERS, rollBudget, rollValue, simulatePlan, SLOT_OPTIONS } from '../domain/attribute-planner.js';
+import { activeRollGoals, assignRolls, FLAT_STATS, initialPlan, MAIN_VALUES, plannerCharacter, plannerStatTotal, planSetCounts, reconcileRolls, rollBudget, rollValue, simulatePlan, SLOT_OPTIONS } from '../domain/attribute-planner.js';
+import { compareRollGoals } from '../domain/roll-goals.js';
 
 const messages = {
     es: {
@@ -12,7 +13,9 @@ const messages = {
         qualities: ['Mínimo', 'Bajo', 'Promedio', 'Alto', 'Máximo'], points: 'Puntos de Rolls',
         remaining: 'disponibles', perRoll: 'por roll', empty: 'Selecciona atributos en el maximizador para distribuir rolls.',
         mains: 'Atributos principales · 5★ al máximo', reset: 'Restablecer equipamiento y rolls',
-        scope: 'Simulación con la base del personaje a su nivel y ascensión, el arma y los artefactos de este panel. No copia los substats equipados ni los totales del perfil.',
+        scope: 'Simulación con la base del personaje, el arma y los artefactos de este panel. Los sliders parten de tus rolls equipados; al moverlos defines las metas de substats.',
+        missing: 'Faltan {count} rolls', excess: 'Sobran {count} rolls', comparison: 'Tienes {current} · Meta {target}',
+        statColumn: 'Atributo', sliderColumn: 'Distribución', rollsColumn: 'Rolls', equippedColumn: 'Equipados', bonusColumn: 'Bonificación', totalColumn: 'Total personaje',
         note: 'Los rolls usan los valores visibles del juego. «Promedio» es la media de los cuatro valores. Sin atributo principal, la pieza sigue disponible para distribuir substats.',
         effects: 'Bonificaciones y alcance', effectsNote: 'Se suman los bonos permanentes a atributos generales. Las pasivas de personaje, constelaciones, buffs de equipo y efectos condicionados de combate no se simulan.',
         notAdded: 'No sumado a los atributos generales', applied: 'Bono permanente aplicado',
@@ -28,7 +31,9 @@ const messages = {
         qualities: ['Minimum', 'Low', 'Average', 'High', 'Maximum'], points: 'Roll Points',
         remaining: 'available', perRoll: 'per roll', empty: 'Select stats in the maximizer to allocate rolls.',
         mains: 'Main stats · Max-level 5★', reset: 'Reset equipment and rolls',
-        scope: 'Simulation using the character’s base at their level and ascension, plus this panel’s weapon and artifacts. Equipped substats and profile totals are not copied.',
+        scope: 'Simulation using the character’s base, weapon and artifacts in this panel. Sliders start with your equipped rolls; move them to set your substat goals.',
+        missing: '{count} rolls missing', excess: '{count} excess rolls', comparison: 'Equipped {current} · Target {target}',
+        statColumn: 'Stat', sliderColumn: 'Distribution', rollsColumn: 'Rolls', equippedColumn: 'Equipped', bonusColumn: 'Bonus', totalColumn: 'Character total',
         note: 'Rolls use the values displayed in game. Average is the mean of all four tiers. A slot without a main stat still contributes to the substat budget.',
         effects: 'Bonuses and scope', effectsNote: 'Permanent general-stat bonuses are included. Character passives, constellations, team buffs and conditional combat effects are not simulated.',
         notAdded: 'Not added to general stats', applied: 'Permanent bonus applied',
@@ -41,6 +46,8 @@ const messages = {
 const words = () => messages[getCurrentLanguage()] ?? messages.es;
 const g = catalog.generated;
 let plan;
+let equippedArtifacts = [];
+export const PLANNER_CHANGE_EVENT = 'artifact-minmaxing-planner-change';
 const filterKeys = { 'HP%': 'hp', 'ATK%': 'attack', 'DEF%': 'defense', CR: 'critRate', CD: 'critDamage', EM: 'mastery', ER: 'recharge', HP: 'HP', ATK: 'ATK', DEF: 'DEF' };
 const number = value => Number(value.toFixed(2)).toLocaleString(getCurrentLanguage(), { maximumFractionDigits: 2 });
 const nameOf = item => item?.names?.[getCurrentLanguage()] ?? item?.names?.es ?? '';
@@ -57,16 +64,29 @@ const none = chosen => option('', words().none, chosen);
 
 export function plannerTitle() { return words().title; }
 
-export function renderPlanner() {
-    plan = initialPlan(currentSelectedChar, g);
+export function initializePlanner(artifacts) {
+    equippedArtifacts = artifacts;
+    plan = initialPlan(currentSelectedChar, g, artifacts);
     reconcileRolls(plan, selectedFilterStats);
+}
+
+export function getPlannerRollGoals() { return activeRollGoals(plan, selectedFilterStats); }
+export function getPlannerComparisons() { return compareRollGoals(plan?.equippedRolls ?? {}, getPlannerRollGoals()); }
+function formatMessage(key, values) {
+    return Object.entries(values).reduce((text, [name, value]) => text.replaceAll(`{${name}}`, value), words()[key]);
+}
+export function rollGoalLabel(comparison) {
+    return comparison ? formatMessage(comparison.missing ? 'missing' : 'excess', { count: comparison.missing || comparison.excess }) : '';
+}
+
+export function renderPlanner() {
     return `<div class="attribute-planner" id="attribute-planner">
         <p class="planner-help">${words().scope}</p>
         <section aria-labelledby="planner-attributes-title">
             <h4 id="planner-attributes-title">${t('sections.attributes')}</h4>
             <div id="planner-stats" class="stats-list"></div>
         </section>
-        <details class="planner-equipment" open>
+        <details class="planner-equipment">
             <summary>${words().equipment}</summary>
             <div id="planner-equipment-fields">${equipmentFields()}</div>
         </details>
@@ -79,7 +99,7 @@ export function renderPlanner() {
                 </label>
                 <div class="planner-budget"><span>${words().points}</span><strong id="planner-points"></strong><small id="planner-remaining"></small></div>
             </div>
-            <div id="planner-sliders"></div>
+            <div class="planner-roll-table-wrap"><div id="planner-sliders" role="table" aria-label="${words().distribution}">${renderSliders()}</div></div>
             <p id="planner-status" class="planner-help" role="status"></p>
             <p class="planner-help">${words().note}</p>
         </section>
@@ -112,12 +132,16 @@ function equipmentFields() {
 }
 
 function renderSliders() {
-    return Object.keys(plan.rolls).map(stat => `<div class="planner-roll-row">
-        <label for="planner-roll-${stat}">${statName(stat)}</label>
-        <input id="planner-roll-${stat}" type="range" data-roll-stat="${stat}" min="0" max="30" step="1" value="${plan.rolls[stat]}">
-        <output data-roll-count="${stat}" for="planner-roll-${stat}">${plan.rolls[stat]}</output>
-        <span class="planner-roll-value" data-roll-value="${stat}"></span>
-    </div>`).join('') || `<p class="planner-help">${words().empty}</p>`;
+    const stats = Object.keys(plan.rolls);
+    if (!stats.length) return `<p class="planner-help">${words().empty}</p>`;
+    return `<div class="planner-roll-header" role="row">${['statColumn', 'sliderColumn', 'rollsColumn', 'equippedColumn', 'bonusColumn', 'totalColumn'].map(key => `<span role="columnheader">${words()[key]}</span>`).join('')}</div>` + stats.map(stat => `<div class="planner-roll-row" role="row">
+        <label role="cell" for="planner-roll-${stat}">${statName(stat)}</label>
+        <div role="cell"><input id="planner-roll-${stat}" type="range" data-roll-stat="${stat}" min="0" max="30" step="1" value="${plan.rolls[stat]}"></div>
+        <div role="cell" class="planner-roll-count"><output data-roll-count="${stat}" for="planner-roll-${stat}">${plan.rolls[stat]}</output></div>
+        <span role="cell" class="planner-roll-equipped" data-roll-equipped="${stat}">${plan.equippedRolls?.[stat] ?? 0}</span>
+        <span role="cell" class="planner-roll-value" data-roll-value="${stat}"></span>
+        <strong role="cell" class="planner-roll-total" data-roll-total="${stat}">—</strong>
+    </div>`).join('');
 }
 
 export function refreshPlanner(rebuildSliders = true) {
@@ -134,6 +158,7 @@ export function refreshPlanner(rebuildSliders = true) {
     document.getElementById('planner-remaining').textContent = `${budget.total - used} ${words().remaining}`;
     document.getElementById('planner-quality-name').textContent = words().qualities[plan.quality - 1];
     document.getElementById('planner-quality').setAttribute('aria-valuetext', words().qualities[plan.quality - 1]);
+    const comparisons = getPlannerComparisons();
     document.querySelectorAll('[data-roll-stat]').forEach(input => {
         const stat = input.dataset.rollStat;
         input.value = plan.rolls[stat];
@@ -142,15 +167,28 @@ export function refreshPlanner(rebuildSliders = true) {
         const value = rollValue(stat, plan.quality);
         const suffix = FLAT_STATS.has(stat) ? '' : '%';
         row.querySelector('[data-roll-value]').innerHTML = `<strong>+${number(value * plan.rolls[stat])}${suffix}</strong><small>${number(value)}${suffix} ${words().perRoll}</small>`;
+        const comparison = comparisons[stat];
+        const equipped = row.querySelector('[data-roll-equipped]');
+        equipped.textContent = plan.equippedRolls?.[stat] ?? 0;
+        equipped.title = comparison ? `${rollGoalLabel(comparison)} · ${formatMessage('comparison', comparison)}` : '';
+        equipped.classList.toggle('goal-excess', Boolean(comparison?.excess));
+        equipped.classList.toggle('goal-missing', Boolean(comparison?.missing));
+        row.classList.toggle('has-roll-goal', Boolean(comparison));
     });
     try {
         const result = simulatePlan(g, currentSelectedChar, plan);
         document.getElementById('planner-stats').innerHTML = renderAttributes(result.stats);
+        document.querySelectorAll('[data-roll-total]').forEach(cell => {
+            const total = plannerStatTotal(result.stats, cell.dataset.rollTotal);
+            cell.textContent = `${number(total.value)}${total.percent ? '%' : ''}`;
+        });
         document.getElementById('planner-effects').innerHTML = renderEffects(result);
     } catch {
+        document.querySelectorAll('[data-roll-total]').forEach(cell => { cell.textContent = '—'; });
         document.getElementById('planner-stats').innerHTML = `<p class="planner-help" role="status">${words().error}</p>`;
         document.getElementById('planner-effects').textContent = '';
     }
+    document.dispatchEvent(new CustomEvent(PLANNER_CHANGE_EVENT));
 }
 
 function renderAttributes(stats) {
@@ -165,7 +203,7 @@ function renderAttributes(stats) {
     return entries.map(([prop, label, icon, percent, base]) => {
         const value = stats[`FIGHT_PROP_${prop}`] ?? 0;
         const shown = percent ? Math.round(value * 1000) / 10 : Math.round(value);
-        if (!shown) return '';
+        if (!shown && !(prop === 'ELEMENT_MASTERY' && selectedFilterStats.has('EM'))) return '';
         const baseValue = stats[`FIGHT_PROP_${base}`] ?? 0;
         return `<div class="stat-item">${icon ? `<div class="stat-icon" style="background-image:url('./assets/attributes/${icon}')"></div>` : ''}
             <div class="stat-content"><div class="stat-top-row"><span class="stat-label"><b>${label === 'healing' ? words().healing : t('character.stats.' + label)}</b></span>
@@ -225,7 +263,7 @@ export function initPlannerEvents() {
     });
     document.addEventListener('click', event => {
         if (event.target.closest('#planner-reset')) {
-            plan = initialPlan(currentSelectedChar, g);
+            initializePlanner(equippedArtifacts);
             document.getElementById('planner-quality').value = plan.quality;
             document.getElementById('planner-equipment-fields').innerHTML = equipmentFields();
             refreshPlanner();

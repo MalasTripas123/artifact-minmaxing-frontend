@@ -1,6 +1,7 @@
 import { characterStatsAtLevel } from './character-stats.js';
 import { weaponContributions } from './weapon-stats.js';
 import { artifactSetBonuses } from './artifact-set-bonuses.js';
+import { statRollCounts } from './artifact-summary.js';
 
 export const STAT_PROPS = {
     HP: 'FIGHT_PROP_HP', 'HP%': 'FIGHT_PROP_HP_PERCENT',
@@ -41,7 +42,7 @@ export function plannerCharacter(generated, character) {
     return generated.characters[`${character.avatarId}-${character.skillDepotId}`] ?? generated.characters[character.avatarId];
 }
 
-export function initialPlan(character, generated) {
+export function initialPlan(character, generated, artifacts = []) {
     const weapon = character.equipList?.find(item => item.weapon);
     const weaponData = generated.weapons[weapon?.itemId];
     const rank = Object.values(weapon?.weapon.affixMap ?? {})[0];
@@ -62,7 +63,8 @@ export function initialPlan(character, generated) {
         weaponAscension: Number(weapon?.weapon.promoteLevel ?? 0),
         refinement: rank == null ? (weaponData?.maxRefinement === 1 ? 1 : null) : Number(rank) + 1,
         setMode: sets[0]?.[1] >= 4 ? '4' : sets.length >= 2 ? '2+2' : sets.length ? '2' : '',
-        set1: sets[0]?.[0] ?? '', set2: sets[1]?.[0] ?? '', mains, quality: 3, rolls: {},
+        set1: sets[0]?.[0] ?? '', set2: sets[1]?.[0] ?? '', mains, quality: 3,
+        equippedRolls: statRollCounts(artifacts), rolls: {}, goals: {},
     };
 }
 
@@ -87,7 +89,8 @@ export function reconcileRolls(plan, selected) {
     const budget = rollBudget(selected, plan.mains).total;
     let available = budget;
     plan.rolls = Object.fromEntries([...new Set(selected)].filter(stat => ROLL_TIERS[stat]).map(stat => {
-        const value = Math.max(0, Math.min(30, available, Math.floor(Number(plan.rolls[stat]) || 0)));
+        const requested = plan.rolls[stat] ?? plan.goals?.[stat] ?? plan.equippedRolls?.[stat] ?? 0;
+        const value = Math.max(0, Math.min(30, available, Math.floor(Number(requested) || 0)));
         available -= value;
         return [stat, value];
     }));
@@ -99,6 +102,16 @@ export function assignRolls(plan, selected, stat, requested) {
     if (!Object.hasOwn(plan.rolls, stat)) return;
     const other = Object.entries(plan.rolls).reduce((sum, [key, value]) => sum + (key === stat ? 0 : value), 0);
     plan.rolls[stat] = Math.max(0, Math.min(30, rollBudget(selected, plan.mains).total - other, Math.floor(Number(requested) || 0)));
+    plan.goals ??= {};
+    if (plan.rolls[stat] === (plan.equippedRolls?.[stat] ?? 0)) delete plan.goals[stat];
+    else plan.goals[stat] = plan.rolls[stat];
+}
+
+export function activeRollGoals(plan, selected) {
+    if (!plan) return {};
+    return Object.fromEntries([...new Set(selected)]
+        .filter(stat => Object.hasOwn(plan.goals ?? {}, stat) && plan.rolls[stat] !== (plan.equippedRolls?.[stat] ?? 0))
+        .map(stat => [stat, plan.rolls[stat]]));
 }
 
 export function planSetCounts(plan) {
@@ -106,6 +119,15 @@ export function planSetCounts(plan) {
     if (plan.setMode && plan.set1) counts[plan.set1] = plan.setMode === '4' ? 4 : 2;
     if (plan.setMode === '2+2' && plan.set2 && plan.set2 !== plan.set1) counts[plan.set2] = 2;
     return counts;
+}
+
+// HP/ATK/DEF sliders (flat or %) show the final stat, matching the character panel.
+export function plannerStatTotal(stats, stat) {
+    const totals = { HP: 'MAX_HP', 'HP%': 'MAX_HP', ATK: 'CUR_ATTACK', 'ATK%': 'CUR_ATTACK', DEF: 'CUR_DEFENSE', 'DEF%': 'CUR_DEFENSE' };
+    const prop = totals[stat] ? `FIGHT_PROP_${totals[stat]}` : STAT_PROPS[stat];
+    const percent = !totals[stat] && !FLAT_STATS.has(stat);
+    const value = stats[prop] ?? 0;
+    return { value: percent ? Math.round(value * 1000) / 10 : Math.round(value), percent };
 }
 
 function finalStats(props) {

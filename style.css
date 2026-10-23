@@ -1115,7 +1115,8 @@
 /* Selected artifact rolls and independent flat-stat controls. */
 .substat { padding: 3px 5px; border-radius: 4px; }
 .substat.selected-substat { background: color-mix(in srgb, var(--accent-lavender) 18%, var(--card-bg)); box-shadow: inset 2px 0 var(--accent-lavender); }
-.maximizer-secondary-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 10px 0 25px; flex-wrap: wrap; }
+.maximizer-secondary-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: 10px 0 25px; flex-wrap: wrap; }
+.maximizer-secondary-row > [data-id="goblet"] { min-height: 32px; margin-top: 16px; }
 .flat-stat-filters { display: flex; gap: 6px; margin-left: auto; }
 .flat-stat-btn { display: flex; flex-direction: column; gap: 4px; min-width: 80px; padding: 7px 8px; }
 .flat-stat-btn .stat-filter-total { font-size: .75rem; }
@@ -1140,6 +1141,7 @@
 .maximizer-workspace [role="tabpanel"] { padding: 16px; }
 .maximizer-workspace [hidden] { display: none; }
 .attribute-planner { display: grid; gap: 18px; }
+.attribute-planner > * { min-width: 0; }
 .attribute-planner h4 { margin: 0 0 12px; color: var(--text-main); font-size: .95rem; }
 .attribute-planner h5 { margin: 14px 0 8px; color: var(--text-muted); }
 .planner-help { font-size: .75rem; line-height: 1.5; color: var(--text-muted); margin: 0; }
@@ -1160,8 +1162,25 @@
 .planner-budget { flex-shrink: 0; display: grid; gap: 4px; text-align: center; background: var(--bg-color); border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 8px; font-size: .75rem; }
 .planner-budget strong { color: var(--accent-lavender); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
 .planner-budget small { color: var(--text-muted); }
-.planner-roll-row { display: grid; grid-template-columns: 95px minmax(0, 1fr) 30px 105px; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border-color); font-size: .8rem; }
+.planner-roll-table-wrap { min-width: 0; overflow-x: auto; }
+#planner-sliders:has(.planner-roll-row) { min-width: 650px; }
+.planner-roll-row, .planner-roll-header { display: grid; grid-template-columns: 90px minmax(120px, 1fr) 42px 58px 92px 94px; align-items: center; gap: 10px; padding: 12px 0 12px 8px; border-left: 2px solid transparent; }
+.planner-roll-header { color: var(--text-muted); font-size: .65rem; line-height: 1.4; }
+.planner-roll-header > :nth-child(n+3) { text-align: right; }
+.planner-roll-row { border-top: 1px solid var(--border-color); font-size: .8rem; min-height: 38px; }
+.planner-roll-count, .planner-roll-equipped, .planner-roll-total { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.planner-roll-total { color: var(--text-main); }
+.planner-roll-equipped { color: var(--text-muted); }
 .planner-roll-row output { text-align: center; font-weight: 700; }
+.stat-filter-option { display: flex; flex-direction: column; min-width: 0; gap: 6px; }
+.stat-filter-option > .toggle-stat-btn { width: 100%; box-sizing: border-box; min-height: 64px; }
+.stat-goal-indicator { display: block; block-size: 2.8em; line-height: 1.4; overflow: hidden; text-align: center; font-size: .65rem; font-weight: 700; }
+.stat-goal-indicator[hidden] { display: block; visibility: hidden; }
+.goal-excess { color: #dba95b; }
+.goal-missing { color: var(--accent-lavender); }
+.planner-roll-row.has-roll-goal { border-left-color: var(--accent-lavender); }
+.roll-goal-summary { font-size: .75rem; line-height: 1.5; color: var(--text-muted); margin: 8px 0; block-size: 6em; overflow-y: auto; }
+#planner-status { display: block; block-size: 3em; overflow-y: auto; }
 .planner-roll-value { text-align: right; display: grid; gap: 4px; }
 .planner-roll-value strong { color: var(--accent-lavender); }
 .planner-roll-value small { color: var(--text-muted); font-size: .65rem; }
@@ -1174,5 +1193,6 @@
     .planner-roll-toolbar { gap: 10px; flex-wrap: wrap; }
     .planner-quality { flex-basis: 100%; }
     .planner-budget { width: 100%; box-sizing: border-box; }
-    .planner-roll-row { grid-template-columns: 78px minmax(0, 1fr) 24px 74px; gap: 6px; font-size: .72rem; }
+    .planner-roll-row { font-size: .72rem; }
+    .roll-goal-summary { block-size: 9em; }
 }
